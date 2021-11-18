@@ -66,7 +66,6 @@ namespace JobPortal.Controllers
         {
             ModelState.Remove("ConfirmPassword");
             if (ModelState.IsValid) {
-                Console.WriteLine("is valid");
                 var newUser = new user_account();
                 newUser.email_id = newuserobj.email_id;
                 newUser.password = newuserobj.password;
@@ -77,8 +76,6 @@ namespace JobPortal.Controllers
                 return RedirectToAction("Login","Applicant");
             
             }
-
-            Console.WriteLine("is not valid");
 
             return View(); 
         }
