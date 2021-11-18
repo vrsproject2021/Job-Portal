@@ -180,6 +180,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Applicant\Login.cshtml" />
     <Content Include="Views\Applicant\Index.cshtml" />
+    <Content Include="Views\Applicant\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

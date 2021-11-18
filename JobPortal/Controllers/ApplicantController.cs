@@ -25,22 +25,24 @@ namespace JobPortal.Controllers
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(UserModel userobj)
+        public ActionResult Login(string email_id, string password)
         {
             if (ModelState.IsValid)
             {
-                var loginDetails = _context.user_accounts.Where(u => u.email_id == userobj.email_id && u.password == userobj.password &&u.user_type == "jobseeker").FirstOrDefault();
+                var loginDetails = _context.user_accounts.Where(u => u.email_id == email_id && u.password == password &&u.user_type == "jobseeker").FirstOrDefault();
                 if (loginDetails != null)
                 {
-                    Session["User"] = userobj.email_id;
-                    Session["UserId"] = userobj.id;
+                    Session["User"] = loginDetails.email_id;
+                    Session["UserId"] = loginDetails.id;
 
                     return RedirectToAction("Index","Applicant");
                 }
                 else
                 {
+                    ViewBag.Error = "Incorrect password or email address";
                     return View();
                 }
 
@@ -50,6 +52,35 @@ namespace JobPortal.Controllers
                 return View(); 
             }
 
+        }
+
+        public ActionResult Register() 
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Register(UserModel newuserobj) 
+        {
+            ModelState.Remove("ConfirmPassword");
+            if (ModelState.IsValid) {
+                Console.WriteLine("is valid");
+                var newUser = new user_account();
+                newUser.email_id = newuserobj.email_id;
+                newUser.password = newuserobj.password;
+                newUser.phone_number = newuserobj.phone_number;
+                newUser.user_type = "jobseeker";
+                _context.user_accounts.InsertOnSubmit(newUser);
+                _context.SubmitChanges();
+                return RedirectToAction("Login","Applicant");
+            
+            }
+
+            Console.WriteLine("is not valid");
+
+            return View(); 
         }
     }
 }
