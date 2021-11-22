@@ -1,0 +1,69 @@
+﻿@model JobPortal.Models.SeekerProfileModel
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<center>
+    <div class="container-box-form">
+
+        @using (Html.BeginForm("Profile", "Applicant", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Profile Creation</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.first_name, htmlAttributes: new { @class = "control-label " })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.first_name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.first_name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.last_name, htmlAttributes: new { @class = "control-label " })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.last_name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.last_name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label " })
+                    <div class="col-md-10">
+                        @Html.Label("Male")
+                        @Html.RadioButtonFor(model => model.gender, "Male")
+                        @Html.Label("Female")
+                        @Html.RadioButtonFor(model => model.gender, "Female")
+                        @Html.Label("Other")
+                        @Html.RadioButtonFor(model => model.gender, "Other")
+                        @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.date_of_birth, htmlAttributes: new { @class = "control-label " })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.date_of_birth, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.date_of_birth, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+</center>

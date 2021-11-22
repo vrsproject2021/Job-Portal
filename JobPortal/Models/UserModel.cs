@@ -21,16 +21,20 @@ namespace JobPortal.Models
 
         [Required(ErrorMessage = "Enter Your Password")]
         [Display(Name = "Password")]
+        [DataType(DataType.Password)]
         public string password { get; set; }
 
 
         [Display(Name = "Phone")]
+        [RegularExpression(@"/((\+*)((0[ -]*)*|((91 )*))((\d{12})+|(\d{10})+))|\d{5}([- ]*)\d{6}/", ErrorMessage = "Invalid phone number")]
         public string phone_number { get; set; }
 
 
         [NotMapped]
         [Required]
         [Display(Name = "Confirm Password")]
+        [DataType(DataType.Password)]
+
         [System.ComponentModel.DataAnnotations.Compare("Password")]
         public string ConfirmPassword { get; set; }
 
