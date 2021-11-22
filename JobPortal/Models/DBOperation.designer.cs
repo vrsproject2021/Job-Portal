@@ -27,9 +27,10 @@ namespace JobPortal.Models
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
-		
-    #region Extensibility Method Definitions
-    partial void OnCreated();
+        internal IEnumerable<object> job_post;
+
+        #region Extensibility Method Definitions
+        partial void OnCreated();
     partial void Insertuser_account(user_account instance);
     partial void Updateuser_account(user_account instance);
     partial void Deleteuser_account(user_account instance);

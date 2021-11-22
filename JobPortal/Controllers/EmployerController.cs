@@ -80,5 +80,17 @@ namespace JobPortal.Controllers
 
             return View();
         }
+
+        public ActionResult Jobpost()
+        {
+            return View();
+        }
+        public ActionResult Location()
+        {
+            return View();
+        }
+
+
     }
+
 }
