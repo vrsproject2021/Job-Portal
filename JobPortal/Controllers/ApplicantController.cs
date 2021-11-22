@@ -79,5 +79,20 @@ namespace JobPortal.Controllers
 
             return View(); 
         }
+
+        public ActionResult Profile()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Profile(UserModel newuserobj)
+        {
+ 
+
+            return View();
+        }
     }
 }
