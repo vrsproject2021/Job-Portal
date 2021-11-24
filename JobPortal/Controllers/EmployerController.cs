@@ -91,10 +91,7 @@ namespace JobPortal.Controllers
         {
             return View();
         }
-        public ActionResult Location()
-        {
-            return View();
-        }
+       
 
 
     }
