@@ -1,4 +1,4 @@
-﻿@model IEnumerable<JobPortal.Models.UserModel>
+﻿@model IEnumerable<JobPortal.Models.user_account>
 
 @{
     ViewBag.Title = "Users";
@@ -22,9 +22,6 @@
             @Html.DisplayNameFor(model => model.phone_number)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ConfirmPassword)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.user_type)
         </th>
         <th></th>
@@ -40,9 +37,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.phone_number)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ConfirmPassword)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.user_type)

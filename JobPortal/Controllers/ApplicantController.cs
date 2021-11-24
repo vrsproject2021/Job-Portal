@@ -90,7 +90,7 @@ namespace JobPortal.Controllers
 
         public ActionResult Profile(UserModel newuserobj)
         {
- 
+
 
             return View();
         }
