@@ -773,6 +773,7 @@
     <Content Include="Views\Applicant\Profile.cshtml" />
     <Content Include="Views\Employer\Jobpost.cshtml" />
     <Content Include="Views\Employer\Location.cshtml" />
+    <Content Include="Views\Shared\_EmployerLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
