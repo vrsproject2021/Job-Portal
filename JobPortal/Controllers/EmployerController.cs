@@ -29,22 +29,28 @@ namespace JobPortal.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(string email_id, string password)
-        {
-            if (ModelState.IsValid)
+        //{
+        //    if (ModelState.IsValid)
             {
                 var loginDetails = _context.user_accounts.Where(u => u.email_id == email_id && u.password == password && u.user_type == "jobprovider").FirstOrDefault();
                 if (loginDetails != null)
+
                 {
                     Session["User"] = loginDetails.email_id;
                     Session["UserId"] = loginDetails.id;
+                    if (loginDetails.user_type == "jobprovider")
+                    {
+                        return RedirectToAction("Index", "Employer");
+                    }
 
-                    return RedirectToAction("Index", "Employer");
-                }
-                else
-                {
-                    ViewBag.Error = "Incorrect password or email address";
-                    return View();
-                }
+
+
+                    else
+                    {
+                        ViewBag.Error = "Incorrect password or email address";
+                        return View();
+                    }
+                //}
 
             }
             else
@@ -80,5 +86,17 @@ namespace JobPortal.Controllers
 
             return View();
         }
+
+        public ActionResult Jobpost()
+        {
+            return View();
+        }
+        public ActionResult Location()
+        {
+            return View();
+        }
+
+
     }
+
 }
