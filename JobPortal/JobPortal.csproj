@@ -133,8 +133,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBOperation.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\SeekerEducationModel.cs" />
+    <Compile Include="Models\SeekerExperienceModel.cs" />
     <Compile Include="Models\SeekerProfileModel.cs" />
     <Compile Include="Models\provider.cs" />
+    <Compile Include="Models\SkillModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -772,6 +775,13 @@
     <Content Include="Views\Applicant\Profile.cshtml" />
     <Content Include="Views\Employer\Jobpost.cshtml" />
     <Content Include="Views\Shared\_EmployerLayout.cshtml" />
+    <Content Include="Views\Applicant\Education.cshtml" />
+    <Content Include="Views\Applicant\Experience.cshtml" />
+    <Content Include="Views\Shared\_ApplicantLayout.cshtml" />
+    <Content Include="Views\Applicant\Details.cshtml" />
+    <Content Include="Views\Applicant\EditEducation.cshtml" />
+    <Content Include="Views\Applicant\EditExperience.cshtml" />
+    <Content Include="Views\Applicant\EditProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
