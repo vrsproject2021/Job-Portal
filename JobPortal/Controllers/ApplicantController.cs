@@ -401,7 +401,7 @@ namespace JobPortal.Controllers
         public ActionResult LOGOUT()
         {
             Session.Abandon();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Applicant");
         }
 
     }
