@@ -19,16 +19,14 @@ namespace JobPortal.Models
         [Display(Name = "Last Name")]
         public string last_name { get; set; }
 
-
         [Required]
         [Display(Name = "Gender")]
         public string gender { get; set; }
 
-
         [Required]
         [Display(Name = "Date of Birth")]
         [DataType(DataType.Date)]
-        public string date_of_birth { get; set; }
+        public DateTime date_of_birth { get; set; }
 
 
     }
