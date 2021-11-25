@@ -26,7 +26,7 @@ namespace JobPortal.Models
 
 
         [Display(Name = "Phone")]
-        [RegularExpression(@"/((\+*)((0[ -]*)*|((91 )*))((\d{12})+|(\d{10})+))|\d{5}([- ]*)\d{6}/", ErrorMessage = "Invalid phone number")]
+        [RegularExpression(@"((\+*)((0[ -]*)*|((91 )*))((\d{12})+|(\d{10})+))|\d{5}([- ]*)\d{6}", ErrorMessage = "Invalid phone number")]
         public string phone_number { get; set; }
 
 

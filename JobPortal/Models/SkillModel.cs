@@ -11,9 +11,11 @@ namespace JobPortal.Models
 
         
         [Required]
+        [Display(Name ="Skill Name")]
         public string skill_name { get; set; }
 
         [Required]
+        [Display (Name = "Experience")]
         public int skill_experience { get; set; }
     }
 }

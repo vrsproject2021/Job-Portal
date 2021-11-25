@@ -170,4 +170,22 @@
       <Association Name="skill_set_seeker_skill" Member="seeker_skills" ThisKey="id" OtherKey="skill_set_id" Type="seeker_skill" />
     </Type>
   </Table>
+  <Function Name="dbo.get_seeker_skills" Method="get_seeker_skills">
+    <Parameter Name="user_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="get_seeker_skillsResult">
+      <Column Name="skill_name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="skill_level" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.delete_seeker_skill" Method="delete_seeker_skill">
+    <Parameter Name="user_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="skill_name" Type="System.String" DbType="VarChar(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.add_seeker_skill" Method="add_seeker_skill">
+    <Parameter Name="user_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="skill_name" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="skill_level" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>
