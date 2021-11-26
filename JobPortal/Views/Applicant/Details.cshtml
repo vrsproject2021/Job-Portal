@@ -1,4 +1,5 @@
-﻿
+﻿@model JobPortal.Models.SkillModel
+
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_ApplicantLayout.cshtml";
@@ -11,12 +12,19 @@
         {
             <div>
                 <h3>Applicant</h3>
-                <b>First Name:</b> @ViewBag.Profile.first_name
-                <br>
-                <b>Last Name:</b> @ViewBag.Profile.last_name
-                <br>
-                <b>Date of birth:</b> @ViewBag.Profile.date_of_birth.ToString("MM/dd/yyyy")
-                <br>
+                <table class="table">
+                    <tr>
+                        <td><b>First Name:</b> </td>
+                        <td>@ViewBag.Profile.first_name</td>
+                    </tr>
+                    <tr>
+                        <td><b>Last Name:</b></td>
+                        <td> @ViewBag.Profile.last_name</td>
+                    </tr>
+                    <tr>
+                        <td> <b>Date of birth:</b></td>
+                        <td> @ViewBag.Profile.date_of_birth.ToString("MM/dd/yyyy")</td>
+                </table>
                 @Html.ActionLink("Edit", "Register", "Applicant", null, new { @class = "custom-link-color" })
                 @Html.ActionLink("Delete", "Register", "Applicant", null, new { @class = "custom-link-color" })
             </div>
@@ -26,7 +34,6 @@
         {
             @Html.ActionLink("Add Profile", "Profile", "Applicant", null, new { @class = "custom-link-color" })
         }
-        <br>
 
         @if (ViewBag.Education != null)
         {<div>
@@ -34,18 +41,58 @@
                 <hr>
                 <details open>
                     <summary><b>EDUCATION</b></summary>
-                    <b>Degree Name:</b> @ViewBag.Education.certificate_degree_name
-                    <br>
-                    <b>Stream:</b> @ViewBag.Education.major
-                    <br>
-                    <b>University:</b> @ViewBag.Education.university_institute_name
-                    <br>
-                    <b>Start date:</b> @ViewBag.Education.start_date.ToString("MM/dd/yyyy")
-                    <br>
-                    <b>End date:</b> @ViewBag.Education.end_date.ToString("MM/dd/yyyy")
-                    <br>
-                    <b>Cgpa/ percentage:</b> @ViewBag.Education.cgpa_percentage
-                    <br>
+                    <table class="table ">
+                        <tr>
+                            <td>
+                                <b>Degree Name:</b>
+                            </td>
+
+                            <td>
+                                @ViewBag.Education.certificate_degree_name
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Stream:</b>
+                            </td>
+                            <td>
+                                @ViewBag.Education.major
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>University:</b>
+                            </td>
+                            <td>
+                                @ViewBag.Education.university_institute_name
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Start date:</b>
+                            </td>
+                            <td>
+                                @ViewBag.Education.start_date.ToString("MM/dd/yyyy")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>End date:</b>
+                            </td>
+
+                            <td>
+                                @ViewBag.Education.end_date.ToString("MM/dd/yyyy")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Cgpa/ percentage:</b>
+                            </td>
+                            <td> @ViewBag.Education.cgpa_percentage
+
+                            <td>
+                        </tr>
+                    </table>
                     @Html.ActionLink("Edit", "EditEducation", "Applicant", null, new { @class = "custom-link-color" })
                     @Html.ActionLink("Delete", "DeleteEducation", "Applicant", null, new { @class = "custom-link-color" })
 
@@ -57,9 +104,9 @@
         }
         else
         {
+            <hr>
             @Html.ActionLink("Add Education", "Education", "Applicant", null, new { @class = "custom-link-color" })
         }
-        <br>
 
         @if (ViewBag.Experience != null)
         {
@@ -67,41 +114,116 @@
                 <hr>
                 <details open>
                     <summary><b>EXPERIENCE</b></summary>
-                    <b>Company name:</b> @ViewBag.Experience.company_name
-                    <br>
-                    <b>Job title:</b> @ViewBag.Experience.job_title
-                    <br>
-                    <b>Job Description:</b> @ViewBag.Experience.job_description
-                    <br>
-                    <b>Start date:</b> @ViewBag.Experience.start_date.ToString("MM/dd/yyyy")
-                    <br>
-                    <b>End date:</b> @ViewBag.Experience.end_date.ToString("MM/dd/yyyy")
-                    <br>
-                    <b>Country:</b> @ViewBag.Experience.job_location_country
-                    <br>
-                    <b>State:</b> @ViewBag.Experience.job_location_state
-                    <br>
-                    <b>City:</b> @ViewBag.Experience.job_location_city
-                    <br>
-                    <b>Currently Working:</b> @ViewBag.Experience.currently_working
-                    <br>
+                    <table class="table ">
+                        <tr>
+                            <td><b>Company name:</b></td>
+                            <td> @ViewBag.Experience.company_name</td>
+                        </tr>
+                        <tr>
+                            <td>  <b>Job title:</b></td>
+                            <td> @ViewBag.Experience.job_title</td>
+                        </tr>
+                        <tr>
+                            <td> <b>Job Description:</b></td>
+                            <td> @ViewBag.Experience.job_description</td>
+                        </tr>
+                        <tr>
+                            <td> <b>Start date:</b></td>
+                            <td> @ViewBag.Experience.start_date.ToString("MM/dd/yyyy")</td>
+                        </tr>
+                        <tr>
+                            <td> <b>End date:</b></td>
+                            <td> @ViewBag.Experience.end_date.ToString("MM/dd/yyyy")</td>
+                        </tr>
+                        <tr>
+                            <td> <b>Country:</b></td>
+                            <td> @ViewBag.Experience.job_location_country</td>
+                        </tr>
+                        <tr>
+                            <td> <b>State:</b></td>
+                            <td> @ViewBag.Experience.job_location_state</td>
+                        </tr>
+                        <tr>
+                            <td> <b>City:</b></td>
+                            <td> @ViewBag.Experience.job_location_city</td>
+                        </tr>
+                        <tr>
+                            <td> <b>Currently Working:</b></td>
+                            <td> @ViewBag.Experience.currently_working</td>
+                    </table>
+
                     @Html.ActionLink("Edit", "EditExperience", "Applicant", null, new { @class = "custom-link-color" })
                     @Html.ActionLink("Delete", "DeleteExperience", "Applicant", null, new { @class = "custom-link-color" })
+
                 </details>
             </div>
         }
         else
         {
+            <hr>
             @Html.ActionLink("Add Experience", "Experience", "Applicant", null, new { @class = "custom-link-color" })
         }
 
-    <div>
-        <hr>
-        <b>SKILLS</b>
-        <br>
-        @Html.ActionLink("Add Skill", "Skill", "Applicant", null, new { @class = "custom-link-color" })
-    </div>
 
-    </div>
+        <div>
+            <hr>
+            <details open>
+                <summary><b>SKILLS</b></summary>
+                @if (ViewBag.Skills != null)
+                {
+                    <table class="table text-center">
+                        <tr>
+                            <th>Skill</th>
+                            <th>Level</th>
+                            <th>Delete</th>
+                        </tr>
+
+                        @foreach (var item in ViewBag.Skills)
+                        {
+
+                            <tr>
+                                <td>@item.skill_name </td>
+                                <td>@item.skill_level</td>
+                                <td>
+                                    @using (Html.BeginForm("DeleteSkill", "Applicant", new { skill_name = item.skill_name }))
+                                    {
+                                        <input type="submit" class="custom-link-color" value="X">
+                                    }
+                                 
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                }
+                <br>
+                @using (Html.BeginForm("AddSkill", "Applicant", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.skill_name, htmlAttributes: new { @class = "control-label" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.skill_name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.skill_name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.skill_experience, htmlAttributes: new { @class = "control-label" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.skill_experience, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.skill_experience, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <input type="submit" value="Add Skill" class="btn btn-default" />
+                        </div>
+                    </div>
+                }
+            </details>
+        </div>
+
+
+
 </center>
 

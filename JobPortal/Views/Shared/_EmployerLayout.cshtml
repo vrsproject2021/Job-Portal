@@ -95,6 +95,22 @@
                                             <li><a href="candidate.html">Candidate search</a></li>
                                             <li>
                                                 <a href="#">Post a Jobs</a>
+                                                <ul class="submenu">
+                                                    @*<li><a href="blog.html">@Html.ActionLink("Add company", "CompanyModel", "Employer")</a></li>*@
+                                                    <li><a href="single-blog.html">@Html.ActionLink("Add Job", "Jobpost", "Employer")</a></li>
+                                                    <li><a href="single-blog.html">@Html.ActionLink("Add Job location", "LocationModel", "Employer")</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <li>
+                                                <a href="#">Company </a>
+                                                <ul class="submenu">
+                                                    <li><a href="blog.html">@Html.ActionLink("Add company details", "CompanyModel", "Employer")</a></li>
+                                                    @*<li><a href="blog.html">@Html.ActionLink("Add company image", "CompanyImage", "Employer")</a></li>*@
+                                                    @*<li><a href="single-blog.html">@Html.ActionLink("Add Job", "Jobpost", "Employer")</a></li>
+                                    <li><a href="single-blog.html">@Html.ActionLink("Add Job location", "JobLocation", "Employer")</a></li>*@
+                                                    @*<li><a href="elements.html">Elements</a></li>
+                                    <li><a href="job_details.html">job Details</a></li>*@
                                             <ul class="submenu">
                                                 @*<li><a href="blog.html">@Html.ActionLink("Applicant", "Login", "Applicant")</a></li>*@
                                                 <li><a href="single-blog.html">@Html.ActionLink("Add Job", "Jobpost", "Employer")</a></li>
@@ -102,15 +118,23 @@
                                                 <li><a href="job_details.html">job Details</a></li>*@
                                                 </ul>
                                             </li>
-                                            <li><a href="contact.html">Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
                                 <!-- Header-btn -->
-                                <div class="header-btn d-none f-right d-lg-block">
-                                    <button class="btn head-btn1">@Html.ActionLink("Register", "Register", "Applicant")</button>
+                                @if (Session["User"] != null)
+                                {
+                                    <div class="header-btn d-none f-right d-lg-block">
+                                        <button class="btn head-btn1">@Html.ActionLink("Logout", "Logout", "Employer")</button>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="header-btn d-none f-right d-lg-block">
+                                        <button class="btn head-btn1">@Html.ActionLink("Register", "Register", "Employer")</button>
+                                    </div>
+                                }
 
-                                </div>
                             </div>
                         </div>
                         <!-- Mobile Menu -->
