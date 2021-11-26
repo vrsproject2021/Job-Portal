@@ -107,7 +107,7 @@ namespace JobPortal.Controllers
             jobPost.is_active = jobpostobj.is_active;
             _context.job_posts.InsertOnSubmit(jobPost);
             _context.SubmitChanges();
-            return RedirectToAction("Index", "Employer");
+            return RedirectToAction("LocationModel", "Employer");
 
         }
 
@@ -129,7 +129,7 @@ namespace JobPortal.Controllers
             companyDetails.company_website_url = companyobj.company_website_url;
             _context.companies.InsertOnSubmit(companyDetails);
             _context.SubmitChanges();
-            return RedirectToAction("CompanyModel", "Employer");
+            return RedirectToAction("Index", "Employer");
 
         }
 
@@ -155,7 +155,7 @@ namespace JobPortal.Controllers
             joblocation.zip = locationobj.zip;
             _context.job_locations.InsertOnSubmit(joblocation);
             _context.SubmitChanges();
-            return RedirectToAction("LocationModel", "Employer");
+            return RedirectToAction("CompanyModel", "Employer");
 
         }
         //public ActionResult CompanyImage()
