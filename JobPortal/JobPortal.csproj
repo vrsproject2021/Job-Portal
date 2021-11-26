@@ -121,6 +121,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Context\DbContext.cs" />
+    <Compile Include="Context\DbSet.cs" />
+    <Compile Include="Context\userContext.cs" />
+    <Compile Include="Context\users.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ApplicantController.cs" />
     <Compile Include="Controllers\EmployerController.cs" />
@@ -789,6 +793,13 @@
     <Content Include="Views\Employer\CompanyModel.cshtml" />
     <Content Include="Views\Employer\CompanyImage.cshtml" />
     <Content Include="Views\Employer\LocationModel.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Admin\CandidateTable.cshtml" />
+    <Content Include="Views\Admin\CandidateDetails.cshtml" />
+    <Content Include="Views\Admin\ExperienceDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

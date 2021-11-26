@@ -20,6 +20,12 @@ namespace JobPortal
             );
 
             routes.MapRoute(
+                name: "Admin",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Admin", action = "Users", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

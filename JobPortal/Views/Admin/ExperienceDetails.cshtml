@@ -1,0 +1,157 @@
+﻿@model JobPortal.Models.seeker_experience
+
+@{
+    ViewBag.Title = "ExperienceDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@*<h2>ExperienceDetails</h2>
+
+<div>
+    <h4>seeker_experience</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.company_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.company_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.job_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.job_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.job_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.job_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.start_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.start_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.end_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.end_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.job_location_country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.job_location_country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.job_location_state)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.job_location_state)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.job_location_city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.job_location_city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.currently_working)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.currently_working)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.user_account_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@
+
+
+
+
+
+<div class="container-fluid px-2 px-md-4">
+    <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
+        <span class="mask  bg-gradient-primary  opacity-6"></span>
+    </div>
+    <div class="card card-body mx-3 mx-md-4 mt-n6">
+        <div class="row gx-4 mb-2">
+
+            <div class="col-auto my-auto">
+                <div class="h-100">
+                    <h3 class="mb-1">
+                       Experience details
+                    </h3>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="row">
+                <div class="col-12 col-xl-4">
+
+                </div>
+                <div class="col-12 col-xl-4">
+                    <div class="card card-plain h-100">
+
+                        <div class="card-body p-3">
+
+                            <hr class="horizontal gray-light my-4">
+                            <ul class="list-group">
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@Html.DisplayNameFor(model => model.company_name):</strong> &nbsp;@Html.DisplayFor(model => model.company_name)</li>
+
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@Html.DisplayNameFor(model => model.job_title):</strong> &nbsp;@Html.DisplayFor(model => model.job_title)</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@Html.DisplayNameFor(model => model.job_description):</strong> &nbsp;@Html.DisplayFor(model => model.job_description)</li>
+
+
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@Html.DisplayNameFor(model => model.start_date):</strong> &nbsp;@Html.DisplayFor(model => model.start_date)</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@Html.DisplayNameFor(model => model.end_date):</strong> &nbsp;@Html.DisplayFor(model => model.end_date)</li>
+
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@Html.DisplayNameFor(model => model.job_location_country):</strong> &nbsp; @Html.DisplayFor(model => model.job_location_country)</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@Html.DisplayNameFor(model => model.job_location_state):</strong> &nbsp; @Html.DisplayFor(model => model.job_location_state)</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@Html.DisplayNameFor(model => model.job_location_city):</strong> &nbsp;@Html.DisplayFor(model => model.job_location_city)</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@Html.DisplayNameFor(model => model.currently_working):</strong> &nbsp;@Html.DisplayFor(model => model.currently_working)</li>
+
+
+
+                                
+                                <p>
+                                    @Html.ActionLink("Edit", "Edit", new { id = Model.user_account_id }) |
+                                    @Html.ActionLink("Back to List", "CandidateDetails", new { id = Model.user_account_id })
+                                </p>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
