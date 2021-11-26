@@ -32,6 +32,14 @@
         <elementListCompartment Id="6b6750d2-a96b-4e76-95d5-0a95f66feb09" absoluteBounds="5.015, 2.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <associationConnector edgePoints="[(3.5 : 3.35659912109375); (5 : 3.35659912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DBOperationDataContext/company/company_job_post" />
+      <nodes>
+        <classShapeMoniker Id="80d82513-734a-471f-ae85-cbd349293467" />
+        <classShapeMoniker Id="0c3048b9-3460-43bf-9274-11c78f1df382" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.25 : 4.75); (5.25 : 4.34780110677083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
     <associationConnector edgePoints="[(5.25 : 4.75); (5.25 : 4.34780110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DBOperationDataContext/job_location/job_location_job_post" />
       <nodes>
@@ -144,12 +152,13 @@
         <classShapeMoniker Id="287fcbc9-365f-4b99-bcd3-b0c3faee4050" />
       </nodes>
     </associationConnector>
-    <classShape Id="ee17a725-3d6d-44d1-8c6d-bdb0ad3a18e8" absoluteBounds="8.25, 5.125, 2, 1.3862939453125">
+    <classShape Id="ee17a725-3d6d-44d1-8c6d-bdb0ad3a18e8" absoluteBounds="8.25, 5.25, 2, 1.3862939453125">
       <DataClassMoniker Name="/DBOperationDataContext/seeker_log" />
       <nestedChildShapes>
-        <elementListCompartment Id="e250b6d3-1a9c-4c33-a38d-ec5995ed8b10" absoluteBounds="8.265, 5.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="e250b6d3-1a9c-4c33-a38d-ec5995ed8b10" absoluteBounds="8.265, 5.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <associationConnector edgePoints="[(9.25 : 4.89589680989583); (9.25 : 5.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
     <associationConnector edgePoints="[(9.25 : 4.89589680989583); (9.25 : 5.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DBOperationDataContext/user_account/user_account_seeker_log" />
       <nodes>

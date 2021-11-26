@@ -230,6 +230,29 @@ namespace JobPortal.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.get_seeker_skills")]
+		public ISingleResult<get_seeker_skillsResult> get_seeker_skills([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> user_id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), user_id);
+			return ((ISingleResult<get_seeker_skillsResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.delete_seeker_skill")]
+		public int delete_seeker_skill([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> user_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string skill_name)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), user_id, skill_name);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.add_seeker_skill")]
+		public int add_seeker_skill([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> user_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string skill_name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> skill_level)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), user_id, skill_name, skill_level);
+			return ((int)(result.ReturnValue));
+		}
+	}
+	
+		
 		public System.Data.Linq.Table<company> companies
 		{
 			get
@@ -3486,6 +3509,50 @@ namespace JobPortal.Models
 		{
 			this.SendPropertyChanging();
 			entity.skill_set = null;
+		}
+	}
+	
+	public partial class get_seeker_skillsResult
+	{
+		
+		private string _skill_name;
+		
+		private int _skill_level;
+		
+		public get_seeker_skillsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string skill_name
+		{
+			get
+			{
+				return this._skill_name;
+			}
+			set
+			{
+				if ((this._skill_name != value))
+				{
+					this._skill_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_level", DbType="Int NOT NULL")]
+		public int skill_level
+		{
+			get
+			{
+				return this._skill_level;
+			}
+			set
+			{
+				if ((this._skill_level != value))
+				{
+					this._skill_level = value;
+				}
+			}
 		}
 	}
 	

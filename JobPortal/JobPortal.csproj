@@ -785,6 +785,7 @@
     <Content Include="Views\Applicant\EditEducation.cshtml" />
     <Content Include="Views\Applicant\EditExperience.cshtml" />
     <Content Include="Views\Applicant\EditProfile.cshtml" />
+    <Content Include="Views\Applicant\AppliedJobs.cshtml" />
     <Content Include="Views\Employer\CompanyModel.cshtml" />
     <Content Include="Views\Employer\CompanyImage.cshtml" />
     <Content Include="Views\Employer\LocationModel.cshtml" />

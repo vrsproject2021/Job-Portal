@@ -20,7 +20,7 @@ namespace JobPortal.Controllers
         {
             return View();
         }
-
+        #region Login
         public ActionResult Login() 
         {
             return View();
@@ -53,7 +53,9 @@ namespace JobPortal.Controllers
             }
 
         }
+        #endregion
 
+        #region Registration
         public ActionResult Register() 
         {
             return View();
@@ -79,14 +81,19 @@ namespace JobPortal.Controllers
 
             return View(); 
         }
+        #endregion
 
+        #region Applicant Details
         public ActionResult Details() 
         {
+            
             if (Session["UserId"] != null)
             {
-                ViewBag.Profile = _context.seeker_profiles.Where(u => u.user_account_id == (int)Session["UserId"]).FirstOrDefault();
-                ViewBag.Education = _context.seeker_educations.Where(u => u.user_account_id == (int)Session["UserId"]).FirstOrDefault();
-                ViewBag.Experience = _context.seeker_experiences.Where(u => u.user_account_id == (int)Session["UserId"]).FirstOrDefault();
+                int userId = (int)Session["UserId"];
+                ViewBag.Profile = _context.seeker_profiles.Where(u => u.user_account_id == userId).FirstOrDefault();
+                ViewBag.Education = _context.seeker_educations.Where(u => u.user_account_id == userId).FirstOrDefault();
+                ViewBag.Experience = _context.seeker_experiences.Where(u => u.user_account_id == userId).FirstOrDefault();
+                ViewBag.Skills = _context.get_seeker_skills(userId);
 
                 return View();
             }
@@ -95,6 +102,9 @@ namespace JobPortal.Controllers
                 return RedirectToAction("Login", "Applicant");
             }
         }
+        #endregion
+
+        #region Profile
         public ActionResult Profile()
         {
             if (Session["UserId"] != null)
@@ -185,9 +195,9 @@ namespace JobPortal.Controllers
             _context.SubmitChanges();
             return RedirectToAction("Details", "Applicant");
         }
+        #endregion
 
-
-
+        #region Education
         public ActionResult Education()
         {
             if (Session["UserId"] != null)
@@ -289,9 +299,9 @@ namespace JobPortal.Controllers
             _context.SubmitChanges();
             return RedirectToAction("Details", "Applicant");
         }
+        #endregion
 
-
-
+        #region Experience
         public ActionResult Experience()
         {
             if (Session["UserId"] != null)
@@ -397,12 +407,59 @@ namespace JobPortal.Controllers
             _context.SubmitChanges();
             return RedirectToAction("Details", "Applicant");
         }
+        #endregion
 
+        #region Skill
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult AddSkill(string skill_name,string skill_experience)
+        {
+            if (Session["userId"] != null)
+            {
+                int userId = (int)Session["UserId"];
+                int nskill_experience;
+                int.TryParse(skill_experience, out nskill_experience);
+                _context.add_seeker_skill(userId, skill_name, nskill_experience);
+                return RedirectToAction("Details", "Applicant");
+            }
+            else
+            {
+                return RedirectToAction("Login", "Applicant");
+            }
+        }
+        [HttpPost]
+        public ActionResult DeleteSkill(string skill_name) 
+        {
+            if (Session["userId"] != null)
+            {
+                int userId = (int)Session["UserId"];
+
+                _context.delete_seeker_skill(userId, skill_name);
+                return RedirectToAction("Details", "Applicant");
+            }
+            else
+            { 
+                return RedirectToAction("Login", "Applicant"); 
+            }
+        }
+        #endregion
+
+        #region Applied Jobs
+        public ActionResult AppliedJobs() 
+        { 
+            return View();
+        }
+        #endregion
+
+        #region Logout
         public ActionResult LOGOUT()
         {
             Session.Abandon();
             return RedirectToAction("Index", "Applicant");
         }
+        #endregion
 
     }
 }
