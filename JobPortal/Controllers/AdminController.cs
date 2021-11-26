@@ -27,7 +27,7 @@ namespace JobPortal.Controllers
 
         public ActionResult Users()
         {
-            var userdetails = from x in _context.user_accounts select x;
+            var userdetails = from x in _context.user_accounts select x ;
             return View(userdetails);
 
         }
@@ -119,5 +119,47 @@ namespace JobPortal.Controllers
                 return View();
             }
         }
+
+
+
+        public ActionResult Candidatetable()
+        {
+            var candidatetable = from x in _context.seeker_profiles select x;
+            return View(candidatetable);
+
+            
+        }
+
+
+        public ActionResult CandidateDetails(int id)
+        {
+
+            var getcandidatedetails = _context.seeker_educations.Single(x => x.user_account_id== id);
+            return View(getcandidatedetails);
+
+
+        }
+
+
+        public ActionResult ExperienceDetails(int id)
+        {
+
+            var getexperiencedetails = _context.seeker_experiences.Single(x => x.user_account_id == id);
+            return View(getexperiencedetails);
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
