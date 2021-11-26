@@ -27,19 +27,15 @@ namespace JobPortal.Models
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
-        internal IEnumerable<object> job_post;
-
-        #region Extensibility Method Definitions
-        partial void OnCreated();
+		
+    #region Extensibility Method Definitions
+    partial void OnCreated();
     partial void Insertuser_account(user_account instance);
     partial void Updateuser_account(user_account instance);
     partial void Deleteuser_account(user_account instance);
     partial void Insertbusiness_stream(business_stream instance);
     partial void Updatebusiness_stream(business_stream instance);
     partial void Deletebusiness_stream(business_stream instance);
-    partial void Insertcompany(company instance);
-    partial void Updatecompany(company instance);
-    partial void Deletecompany(company instance);
     partial void Insertcompany_image(company_image instance);
     partial void Updatecompany_image(company_image instance);
     partial void Deletecompany_image(company_image instance);
@@ -79,6 +75,9 @@ namespace JobPortal.Models
     partial void Insertskill_set(skill_set instance);
     partial void Updateskill_set(skill_set instance);
     partial void Deleteskill_set(skill_set instance);
+    partial void Insertcompany(company instance);
+    partial void Updatecompany(company instance);
+    partial void Deletecompany(company instance);
     #endregion
 		
 		public DBOperationDataContext() : 
@@ -124,14 +123,6 @@ namespace JobPortal.Models
 			get
 			{
 				return this.GetTable<business_stream>();
-			}
-		}
-		
-		public System.Data.Linq.Table<company> companies
-		{
-			get
-			{
-				return this.GetTable<company>();
 			}
 		}
 		
@@ -236,6 +227,14 @@ namespace JobPortal.Models
 			get
 			{
 				return this.GetTable<skill_set>();
+			}
+		}
+		
+		public System.Data.Linq.Table<company> companies
+		{
+			get
+			{
+				return this.GetTable<company>();
 			}
 		}
 	}
@@ -632,285 +631,6 @@ namespace JobPortal.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.company")]
-	public partial class company : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _company_name;
-		
-		private string _profile_description;
-		
-		private int _business_stream_id;
-		
-		private System.DateTime _establishment_date;
-		
-		private string _company_website_url;
-		
-		private EntitySet<company_image> _company_images;
-		
-		private EntitySet<job_post> _job_posts;
-		
-		private EntityRef<business_stream> _business_stream;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void Oncompany_nameChanging(string value);
-    partial void Oncompany_nameChanged();
-    partial void Onprofile_descriptionChanging(string value);
-    partial void Onprofile_descriptionChanged();
-    partial void Onbusiness_stream_idChanging(int value);
-    partial void Onbusiness_stream_idChanged();
-    partial void Onestablishment_dateChanging(System.DateTime value);
-    partial void Onestablishment_dateChanged();
-    partial void Oncompany_website_urlChanging(string value);
-    partial void Oncompany_website_urlChanged();
-    #endregion
-		
-		public company()
-		{
-			this._company_images = new EntitySet<company_image>(new Action<company_image>(this.attach_company_images), new Action<company_image>(this.detach_company_images));
-			this._job_posts = new EntitySet<job_post>(new Action<job_post>(this.attach_job_posts), new Action<job_post>(this.detach_job_posts));
-			this._business_stream = default(EntityRef<business_stream>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_company_name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string company_name
-		{
-			get
-			{
-				return this._company_name;
-			}
-			set
-			{
-				if ((this._company_name != value))
-				{
-					this.Oncompany_nameChanging(value);
-					this.SendPropertyChanging();
-					this._company_name = value;
-					this.SendPropertyChanged("company_name");
-					this.Oncompany_nameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_profile_description", DbType="VarChar(1000) NOT NULL", CanBeNull=false)]
-		public string profile_description
-		{
-			get
-			{
-				return this._profile_description;
-			}
-			set
-			{
-				if ((this._profile_description != value))
-				{
-					this.Onprofile_descriptionChanging(value);
-					this.SendPropertyChanging();
-					this._profile_description = value;
-					this.SendPropertyChanged("profile_description");
-					this.Onprofile_descriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_business_stream_id", DbType="Int NOT NULL")]
-		public int business_stream_id
-		{
-			get
-			{
-				return this._business_stream_id;
-			}
-			set
-			{
-				if ((this._business_stream_id != value))
-				{
-					if (this._business_stream.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onbusiness_stream_idChanging(value);
-					this.SendPropertyChanging();
-					this._business_stream_id = value;
-					this.SendPropertyChanged("business_stream_id");
-					this.Onbusiness_stream_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_establishment_date", DbType="Date NOT NULL")]
-		public System.DateTime establishment_date
-		{
-			get
-			{
-				return this._establishment_date;
-			}
-			set
-			{
-				if ((this._establishment_date != value))
-				{
-					this.Onestablishment_dateChanging(value);
-					this.SendPropertyChanging();
-					this._establishment_date = value;
-					this.SendPropertyChanged("establishment_date");
-					this.Onestablishment_dateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_company_website_url", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string company_website_url
-		{
-			get
-			{
-				return this._company_website_url;
-			}
-			set
-			{
-				if ((this._company_website_url != value))
-				{
-					this.Oncompany_website_urlChanging(value);
-					this.SendPropertyChanging();
-					this._company_website_url = value;
-					this.SendPropertyChanged("company_website_url");
-					this.Oncompany_website_urlChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="company_company_image", Storage="_company_images", ThisKey="id", OtherKey="company_id")]
-		public EntitySet<company_image> company_images
-		{
-			get
-			{
-				return this._company_images;
-			}
-			set
-			{
-				this._company_images.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="company_job_post", Storage="_job_posts", ThisKey="id", OtherKey="company_id")]
-		public EntitySet<job_post> job_posts
-		{
-			get
-			{
-				return this._job_posts;
-			}
-			set
-			{
-				this._job_posts.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="business_stream_company", Storage="_business_stream", ThisKey="business_stream_id", OtherKey="id", IsForeignKey=true)]
-		public business_stream business_stream
-		{
-			get
-			{
-				return this._business_stream.Entity;
-			}
-			set
-			{
-				business_stream previousValue = this._business_stream.Entity;
-				if (((previousValue != value) 
-							|| (this._business_stream.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._business_stream.Entity = null;
-						previousValue.companies.Remove(this);
-					}
-					this._business_stream.Entity = value;
-					if ((value != null))
-					{
-						value.companies.Add(this);
-						this._business_stream_id = value.id;
-					}
-					else
-					{
-						this._business_stream_id = default(int);
-					}
-					this.SendPropertyChanged("business_stream");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_company_images(company_image entity)
-		{
-			this.SendPropertyChanging();
-			entity.company = this;
-		}
-		
-		private void detach_company_images(company_image entity)
-		{
-			this.SendPropertyChanging();
-			entity.company = null;
-		}
-		
-		private void attach_job_posts(job_post entity)
-		{
-			this.SendPropertyChanging();
-			entity.company = this;
-		}
-		
-		private void detach_job_posts(job_post entity)
-		{
-			this.SendPropertyChanging();
-			entity.company = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.company_image")]
 	public partial class company_image : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1298,13 +1018,13 @@ namespace JobPortal.Models
 		
 		private EntitySet<job_post_skill_set> _job_post_skill_sets;
 		
-		private EntityRef<company> _company;
-		
 		private EntityRef<job_location> _job_location;
 		
 		private EntityRef<user_account> _user_account;
 		
 		private EntityRef<job_type> _job_type;
+		
+		private EntityRef<company> _company;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1332,10 +1052,10 @@ namespace JobPortal.Models
 		{
 			this._job_post_activities = new EntitySet<job_post_activity>(new Action<job_post_activity>(this.attach_job_post_activities), new Action<job_post_activity>(this.detach_job_post_activities));
 			this._job_post_skill_sets = new EntitySet<job_post_skill_set>(new Action<job_post_skill_set>(this.attach_job_post_skill_sets), new Action<job_post_skill_set>(this.detach_job_post_skill_sets));
-			this._company = default(EntityRef<company>);
 			this._job_location = default(EntityRef<job_location>);
 			this._user_account = default(EntityRef<user_account>);
 			this._job_type = default(EntityRef<job_type>);
+			this._company = default(EntityRef<company>);
 			OnCreated();
 		}
 		
@@ -1541,40 +1261,6 @@ namespace JobPortal.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="company_job_post", Storage="_company", ThisKey="company_id", OtherKey="id", IsForeignKey=true)]
-		public company company
-		{
-			get
-			{
-				return this._company.Entity;
-			}
-			set
-			{
-				company previousValue = this._company.Entity;
-				if (((previousValue != value) 
-							|| (this._company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._company.Entity = null;
-						previousValue.job_posts.Remove(this);
-					}
-					this._company.Entity = value;
-					if ((value != null))
-					{
-						value.job_posts.Add(this);
-						this._company_id = value.id;
-					}
-					else
-					{
-						this._company_id = default(int);
-					}
-					this.SendPropertyChanged("company");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="job_location_job_post", Storage="_job_location", ThisKey="job_location_id", OtherKey="id", IsForeignKey=true)]
 		public job_location job_location
 		{
@@ -1673,6 +1359,40 @@ namespace JobPortal.Models
 						this._job_type_id = default(int);
 					}
 					this.SendPropertyChanged("job_type");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="company_job_post", Storage="_company", ThisKey="company_id", OtherKey="id", IsForeignKey=true)]
+		public company company
+		{
+			get
+			{
+				return this._company.Entity;
+			}
+			set
+			{
+				company previousValue = this._company.Entity;
+				if (((previousValue != value) 
+							|| (this._company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._company.Entity = null;
+						previousValue.job_posts.Remove(this);
+					}
+					this._company.Entity = value;
+					if ((value != null))
+					{
+						value.job_posts.Add(this);
+						this._company_id = value.id;
+					}
+					else
+					{
+						this._company_id = default(int);
+					}
+					this.SendPropertyChanged("company");
 				}
 			}
 		}
@@ -3766,6 +3486,285 @@ namespace JobPortal.Models
 		{
 			this.SendPropertyChanging();
 			entity.skill_set = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.company")]
+	public partial class company : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _company_name;
+		
+		private string _profile_description;
+		
+		private int _business_stream_id;
+		
+		private System.DateTime _establishment_date;
+		
+		private string _company_website_url;
+		
+		private EntitySet<company_image> _company_images;
+		
+		private EntitySet<job_post> _job_posts;
+		
+		private EntityRef<business_stream> _business_stream;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Oncompany_nameChanging(string value);
+    partial void Oncompany_nameChanged();
+    partial void Onprofile_descriptionChanging(string value);
+    partial void Onprofile_descriptionChanged();
+    partial void Onbusiness_stream_idChanging(int value);
+    partial void Onbusiness_stream_idChanged();
+    partial void Onestablishment_dateChanging(System.DateTime value);
+    partial void Onestablishment_dateChanged();
+    partial void Oncompany_website_urlChanging(string value);
+    partial void Oncompany_website_urlChanged();
+    #endregion
+		
+		public company()
+		{
+			this._company_images = new EntitySet<company_image>(new Action<company_image>(this.attach_company_images), new Action<company_image>(this.detach_company_images));
+			this._job_posts = new EntitySet<job_post>(new Action<job_post>(this.attach_job_posts), new Action<job_post>(this.detach_job_posts));
+			this._business_stream = default(EntityRef<business_stream>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_company_name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string company_name
+		{
+			get
+			{
+				return this._company_name;
+			}
+			set
+			{
+				if ((this._company_name != value))
+				{
+					this.Oncompany_nameChanging(value);
+					this.SendPropertyChanging();
+					this._company_name = value;
+					this.SendPropertyChanged("company_name");
+					this.Oncompany_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_profile_description", DbType="VarChar(1000) NOT NULL", CanBeNull=false)]
+		public string profile_description
+		{
+			get
+			{
+				return this._profile_description;
+			}
+			set
+			{
+				if ((this._profile_description != value))
+				{
+					this.Onprofile_descriptionChanging(value);
+					this.SendPropertyChanging();
+					this._profile_description = value;
+					this.SendPropertyChanged("profile_description");
+					this.Onprofile_descriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_business_stream_id", DbType="Int NOT NULL")]
+		public int business_stream_id
+		{
+			get
+			{
+				return this._business_stream_id;
+			}
+			set
+			{
+				if ((this._business_stream_id != value))
+				{
+					if (this._business_stream.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onbusiness_stream_idChanging(value);
+					this.SendPropertyChanging();
+					this._business_stream_id = value;
+					this.SendPropertyChanged("business_stream_id");
+					this.Onbusiness_stream_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_establishment_date", DbType="Date NOT NULL")]
+		public System.DateTime establishment_date
+		{
+			get
+			{
+				return this._establishment_date;
+			}
+			set
+			{
+				if ((this._establishment_date != value))
+				{
+					this.Onestablishment_dateChanging(value);
+					this.SendPropertyChanging();
+					this._establishment_date = value;
+					this.SendPropertyChanged("establishment_date");
+					this.Onestablishment_dateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_company_website_url", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string company_website_url
+		{
+			get
+			{
+				return this._company_website_url;
+			}
+			set
+			{
+				if ((this._company_website_url != value))
+				{
+					this.Oncompany_website_urlChanging(value);
+					this.SendPropertyChanging();
+					this._company_website_url = value;
+					this.SendPropertyChanged("company_website_url");
+					this.Oncompany_website_urlChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="company_company_image", Storage="_company_images", ThisKey="id", OtherKey="company_id")]
+		public EntitySet<company_image> company_images
+		{
+			get
+			{
+				return this._company_images;
+			}
+			set
+			{
+				this._company_images.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="company_job_post", Storage="_job_posts", ThisKey="id", OtherKey="company_id")]
+		public EntitySet<job_post> job_posts
+		{
+			get
+			{
+				return this._job_posts;
+			}
+			set
+			{
+				this._job_posts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="business_stream_company", Storage="_business_stream", ThisKey="business_stream_id", OtherKey="id", IsForeignKey=true)]
+		public business_stream business_stream
+		{
+			get
+			{
+				return this._business_stream.Entity;
+			}
+			set
+			{
+				business_stream previousValue = this._business_stream.Entity;
+				if (((previousValue != value) 
+							|| (this._business_stream.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._business_stream.Entity = null;
+						previousValue.companies.Remove(this);
+					}
+					this._business_stream.Entity = value;
+					if ((value != null))
+					{
+						value.companies.Add(this);
+						this._business_stream_id = value.id;
+					}
+					else
+					{
+						this._business_stream_id = default(int);
+					}
+					this.SendPropertyChanged("business_stream");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_company_images(company_image entity)
+		{
+			this.SendPropertyChanging();
+			entity.company = this;
+		}
+		
+		private void detach_company_images(company_image entity)
+		{
+			this.SendPropertyChanging();
+			entity.company = null;
+		}
+		
+		private void attach_job_posts(job_post entity)
+		{
+			this.SendPropertyChanging();
+			entity.company = this;
+		}
+		
+		private void detach_job_posts(job_post entity)
+		{
+			this.SendPropertyChanging();
+			entity.company = null;
 		}
 	}
 }

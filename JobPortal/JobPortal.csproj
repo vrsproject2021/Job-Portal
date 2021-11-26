@@ -128,11 +128,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CompanyImage.cs" />
+    <Compile Include="Models\CompanyModel.cs" />
     <Compile Include="Models\DBOperation.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBOperation.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\LocationModel.cs" />
     <Compile Include="Models\SeekerEducationModel.cs" />
     <Compile Include="Models\SeekerExperienceModel.cs" />
     <Compile Include="Models\SeekerProfileModel.cs" />
@@ -782,6 +785,9 @@
     <Content Include="Views\Applicant\EditEducation.cshtml" />
     <Content Include="Views\Applicant\EditExperience.cshtml" />
     <Content Include="Views\Applicant\EditProfile.cshtml" />
+    <Content Include="Views\Employer\CompanyModel.cshtml" />
+    <Content Include="Views\Employer\CompanyImage.cshtml" />
+    <Content Include="Views\Employer\LocationModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
