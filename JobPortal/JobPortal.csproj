@@ -460,11 +460,6 @@
     <Content Include="Index Template\index.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Models\DBOperation.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DBOperation.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Index Template\assets\fonts\fa-brands-400.eot" />
     <Content Include="Index Template\assets\fonts\fa-brands-400.ttf" />
     <Content Include="Index Template\assets\fonts\fa-brands-400.woff" />
@@ -738,6 +733,11 @@
     <Content Include="Admin Template\assets\scss\material-dashboard\_utilities-extend.scss" />
     <Content Include="Admin Template\assets\scss\material-dashboard\_utilities.scss" />
     <Content Include="Admin Template\assets\scss\material-dashboard\_variables.scss" />
+    <Content Include="Models\DBOperation.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DBOperation.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Models\DBOperation.dbml.layout">
       <DependentUpon>DBOperation.dbml</DependentUpon>
     </None>
