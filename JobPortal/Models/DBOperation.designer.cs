@@ -81,7 +81,7 @@ namespace JobPortal.Models
     #endregion
 		
 		public DBOperationDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["JobPortaldbConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["userContext"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

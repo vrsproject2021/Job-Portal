@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="JobPortaldb" Class="DBOperationDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=LAPTOP-4QDLCOA1\SQLEXPRESS;Initial Catalog=JobPortaldb;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="JobPortaldbConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.user_account" Member="user_accounts">
-    <Type Name="user_account">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="email_id" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
-      <Column Name="password" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="phone_number" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="user_type" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Association Name="user_account_job_post" Member="job_posts" ThisKey="id" OtherKey="posted_by_id" Type="job_post" />
-      <Association Name="user_account_job_post_activity" Member="job_post_activities" ThisKey="id" OtherKey="user_account_id" Type="job_post_activity" />
-      <Association Name="user_account_seeker_profile" Member="seeker_profile" ThisKey="id" OtherKey="user_account_id" Type="seeker_profile" Cardinality="One" />
-      <Association Name="user_account_seeker_log" Member="seeker_log" ThisKey="id" OtherKey="user_account_id" Type="seeker_log" Cardinality="One" />
-    </Type>
-  </Table>
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-GC226G0\SQLEXPRESS;Initial Catalog=JobPortaldb;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="JobPortaldbConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=LAPTOP-4QDLCOA1\SQLEXPRESS;Initial Catalog=JobPortaldb;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="userContext" Provider="System.Data.SqlClient" />
   <Table Name="dbo.business_stream" Member="business_streams">
     <Type Name="business_stream">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
