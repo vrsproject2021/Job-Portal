@@ -188,4 +188,17 @@
     <Parameter Name="skill_level" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.get_applied_jobs" Method="get_applied_jobs">
+    <Parameter Name="user_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="get_applied_jobsResult">
+      <Column Name="job_description" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="company_name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="city" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="state" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="skill_level" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="skill_name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="job_type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="apply_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

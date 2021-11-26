@@ -177,7 +177,7 @@
         <elementListCompartment Id="e250b6d3-1a9c-4c33-a38d-ec5995ed8b10" absoluteBounds="8.265, 5.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(9.25 : 4.89589680989583); (9.25 : 5.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(9.25 : 4.89589680989583); (9.25 : 5.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DBOperationDataContext/user_account/user_account_seeker_log" />
       <nodes>
         <classShapeMoniker Id="7aeaa6e6-21a3-4d78-a591-e9ad8617d2dd" />
@@ -203,14 +203,14 @@
         <elementListCompartment Id="63d8a436-3a21-4bb3-8bd4-808e32cffe68" absoluteBounds="8.515, 7.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(8.5 : 6.88064697265625); (7.625 : 6.88064697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.5 : 6.88064697265625); (7.625 : 6.88064697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DBOperationDataContext/skill_set/skill_set_job_post_skill_set" />
       <nodes>
         <classShapeMoniker Id="44567640-1b97-4baf-8886-cc7179b931b2" />
         <classShapeMoniker Id="c8bf131b-33ac-4ec0-af0d-8b5c1e55045b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(10.5 : 6.94314697265625); (11.875 : 6.94314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(10.5 : 6.94314697265625); (11.875 : 6.94314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DBOperationDataContext/skill_set/skill_set_seeker_skill" />
       <nodes>
         <classShapeMoniker Id="44567640-1b97-4baf-8886-cc7179b931b2" />

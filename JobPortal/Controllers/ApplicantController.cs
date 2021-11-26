@@ -32,6 +32,8 @@ namespace JobPortal.Controllers
         {
             if (ModelState.IsValid)
             {
+
+
                 var loginDetails = _context.user_accounts.Where(u => u.email_id == email_id && u.password == password &&u.user_type == "jobseeker").FirstOrDefault();
                 if (loginDetails != null)
                 {
@@ -447,9 +449,43 @@ namespace JobPortal.Controllers
         #endregion
 
         #region Applied Jobs
-        public ActionResult AppliedJobs() 
-        { 
-            return View();
+        public ActionResult AppliedJobs()
+        {
+
+            IList<AppliedJobModel> appliedJobsList = new List<AppliedJobModel>();
+
+
+            if (Session["UserId"] != null)
+            {
+                try
+                {
+
+                    var appliedJobs = _context.get_applied_jobs((int)Session["UserId"]);
+                    foreach (var appliedJob in appliedJobs) {
+                        appliedJobsList.Add(new AppliedJobModel() {                        
+                        job_description = appliedJob.job_description,
+                        company_name=appliedJob.company_name,
+                        city=appliedJob.city,
+                        state=appliedJob.state,
+                        skill_level=appliedJob.skill_level,
+                        skill_name= appliedJob.skill_name,
+                        job_type = appliedJob.job_type,
+                        apply_date = (DateTime)appliedJob.apply_date  
+                                          
+                        });;
+                    }
+                }
+                catch
+                {
+                    return View("Error");
+                }
+                return View(appliedJobsList);
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Applicant");
+            }
         }
         #endregion
 

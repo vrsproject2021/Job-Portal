@@ -258,6 +258,13 @@ namespace JobPortal.Models
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), user_id, skill_name, skill_level);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.get_applied_jobs")]
+		public ISingleResult<get_applied_jobsResult> get_applied_jobs([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> user_id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), user_id);
+			return ((ISingleResult<get_applied_jobsResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.user_account")]
@@ -3828,6 +3835,158 @@ namespace JobPortal.Models
 				if ((this._skill_level != value))
 				{
 					this._skill_level = value;
+				}
+			}
+		}
+	}
+	
+	public partial class get_applied_jobsResult
+	{
+		
+		private string _job_description;
+		
+		private string _company_name;
+		
+		private string _city;
+		
+		private string _state;
+		
+		private int _skill_level;
+		
+		private string _skill_name;
+		
+		private string _job_type;
+		
+		private System.Nullable<System.DateTime> _apply_date;
+		
+		public get_applied_jobsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_job_description", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string job_description
+		{
+			get
+			{
+				return this._job_description;
+			}
+			set
+			{
+				if ((this._job_description != value))
+				{
+					this._job_description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_company_name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string company_name
+		{
+			get
+			{
+				return this._company_name;
+			}
+			set
+			{
+				if ((this._company_name != value))
+				{
+					this._company_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_city", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string city
+		{
+			get
+			{
+				return this._city;
+			}
+			set
+			{
+				if ((this._city != value))
+				{
+					this._city = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string state
+		{
+			get
+			{
+				return this._state;
+			}
+			set
+			{
+				if ((this._state != value))
+				{
+					this._state = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_level", DbType="Int NOT NULL")]
+		public int skill_level
+		{
+			get
+			{
+				return this._skill_level;
+			}
+			set
+			{
+				if ((this._skill_level != value))
+				{
+					this._skill_level = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string skill_name
+		{
+			get
+			{
+				return this._skill_name;
+			}
+			set
+			{
+				if ((this._skill_name != value))
+				{
+					this._skill_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_job_type", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string job_type
+		{
+			get
+			{
+				return this._job_type;
+			}
+			set
+			{
+				if ((this._job_type != value))
+				{
+					this._job_type = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apply_date", DbType="Date")]
+		public System.Nullable<System.DateTime> apply_date
+		{
+			get
+			{
+				return this._apply_date;
+			}
+			set
+			{
+				if ((this._apply_date != value))
+				{
+					this._apply_date = value;
 				}
 			}
 		}
