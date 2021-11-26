@@ -121,6 +121,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Context\DbContext.cs" />
+    <Compile Include="Context\DbSet.cs" />
+    <Compile Include="Context\userContext.cs" />
+    <Compile Include="Context\users.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ApplicantController.cs" />
     <Compile Include="Controllers\EmployerController.cs" />
@@ -129,15 +133,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AppliedJobModel.cs" />
+    <Compile Include="Models\CompanyImage.cs" />
+    <Compile Include="Models\CompanyModel.cs" />
     <Compile Include="Models\DBOperation.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBOperation.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\LocationModel.cs" />
     <Compile Include="Models\SeekerEducationModel.cs" />
     <Compile Include="Models\SeekerExperienceModel.cs" />
     <Compile Include="Models\SeekerProfileModel.cs" />
-    <Compile Include="Models\LocationModel.cs" />
     <Compile Include="Models\provider.cs" />
     <Compile Include="Models\SkillModel.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -459,11 +465,6 @@
     <Content Include="Index Template\index.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Models\DBOperation.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DBOperation.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Index Template\assets\fonts\fa-brands-400.eot" />
     <Content Include="Index Template\assets\fonts\fa-brands-400.ttf" />
     <Content Include="Index Template\assets\fonts\fa-brands-400.woff" />
@@ -737,6 +738,11 @@
     <Content Include="Admin Template\assets\scss\material-dashboard\_utilities-extend.scss" />
     <Content Include="Admin Template\assets\scss\material-dashboard\_utilities.scss" />
     <Content Include="Admin Template\assets\scss\material-dashboard\_variables.scss" />
+    <Content Include="Models\DBOperation.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DBOperation.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Models\DBOperation.dbml.layout">
       <DependentUpon>DBOperation.dbml</DependentUpon>
     </None>
@@ -776,7 +782,6 @@
     <Content Include="Views\Admin\Users.cshtml" />
     <Content Include="Views\Applicant\Profile.cshtml" />
     <Content Include="Views\Employer\Jobpost.cshtml" />
-    <Content Include="Views\Employer\Location.cshtml" />
     <Content Include="Views\Shared\_EmployerLayout.cshtml" />
     <Content Include="Views\Applicant\Education.cshtml" />
     <Content Include="Views\Applicant\Experience.cshtml" />
@@ -786,6 +791,16 @@
     <Content Include="Views\Applicant\EditExperience.cshtml" />
     <Content Include="Views\Applicant\EditProfile.cshtml" />
     <Content Include="Views\Applicant\AppliedJobs.cshtml" />
+    <Content Include="Views\Employer\CompanyModel.cshtml" />
+    <Content Include="Views\Employer\CompanyImage.cshtml" />
+    <Content Include="Views\Employer\LocationModel.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Admin\CandidateTable.cshtml" />
+    <Content Include="Views\Admin\CandidateDetails.cshtml" />
+    <Content Include="Views\Admin\ExperienceDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
