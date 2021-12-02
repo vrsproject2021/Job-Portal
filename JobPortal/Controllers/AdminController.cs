@@ -124,15 +124,18 @@ namespace JobPortal.Controllers
             {
                 // TODO: Add delete logic here
                 var userdel = _context.user_accounts.Single(x => x.id == id);
+                var edudel = _context.seeker_profiles.Single(x => x.user_account_id == id);
+
                 _context.user_accounts.DeleteOnSubmit(userdel);
+                _context.seeker_profiles.DeleteOnSubmit(edudel);
                 _context.SubmitChanges();
                 return RedirectToAction("Index");
-        }
+            }
             catch
             {
                 return View();
-    }
-}
+            }
+         }
 
 
 
@@ -198,6 +201,13 @@ namespace JobPortal.Controllers
 
 
 
+
+        public ActionResult Company()
+        {
+            var companydetails = from x in _context. select x;
+            return View(companydetails);
+
+        }
 
     }
 }

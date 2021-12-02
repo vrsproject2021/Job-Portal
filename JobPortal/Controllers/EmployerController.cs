@@ -98,7 +98,7 @@ namespace JobPortal.Controllers
             ModelState.Remove("ConfirmPassword");
             if (ModelState.IsValid)
             {
-                var password = newuserobj.password;
+                var password = encrypt(newuserobj.password);
                 var newUser = new user_account();
                 newUser.email_id = newuserobj.email_id;
                 newUser.password = password;
@@ -162,7 +162,7 @@ namespace JobPortal.Controllers
         public ActionResult LOGOUT()
         {
             Session.Abandon();
-            return RedirectToAction("Index", "Employer");
+            return RedirectToAction("Index", "Applicant");
         }
         [HttpGet]
         public ActionResult LocationModel()

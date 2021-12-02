@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="JobPortaldb" Class="DBOperationDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=LAPTOP-F0VJ5Q4T\SQLEXPRESS;Initial Catalog=JobPortaldb;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="JobPortaldbConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=LAPTOP-4QDLCOA1\SQLEXPRESS;Initial Catalog=JobPortaldb;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="userContext" Provider="System.Data.SqlClient" />
   <Table Name="dbo.user_account" Member="user_accounts">
     <Type Name="user_account">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -7,8 +7,6 @@
       <Column Name="password" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="phone_number" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
       <Column Name="user_type" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="created_on" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="is_active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="user_account_seeker_profile" Member="seeker_profile" ThisKey="id" OtherKey="user_account_id" Type="seeker_profile" Cardinality="One" />
       <Association Name="user_account_seeker_log" Member="seeker_log" ThisKey="id" OtherKey="user_account_id" Type="seeker_log" Cardinality="One" />
       <Association Name="user_account_job_post_activity" Member="job_post_activities" ThisKey="id" OtherKey="user_account_id" Type="job_post_activity" />
@@ -41,8 +39,8 @@
       <Column Name="date_of_birth" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Association Name="seeker_profile_seeker_skill" Member="seeker_skills" ThisKey="user_account_id" OtherKey="user_account_id" Type="seeker_skill" />
       <Association Name="seeker_profile_seeker_file" Member="seeker_file" ThisKey="user_account_id" OtherKey="user_account_id" Type="seeker_file" Cardinality="One" />
-      <Association Name="seeker_profile_seeker_experience" Member="seeker_experiences" ThisKey="user_account_id" OtherKey="user_account_id" Type="seeker_experience" />
-      <Association Name="seeker_profile_seeker_education" Member="seeker_educations" ThisKey="user_account_id" OtherKey="user_account_id" Type="seeker_education" />
+      <Association Name="seeker_profile_seeker_experience" Member="seeker_experience" ThisKey="user_account_id" OtherKey="user_account_id" Type="seeker_experience" Cardinality="One" />
+      <Association Name="seeker_profile_seeker_education" Member="seeker_education" ThisKey="user_account_id" OtherKey="user_account_id" Type="seeker_education" Cardinality="One" />
       <Association Name="user_account_seeker_profile" Member="user_account" ThisKey="user_account_id" OtherKey="id" Type="user_account" IsForeignKey="true" />
     </Type>
   </Table>
@@ -66,7 +64,7 @@
   <Table Name="dbo.seeker_experience" Member="seeker_experiences">
     <Type Name="seeker_experience">
       <Column Name="user_account_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="company_name" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="company_name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="job_title" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="job_description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="start_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
@@ -81,10 +79,9 @@
   <Table Name="dbo.seeker_education" Member="seeker_educations">
     <Type Name="seeker_education">
       <Column Name="user_account_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="certificate_degree_name" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="certificate_degree_name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="major" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="university_institute_name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="certificate_description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="start_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="end_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="cgpa_percentage" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
@@ -116,6 +113,17 @@
       <Association Name="job_post_job_post_activity" Member="job_post" ThisKey="job_post_id" OtherKey="id" Type="job_post" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.job_location" Member="job_locations">
+    <Type Name="job_location">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="street_address" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="city" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="state" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="country" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="zip" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="job_location_job_post" Member="job_posts" ThisKey="id" OtherKey="job_location_id" Type="job_post" />
+    </Type>
+  </Table>
   <Table Name="dbo.job_post" Member="job_posts">
     <Type Name="job_post">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -128,21 +136,10 @@
       <Column Name="is_active" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
       <Association Name="job_post_job_post_skill_set" Member="job_post_skill_sets" ThisKey="id" OtherKey="job_post_id" Type="job_post_skill_set" />
       <Association Name="job_post_job_post_activity" Member="job_post_activities" ThisKey="id" OtherKey="job_post_id" Type="job_post_activity" />
+      <Association Name="job_location_job_post" Member="job_location" ThisKey="job_location_id" OtherKey="id" Type="job_location" IsForeignKey="true" />
       <Association Name="job_type_job_post" Member="job_type" ThisKey="job_type_id" OtherKey="id" Type="job_type" IsForeignKey="true" />
       <Association Name="user_account_job_post" Member="user_account" ThisKey="posted_by_id" OtherKey="id" Type="user_account" IsForeignKey="true" />
-      <Association Name="job_location_job_post" Member="job_location" ThisKey="job_location_id" OtherKey="id" Type="job_location" IsForeignKey="true" />
       <Association Name="company_job_post" Member="company" ThisKey="company_id" OtherKey="id" Type="company" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.job_location" Member="job_locations">
-    <Type Name="job_location">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="street_address" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="city" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="state" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="country" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="zip" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="job_location_job_post" Member="job_posts" ThisKey="id" OtherKey="job_location_id" Type="job_post" />
     </Type>
   </Table>
   <Table Name="dbo.company_image" Member="company_images">
