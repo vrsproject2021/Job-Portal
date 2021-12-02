@@ -12,15 +12,18 @@ namespace JobPortal.Models
         public int id {get;set;}
 
         [Required]
+        [StringLength(maximumLength:100,ErrorMessage ="Cannot have more than 100 characters")]
         [Display(Name = "Certification or Degree Name")]
 
         public string certificate_degree_name { get; set; }
 
         [Required]
+        [StringLength(maximumLength: 100, ErrorMessage = "Cannot have more than 100 characters")]
         [Display(Name ="Stream")]
         public string major { get; set; }
 
         [Required]
+        [StringLength(maximumLength: 100, ErrorMessage = "Cannot have more than 100 characters")]
         [Display(Name ="University")]
         public string university_institute_name { get; set; }
 
@@ -35,6 +38,7 @@ namespace JobPortal.Models
         public DateTime end_date { get; set; }
 
         [Required]
+        [StringLength(maximumLength: 10, ErrorMessage = "Cannot have more than 10 characters")]
         [Display(Name = "CGPA or Percentage")]
         public string cgpa_percentage { get; set; }
     }

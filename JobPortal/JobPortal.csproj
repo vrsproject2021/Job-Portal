@@ -133,6 +133,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AppliedJobModel.cs" />
+    <Compile Include="Models\AvailableJobModel.cs" />
     <Compile Include="Models\CompanyImage.cs" />
     <Compile Include="Models\CompanyModel.cs" />
     <Compile Include="Models\DBOperation.designer.cs">
