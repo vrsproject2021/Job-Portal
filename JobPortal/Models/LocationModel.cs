@@ -14,10 +14,14 @@ namespace JobPortal.Models
         [Display(Name = "Street Address")]
         public string street_address { get; set; }
 
+        [MinLength(10)]
+        [MaxLength(100)]
         [Required(ErrorMessage = "Enter Your City")]
         [Display(Name = "City")]
         public string city { get; set; }
-
+        
+        [MinLength(10)]
+        [MaxLength(100)]
         [Required(ErrorMessage = "Enter Your State")]
         [Display(Name = "State")]
         public string state { get; set; }
