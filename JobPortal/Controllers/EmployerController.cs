@@ -1,7 +1,10 @@
 ﻿using JobPortal.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -26,12 +29,34 @@ namespace JobPortal.Controllers
         {
             return View();
         }
+        public string encrypt(string clearText)
+        {
+            string EncryptionKey = "MAKV2SPBNI99212";
+            byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
+                    }
+                    clearText = Convert.ToBase64String(ms.ToArray());
+                }
+            }
+            return clearText;
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(string email_id, string password)
-        //{
-        //    if (ModelState.IsValid)
         {
+            password = encrypt(password);
+            //if (ModelState.IsValid)
+            //{
             var loginDetails = _context.user_accounts.Where(u => u.email_id == email_id && u.password == password && u.user_type == "jobprovider").FirstOrDefault();
             if (loginDetails != null)
 
@@ -53,7 +78,7 @@ namespace JobPortal.Controllers
                 //}
 
             }
-            else
+                else
             {
                 return View();
             }
@@ -138,6 +163,7 @@ namespace JobPortal.Controllers
             Session.Abandon();
             return RedirectToAction("Index", "Employer");
         }
+        [HttpGet]
         public ActionResult LocationModel()
         {
             return View();
@@ -156,6 +182,7 @@ namespace JobPortal.Controllers
             _context.job_locations.InsertOnSubmit(joblocation);
             _context.SubmitChanges();
             return RedirectToAction("CompanyModel", "Employer");
+
 
         }
         //public ActionResult CompanyImage()
