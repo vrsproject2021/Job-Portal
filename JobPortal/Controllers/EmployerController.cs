@@ -98,9 +98,10 @@ namespace JobPortal.Controllers
             ModelState.Remove("ConfirmPassword");
             if (ModelState.IsValid)
             {
+                var password = newuserobj.password;
                 var newUser = new user_account();
                 newUser.email_id = newuserobj.email_id;
-                newUser.password = newuserobj.password;
+                newUser.password = password;
                 newUser.phone_number = newuserobj.phone_number;
                 newUser.user_type = "jobprovider";
                 _context.user_accounts.InsertOnSubmit(newUser);
