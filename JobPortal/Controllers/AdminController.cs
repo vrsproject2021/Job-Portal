@@ -127,12 +127,12 @@ namespace JobPortal.Controllers
                 _context.user_accounts.DeleteOnSubmit(userdel);
                 _context.SubmitChanges();
                 return RedirectToAction("Index");
-            }
+        }
             catch
             {
                 return View();
-            }
-        }
+    }
+}
 
 
 
