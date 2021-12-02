@@ -70,7 +70,7 @@
 
 
 
-
+@*<p>s:</p>@ViewBag.TotalCandidates*@
 
 
 <div class="row">
@@ -93,7 +93,7 @@
                                 <span class="text-xs">@Html.DisplayNameFor(model => model.date_of_birth): <span class="text-dark ms-sm-2 font-weight-bold"> @Html.DisplayFor(modelItem => item.date_of_birth)</span></span>
                             </div>
                             <div class="ms-auto text-end">
-                                <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">delete</i> @Html.ActionLink("Delete", "Delete", new { id = item.user_account_id })</a>  |
+                                <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">delete</i> @Html.ActionLink("Delete", "EducationDelete", new { id = item.user_account_id })</a>  |
                                 <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">edit</i> @Html.ActionLink("Edit", "Edit", new { id = item.user_account_id })</a>    |
                                 <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="material-icons  text-sm me-2">details</i>@Html.ActionLink("Details", "CandidateDetails", new { id = item.user_account_id })</a>
                             </div>

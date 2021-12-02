@@ -800,6 +800,8 @@
     <Content Include="Views\Admin\CandidateTable.cshtml" />
     <Content Include="Views\Admin\CandidateDetails.cshtml" />
     <Content Include="Views\Admin\ExperienceDetails.cshtml" />
+    <Content Include="Views\Admin\EducationDelete.cshtml" />
+    <Content Include="Views\Admin\alluserDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

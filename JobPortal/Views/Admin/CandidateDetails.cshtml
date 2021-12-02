@@ -109,24 +109,27 @@
                     <div class="card card-plain h-100">
                         
                         <div class="card-body p-3">
-                            
+
                             <hr class="horizontal gray-light my-4">
                             <ul class="list-group">
 
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@Html.DisplayNameFor(model => model.certificate_degree_name):</strong> &nbsp;@Html.DisplayFor(model => model.certificate_degree_name)</li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@Html.DisplayNameFor(model => model.major):</strong> &nbsp;  @Html.DisplayFor(model => model.major)</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@*@Html.DisplayNameFor(model => model.certificate_degree_name)*@Course Name:</strong> &nbsp;@Html.DisplayFor(model => model.certificate_degree_name)</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@*@Html.DisplayNameFor(model => model.major)*@Branch:</strong> &nbsp;  @Html.DisplayFor(model => model.major)</li>
 
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@Html.DisplayNameFor(model => model.university_institute_name):</strong> &nbsp;  @Html.DisplayFor(model => model.university_institute_name)</li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@Html.DisplayNameFor(model => model.start_date):</strong> &nbsp; @Html.DisplayFor(model => model.start_date)</li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@Html.DisplayNameFor(model => model.end_date):</strong> &nbsp; @Html.DisplayFor(model => model.end_date)</li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@Html.DisplayNameFor(model => model.cgpa_percentage):</strong> &nbsp; @Html.DisplayFor(model => model.cgpa_percentage)</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@*@Html.DisplayNameFor(model => model.university_institute_name)*@University/Institute Name:</strong> &nbsp;  @Html.DisplayFor(model => model.university_institute_name)</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@*@Html.DisplayNameFor(model => model.start_date)*@ Course Startdate:</strong> &nbsp; @Html.DisplayFor(model => model.start_date("MM/dd/yyyy")) </ li >
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@*@Html.DisplayNameFor(model => model.end_date)*@ Course Enddate:</strong> &nbsp; @Html.DisplayFor(model => model.end_date)</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">@*@Html.DisplayNameFor(model => model.cgpa_percentage)*@CGPA/Percentage:</strong> &nbsp; @Html.DisplayFor(model => model.cgpa_percentage)</li>
 
                                 <p>
                                     @Html.ActionLink("Edit", "Edit", new { id = Model.user_account_id }) |
                                     @Html.ActionLink("Back to List", "Index")|
-                                    @Html.ActionLink("Experience", "ExperienceDetails", new { id = Model.user_account_id })
+
                                 </p>
+
                             </ul>
+                            <button> @Html.ActionLink("Experience =>", "ExperienceDetails", new { id = Model.user_account_id })</button>
+                           
                         </div>
                     </div>
                 </div>

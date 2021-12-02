@@ -19,9 +19,13 @@ namespace JobPortal.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            
+
+
+            ViewBag.TotalUsers = _context.user_accounts.Count();
+
+
             return View();
-           
+
         }
 
 
@@ -41,6 +45,16 @@ namespace JobPortal.Controllers
             return View(getuserdetails);
         }
 
+
+
+
+        public ActionResult alluserDetails(int id)
+        {
+            var getalluserdetails = _context.seeker_profiles.Single(x => x.user_account_id == id);
+            return View(getalluserdetails);
+        }
+
+
         // GET: Admin/Create
         //public ActionResult Create()
         //{
@@ -57,7 +71,7 @@ namespace JobPortal.Controllers
         //        dc.user_accounts.InsertOnSubmit(collection);
         //        dc.SubmitChanges();
         //        return RedirectToAction("Index");
-               
+
         //    }
         //    catch
         //    {
@@ -151,7 +165,31 @@ namespace JobPortal.Controllers
         }
 
 
+        //public ActionResult EducationDelete(int id)
+        //{
 
+        //    var getuserdetails = _context.seeker_profiles.Single(x => x.user_account_id == id);
+        //    return View(getuserdetails);
+        //}
+
+
+        //// POST: Admin/Delete/5
+        //[HttpPost]
+        //public ActionResult EducationDelete(int id, user_account collection)
+        //{
+        //    try
+        //    {
+        //        // TODO: Add delete logic here
+        //        var edudel = _context.seeker_profiles.Single(x => x.user_account_id == id);
+        //        _context.seeker_profiles.DeleteOnSubmit(edudel);
+        //        _context.SubmitChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
 
 

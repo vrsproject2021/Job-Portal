@@ -222,7 +222,7 @@ namespace JobPortal.Controllers
                 newEducation.certificate_degree_name = newSeekerObj.certificate_degree_name;
                 newEducation.major = newSeekerObj.major;
                 newEducation.university_institute_name = newSeekerObj.university_institute_name;
-                newEducation.start_date = newSeekerObj.start_date;
+                newEducation.start_date = (DateTime)newSeekerObj.start_date;
                 newEducation.end_date = newSeekerObj.end_date;
                 newEducation.cgpa_percentage = newSeekerObj.cgpa_percentage;
 
@@ -277,7 +277,7 @@ namespace JobPortal.Controllers
                     newEducation.certificate_degree_name = newSeekerObj.certificate_degree_name;
                     newEducation.major = newSeekerObj.major;
                     newEducation.university_institute_name = newSeekerObj.university_institute_name;
-                    newEducation.start_date = newSeekerObj.start_date;
+                    newEducation.start_date = (DateTime)newSeekerObj.start_date;
                     newEducation.end_date = newSeekerObj.end_date;
                     newEducation.cgpa_percentage = newSeekerObj.cgpa_percentage;
                     _context.SubmitChanges();

@@ -26,8 +26,11 @@ namespace JobPortal.Models
 
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "Start date")]
-        public DateTime start_date { get; set; }
+        //[Display(Name = "Start date")]
+        //public DateTime start_date { get; set; }
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yy}")]
+        public DateTime? start_date { get; set; }
 
         [Required]
         [DataType(DataType.Date)]

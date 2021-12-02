@@ -9,6 +9,8 @@ namespace JobPortal.Models
 {
     public class UserModel
     {
+        internal List<user_account> user_accounts;
+
         [Key]
         public int id { get; set; }
 
