@@ -33,11 +33,12 @@
 
 <center>
     @*<h3>Applied Jobs</h3>*@
-
+    @if (Model.Count() > 0)
+    {
     <div class="col-md-7 mt-4">
         <div class="card">
             <div class="card-header pb-0 px-3">
-                <h6 class="mb-0">JOB</h6>
+                <h6 class="mb-0">JOBS</h6>
             </div>
             <div class="card-body pt-4 p-3">
                 <ul class="list-group">
@@ -59,18 +60,22 @@
                             <div class="ms-auto text-end">
                                 @*<a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">delete</i> @Html.ActionLink("Delete", "Delete", new { })</a>*@
 
-                                @using (Html.BeginForm("ApplyForJob", "Applicant", FormMethod.Post))
+                                @using (Html.BeginForm("DeleteAppliedJob", "Applicant", FormMethod.Post))
                                 {
                                     <input type="hidden" id="jobId" name="jobId" value="@item.job_post_id" />
-                                    <input type="submit" value="Apply" class="btn" />
+                                    <input type="submit" value="Delete" class="btn" />
                                 }
                             </div>
                         </li>
-}
+                    }
                 </ul>
             </div>
         </div>
     </div>
+    }
+    else
+    {
+    <div><h4>No Jobs found</h4></div>}
 
 </center>
 <hr>
