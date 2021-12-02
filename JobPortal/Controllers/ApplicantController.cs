@@ -498,26 +498,29 @@ namespace JobPortal.Controllers
                 {
 
                     var appliedJobs = _context.get_applied_jobs((int)Session["UserId"]);
-                    foreach (var appliedJob in appliedJobs) {
-                        appliedJobsList.Add(new AppliedJobModel() {                        
-                        job_description = appliedJob.job_description,
-                        company_name=appliedJob.company_name,
-                        city=appliedJob.city,
-                        state=appliedJob.state,
-                        skill_level=appliedJob.skill_level,
-                        skill_name= appliedJob.skill_name,
-                        job_type = appliedJob.job_type,
-                        apply_date = (DateTime)appliedJob.apply_date
+                   
+                        foreach (var appliedJob in appliedJobs.ToList())
+                        {
+                            appliedJobsList.Add(new AppliedJobModel()
+                            {
+                                job_description = appliedJob.job_description,
+                                company_name = appliedJob.company_name,
+                                city = appliedJob.city,
+                                state = appliedJob.state,
+                                skill_level = appliedJob.skill_level,
+                                skill_name = appliedJob.skill_name,
+                                job_type = appliedJob.job_type,
+                                apply_date = (DateTime)appliedJob.apply_date,
+                                job_post_id = appliedJob.job_post_id
 
-                        });;
-                    }
-                }
+                            }); ;
+                        }
+                return View(appliedJobsList);
+                   }
                 catch
                 {
                     return View("Error");
                 }
-                return View(appliedJobsList);
-
             }
             else
             {
@@ -535,7 +538,7 @@ namespace JobPortal.Controllers
                 _context.job_post_activities.DeleteOnSubmit(jobactivity);
                 _context.SubmitChanges();
 
-                return View("AppliedJobs", "Applicant");
+                return RedirectToAction("AppliedJobs", "Applicant");
             }
             else
             {
