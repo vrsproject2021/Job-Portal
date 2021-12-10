@@ -135,7 +135,7 @@ namespace JobPortal.Controllers
         }
         #endregion
 
-        #region Profile
+        #region 
         public ActionResult Profile()
         {
             if (Session["UserId"] != null)

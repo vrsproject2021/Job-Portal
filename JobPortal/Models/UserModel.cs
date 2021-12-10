@@ -24,6 +24,7 @@ namespace JobPortal.Models
 
         [Required(ErrorMessage = "Enter Your Password")]
         [StringLength(maximumLength: 100,ErrorMessage ="Cannot have more than 100 characters")]
+        //[StringLength(15, ErrorMessage = "The password should contain 6 characters minimum and should not exceed 15 characters", MinimumLength = 6)]
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
         public string password { get; set; }

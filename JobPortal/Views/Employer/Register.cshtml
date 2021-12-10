@@ -3,6 +3,20 @@
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_EmployerLayout.cshtml";
 }
+@if (TempData["Message"] != null)
+{
+    <script type="text/javascript">
+
+
+
+window.onload = function () {
+alert("@TempData["Message"]");
+};
+    </script>
+
+
+
+}
 <center>
     <div class="container-box-form">
         <h2>Employer Registration</h2>
@@ -17,7 +31,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.email_id, htmlAttributes: new { @class = "control-label" })
                     <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.email_id, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.email_id, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.email_id, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -25,14 +39,14 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label" })
                     <div class="col-md-10">
-                        @Html.PasswordFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label" })
                     <div class="col-md-10">
-                        @Html.PasswordFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -40,7 +54,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.phone_number, htmlAttributes: new { @class = "control-label" })
                     <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.phone_number, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.phone_number, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.phone_number, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -56,6 +70,3 @@
         </div>
     </div>
 </center>
-
-
-

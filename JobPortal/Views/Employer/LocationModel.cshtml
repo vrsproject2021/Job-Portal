@@ -23,6 +23,7 @@
         </div>
     </div>
 
+
         @*<div class="form-group">*@
         @*@Html.LabelFor(model => model.city, htmlAttributes: new { @class = "control-label" })
         <div class="col-md-10">
@@ -33,12 +34,20 @@
         </div>*@
         @*</div>*@
         @*</div>*@
+        <div class="form-group">
+            <div class="row">
+                @*<label class="control-label col-md-4">Country:</label>*@
+                <div class="col-md-8">
 
-        
-    <div class="form-group">
-        <div class="row">
-        <label class="control-label col-md-4">City:</label>
-
+                    @Html.DropDownListFor(model => model.country, new List<SelectListItem>
+                    {
+                    new SelectListItem() {Text = "Select Country", Value="Select Country"},
+                    new SelectListItem() {Text = "Australia", Value="Australia"},
+                    new SelectListItem() {Text = "Brazil", Value="Brazil"},
+                    new SelectListItem() {Text = "Canada", Value="Canada"},
+                    new SelectListItem() {Text = "India", Value="India"},
+                    new SelectListItem() {Text = "France", Value="France"},
+                    }, new { @class = "form-control" })
 
         <div class="col-md-5">
             @Html.DropDownListFor(model => model.city, new List<SelectListItem>
@@ -52,19 +61,22 @@
             }, new { @class = "form-control" })
 
 
-            @Html.ValidationMessageFor(model => model.city, "", new { @class = "text-danger" })
-        </div>
+                    @Html.ValidationMessageFor(model => model.country, "", new { @class = "text-danger" })
+                </div>
             </div>
-    </div>
+        </div>
+
+
         <br>
 
 
         <div class="form-group">
             <div class="row">
-                <label class="control-label col-md-4">State:</label>
+                @*<label class="control-label col-md-4">State:</label>*@
                 <div class="col-md-6">
                     @Html.DropDownListFor(model => model.state, new List<SelectListItem>
                     {
+                    new SelectListItem() {Text = "Select State", Value="Select State"},
                     new SelectListItem() {Text = "kerala", Value="kerala"},
                     new SelectListItem() {Text = "punjab", Value="punjab"},
                     new SelectListItem() {Text = "west bengal", Value="west bengal"},
@@ -75,44 +87,54 @@
 
                     @Html.ValidationMessageFor(model => model.state, "", new { @class = "text-danger" })
                 </div>
-                </div>
             </div>
+        </div>
         <br>
 
 
 
-            @*@Html.LabelFor(model => model.state, htmlAttributes: new { @class = "control-label" })
+        @*@Html.LabelFor(model => model.state, htmlAttributes: new { @class = "control-label" })
         <div class="col-md-10">*@
-            @*@Html.EditorFor(model => model.state, new { htmlAttributes = new { @class = "form-control" } })
+        @*@Html.EditorFor(model => model.state, new { htmlAttributes = new { @class = "form-control" } })
         @Html.ValidationMessageFor(model => model.state, "", new { @class = "text-danger" })*@
-            <div class="container">
-                @*@Html.DropDownList("state", "Select state")*@
-                @*</div>*@
-            </div>
+        <div class="container">
+            @*@Html.DropDownList("state", "Select state")*@
+            @*</div>*@
+        </div>
 
-            @*<div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.country, htmlAttributes: new { @class = "control-label" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.country, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.country, "", new { @class = "text-danger" })
             </div>
         </div>*@
-    <div class="form-group">
-        <div class="row">
-            <label class="control-label col-md-4">Country:</label>
-            <div class="col-md-8">
-                @Html.DropDownListFor(model => model.country, new List<SelectListItem>
-                {
-                new SelectListItem() {Text = "Australia", Value="Australia"},
-                new SelectListItem() {Text = "Brazil", Value="Brazil"},
-                new SelectListItem() {Text = "Canada", Value="Canada"},
-                new SelectListItem() {Text = "India", Value="India"},
-                new SelectListItem() {Text = "France", Value="France"},
-                }, new { @class = "form-control" })
+        <div class="form-group">
+            <div class="row">
+                @*<label class="control-label col-md-4">City:</label>*@
 
 
-                @Html.ValidationMessageFor(model => model.country, "", new { @class = "text-danger" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.city, new List<SelectListItem>
+                    {
+                    new SelectListItem() {Text = "Select City", Value="Select City"},
+                    new SelectListItem() {Text = "Alappuzha", Value="Alappuzha"},
+                    new SelectListItem() {Text = "Idukki", Value="Idukki"},
+                    new SelectListItem() {Text = "Kochi", Value="Kochi"},
+                    new SelectListItem() {Text = "Trivandram", Value="Trivandram"},
+                    new SelectListItem() {Text = "kottayam", Value="kottayam"},
+                    }, new { @class = "form-control" })
+
+
+                    @Html.ValidationMessageFor(model => model.city, "", new { @class = "text-danger" })
+                </div>
             </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.street_address, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.street_address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.street_address, "", new { @class = "text-danger" })
             </div>
         </div>
 
