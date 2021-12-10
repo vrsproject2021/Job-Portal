@@ -13,13 +13,16 @@ namespace JobPortal.Models
 
         [Required]
         [Display(Name = "Company name")]
+        [StringLength(maximumLength:255,ErrorMessage ="Cannot have more than 255 characters")]
         public string company_name { get; set; }
 
         [Required]
+        [StringLength(maximumLength: 255, ErrorMessage = "Cannot have more than 255 characters")]
         [Display(Name = "Job title")]
         public string job_title { get; set; }
 
         [Required]
+        [StringLength(maximumLength: 500, ErrorMessage = "Cannot have more than 500 characters")]
         [Display(Name = "Job Description")]
         public string job_description { get; set; }
 

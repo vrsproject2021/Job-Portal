@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Helpers;
 
 namespace JobPortal.Controllers
 {
@@ -28,40 +29,45 @@ namespace JobPortal.Controllers
         {
             return View();
         }
-        public string encrypt(string clearText)
-        {
-            string EncryptionKey = "MAKV2SPBNI99212";
-            byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
-            using (Aes encryptor = Aes.Create())
-            {
-                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
-                encryptor.Key = pdb.GetBytes(32);
-                encryptor.IV = pdb.GetBytes(16);
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
-                    {
-                        cs.Write(clearBytes, 0, clearBytes.Length);
-                        cs.Close();
-                    }
-                    clearText = Convert.ToBase64String(ms.ToArray());
-                }
-            }
-            return clearText;
-        }
+        //public string encrypt(string clearText)
+        //{
+        //    string EncryptionKey = "MAKV2SPBNI99212";
+        //    byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
+        //    using (Aes encryptor = Aes.Create())
+        //    {
+        //        Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+        //        encryptor.Key = pdb.GetBytes(32);
+        //        encryptor.IV = pdb.GetBytes(16);
+        //        using (MemoryStream ms = new MemoryStream())
+        //        {
+        //            using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+        //            {
+        //                cs.Write(clearBytes, 0, clearBytes.Length);
+        //                cs.Close();
+        //            }
+        //            clearText = Convert.ToBase64String(ms.ToArray());
+        //        }
+        //    }
+        //    return clearText;
+        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(string email_id, string password)
         {
-            password = encrypt(password);
+            //password = encrypt(password);
             if (ModelState.IsValid)
             {
-                var loginDetails = _context.user_accounts.Where(u => u.email_id == email_id && u.password == password &&u.user_type == "jobseeker").FirstOrDefault();
-                if (loginDetails != null)
+
+                
+                var loginDetails = _context.user_accounts.Where(u => u.email_id == email_id ).FirstOrDefault();
+                var passwordIsCorrect = Crypto.VerifyHashedPassword(loginDetails.password,password);
+                if (loginDetails != null && passwordIsCorrect == true)
                 {
                     Session["User"] = loginDetails.email_id;
                     Session["UserId"] = loginDetails.id; 
+
+
 
                     return RedirectToAction("Index","Applicant");
                 }
@@ -95,7 +101,7 @@ namespace JobPortal.Controllers
             if (ModelState.IsValid) {
                 var newUser = new user_account();
                 newUser.email_id = newuserobj.email_id;
-                newUser.password = newuserobj.password;
+                newUser.password = Crypto.HashPassword(newuserobj.password);
                 newUser.phone_number = newuserobj.phone_number;
                 newUser.user_type = "jobseeker";
                 _context.user_accounts.InsertOnSubmit(newUser);
@@ -331,7 +337,9 @@ namespace JobPortal.Controllers
         {
             if (Session["UserId"] != null)
             {
-                return View();
+
+                var editableExperience = new SeekerExperienceModel { currently_working = true };
+                return View(editableExperience);
             }
             else
             {
@@ -439,19 +447,25 @@ namespace JobPortal.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public ActionResult AddSkill(string skill_name,string skill_experience)
+        public ActionResult AddSkill(SkillModel skillObj)
         {
-            if (Session["userId"] != null)
+            if (ModelState.IsValid)
             {
-                int userId = (int)Session["UserId"];
-                int nskill_experience;
-                int.TryParse(skill_experience, out nskill_experience);
-                _context.add_seeker_skill(userId, skill_name, nskill_experience);
-                return RedirectToAction("Details", "Applicant");
+                if (Session["userId"] != null)
+                {
+                    int userId = (int)Session["UserId"];
+     
+                    _context.add_seeker_skill(userId, skillObj.skill_name,skillObj.skill_experience );
+                    return RedirectToAction("Details", "Applicant");
+                }
+                else
+                {
+                    return RedirectToAction("Login", "Applicant");
+                }
             }
-            else
+            else 
             {
-                return RedirectToAction("Login", "Applicant");
+                return RedirectToAction("Details", "Applicant");
             }
         }
         [HttpPost]
@@ -472,9 +486,132 @@ namespace JobPortal.Controllers
         #endregion
 
         #region Applied Jobs
-        public ActionResult AppliedJobs() 
-        { 
-            return View();
+        public ActionResult AppliedJobs()
+        {
+
+            IList<AppliedJobModel> appliedJobsList = new List<AppliedJobModel>();
+
+
+            if (Session["UserId"] != null)
+            {
+                try
+                {
+
+                    var appliedJobs = _context.get_applied_jobs((int)Session["UserId"]);
+                   
+                        foreach (var appliedJob in appliedJobs.ToList())
+                        {
+                            appliedJobsList.Add(new AppliedJobModel()
+                            {
+                                job_description = appliedJob.job_description,
+                                company_name = appliedJob.company_name,
+                                city = appliedJob.city,
+                                state = appliedJob.state,
+                                skill_level = appliedJob.skill_level,
+                                skill_name = appliedJob.skill_name,
+                                job_type = appliedJob.job_type,
+                                apply_date = (DateTime)appliedJob.apply_date,
+                                job_post_id = appliedJob.job_post_id
+
+                            }); ;
+                        }
+                return View(appliedJobsList);
+                   }
+                catch
+                {
+                    return View("Error");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login", "Applicant");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult DeleteAppliedJob (string jobId)
+        {
+            if (Session["UserId"] != null)
+
+            {
+                var jobactivity = _context.job_post_activities.Where(u => u.user_account_id == (int)Session["UserId"] && u.job_post_id == int.Parse(jobId)).FirstOrDefault();
+                _context.job_post_activities.DeleteOnSubmit(jobactivity);
+                _context.SubmitChanges();
+
+                return RedirectToAction("AppliedJobs", "Applicant");
+            }
+            else
+            {
+                return View("Login","Applicant");
+            }
+        }
+        #endregion
+
+        #region Search Jobs
+        [HttpPost]
+        public ActionResult Index(string skill,string location )
+        {
+            IList<AvailableJobModel> availableJobsList = new List<AvailableJobModel>();
+
+
+            try
+            {
+
+                var availableJobs = _context.search_for_jobs(skill, location);
+
+                foreach (var availableJob in availableJobs)
+                {
+                    availableJobsList.Add(new AvailableJobModel()
+                    {
+                        job_description = availableJob.job_description,
+                        company_name = availableJob.company_name,
+                        city = availableJob.city,
+                        state = availableJob.state,
+                        skill_level = availableJob.skill_level,
+                        skill_name = availableJob.skill_name,
+                        job_type = availableJob.job_type,
+                        job_post_id = availableJob.id
+
+                    }); ;
+                }
+            }
+            catch
+            {
+                return View("Error");
+            }
+
+            
+            return View(availableJobsList);
+        }
+        #endregion
+
+        #region Apply for Jobs
+
+        [HttpPost]
+        public ActionResult ApplyForJob(String jobId)
+        {
+
+            if (Session["UserId"] != null)
+            {
+                job_post_activity appliedjob = new job_post_activity();
+                appliedjob.user_account_id = (int)Session["UserId"];
+                appliedjob.job_post_id = int.Parse(jobId);
+                appliedjob.apply_date = DateTime.Now;
+                _context.job_post_activities.InsertOnSubmit(appliedjob);
+                try
+                {
+                    _context.SubmitChanges();
+                }
+                catch
+                {
+                    return View("Error");
+                }
+                return RedirectToAction("AppliedJobs", "Applicant");
+            }
+            else 
+            {
+                return RedirectToAction("Login", "Applicant");
+            }
         }
         #endregion
 

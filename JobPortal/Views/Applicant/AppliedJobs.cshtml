@@ -1,7 +1,92 @@
-﻿
+﻿@model IEnumerable<JobPortal.Models.AppliedJobModel>
 @{
     ViewBag.Title = "AppliedJobs";
     Layout = "~/Views/Shared/_ApplicantLayout.cshtml";
 }
 
-<h2>AppliedJobs</h2>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="apple-touch-icon" sizes="76x76" href=".~Admin Template/assets/img/apple-icon.png">
+<link rel="icon" type="image/png" href=".~Admin Template/assets/img/favicon.png">
+<title>
+    Job Portal admin Dashboard
+</title>
+<!--     Fonts and icons     -->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+<!-- Nucleo Icons -->
+<link href=".~Admin Template/assets/css/nucleo-icons.css" rel="stylesheet" />
+<link href=".~Admin Template/assets/css/nucleo-svg.css" rel="stylesheet" />
+<!-- Font Awesome Icons -->
+<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+<!-- CSS Files -->
+<link id="pagestyle" href=".~Admin Template/assets/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
+
+<link href="~/Admin Template/assets/css/material-dashboard.css" rel="stylesheet" />
+<!--<a href="~/Admin Template/assets/css/material-dashboard.css.map">-->
+@*~/Admin Template/assets/css/material-dashboard.css.map*@<!--</a>-->
+<link href="~/Admin Template/assets/css/material-dashboard.min.css" rel="stylesheet" />
+<link href="~/Admin Template/assets/css/nucleo-svg.css" rel="stylesheet" />
+<link href="~/Admin Template/assets/css/nucleo-icons.css" rel="stylesheet" />
+
+<center>
+    @*<h3>Applied Jobs</h3>*@
+    @if (Model.Count() > 0)
+    {
+    <div class="col-md-7 mt-4">
+        <div class="card">
+            <div class="card-header pb-0 px-3">
+                <h6 class="mb-0">JOBS</h6>
+            </div>
+            <div class="card-body pt-4 p-3">
+                <ul class="list-group">
+                    @foreach (var item in Model)
+                    {
+
+                        <li class="list-inline mx-auto justify-content-center
+">
+                            <div class="d-flex flex-column">
+                                <span class="mb-2 text-xs">@Html.DisplayNameFor(model => model.job_description): <span class="text-dark font-weight-bold ms-sm-2"> @Html.DisplayFor(model => item.job_description)</span></span>
+                                <span class="mb-2 text-xs">@Html.DisplayNameFor(model => model.company_name): <span class="text-dark font-weight-bold ms-sm-2">@Html.DisplayFor(model => item.company_name)</span></span>
+                                <span class="mb-2 text-xs">@Html.DisplayNameFor(model => model.city): <span class="text-dark font-weight-bold ms-sm-2">@Html.DisplayFor(model => item.city)</span></span>
+                                <span class="mb-2 text-xs">@Html.DisplayNameFor(model => model.state): <span class="text-dark font-weight-bold ms-sm-2"> @Html.DisplayFor(model => item.state)</span></span>
+                                <span class="mb-2 text-xs">@Html.DisplayNameFor(model => model.skill_level): <span class="text-dark font-weight-bold ms-sm-2">@Html.DisplayFor(model => item.skill_level)</span></span>
+                                <span class="mb-2 text-xs">@Html.DisplayNameFor(model => model.skill_name): <span class="text-dark font-weight-bold ms-sm-2">@Html.DisplayFor(model => item.skill_name)</span></span>
+                                <span class="mb-2 text-xs">@Html.DisplayNameFor(model => model.job_type): <span class="text-dark font-weight-bold ms-sm-2">@Html.DisplayFor(model => item.job_type)</span></span>
+                                <span class="mb-2 text-xs">@Html.DisplayNameFor(model => model.apply_date): <span class="text-dark font-weight-bold ms-sm-2">@Html.DisplayFor(model => item.apply_date)</span></span>
+                            </div>
+                            <div class="ms-auto text-end">
+                                @*<a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">delete</i> @Html.ActionLink("Delete", "Delete", new { })</a>*@
+
+                                @using (Html.BeginForm("DeleteAppliedJob", "Applicant", FormMethod.Post))
+                                {
+                                    <input type="hidden" id="jobId" name="jobId" value="@item.job_post_id" />
+                                    <input type="submit" value="Delete" class="btn" />
+                                }
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    }
+    else
+    {
+    <div><h4>No Jobs found</h4></div>}
+
+</center>
+<hr>
+
+<script src="~/Admin Template/assets/js/core/bootstrap.min.js"></script>
+<script src="~/Admin Template/assets/js/core/popper.min.js"></script>
+
+<script src="~/Admin Template/assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="~/Admin Template/assets/js/plugins/smooth-scrollbar.min.js"></script>
+<script src="~/Admin Template/assets/js/plugins/chartjs.min.js"></script>
+
+
+
+

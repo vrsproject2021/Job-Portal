@@ -13,14 +13,17 @@ namespace JobPortal.Models
 
         [Required]
         [Display(Name ="First Name")]
+        [StringLength(255,ErrorMessage ="Cannot have more than 255 characters")]
         public string first_name { get; set; }
 
         [Required]
         [Display(Name = "Last Name")]
+        [StringLength(255, ErrorMessage = "Cannot have more than 255 characters")]
         public string last_name { get; set; }
 
         [Required]
         [Display(Name = "Gender")]
+        [StringLength(10, ErrorMessage = "Cannot have more than 10 characters")]
         public string gender { get; set; }
 
         [Required]
