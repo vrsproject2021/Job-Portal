@@ -27,6 +27,7 @@ namespace JobPortal.Models
         public string gender { get; set; }
 
         [Required]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Date of Birth")]
         [DataType(DataType.Date)]
         public DateTime date_of_birth { get; set; }

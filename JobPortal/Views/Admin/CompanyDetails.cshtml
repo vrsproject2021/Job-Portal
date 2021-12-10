@@ -1,0 +1,59 @@
+﻿@model JobPortal.Models.company
+
+@{
+    ViewBag.Title = "CompanyDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>CompanyDetails</h2>
+
+<div>
+    <h4>company</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.company_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.company_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.profile_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.profile_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.business_stream_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.business_stream_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.establishment_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.establishment_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.company_website_url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.company_website_url)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

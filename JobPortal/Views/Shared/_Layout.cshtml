@@ -17,11 +17,11 @@
     <link href="~/Index Template/Doc/css/main.css" rel="stylesheet" />
 
     @*<link href="~/Index Template/Doc/css/normalize.min.css" rel="stylesheet" />
-    <link href="~/Index Template/assets/css/animate.min.css" rel="stylesheet" />*@
+        <link href="~/Index Template/assets/css/animate.min.css" rel="stylesheet" />*@
     <link href="~/Index Template/assets/css/bootstrap.min.css" rel="stylesheet" />
     @*<link href="~/Index Template/assets/css/flaticon.css" rel="stylesheet" />
-    <link href="~/Index Template/assets/css/fontawesome-all.min.css" rel="stylesheet" />
-    <link href="~/Index Template/assets/css/magnific-popup.css" rel="stylesheet" />*@
+        <link href="~/Index Template/assets/css/fontawesome-all.min.css" rel="stylesheet" />
+        <link href="~/Index Template/assets/css/magnific-popup.css" rel="stylesheet" />*@
 
     <link href="~/Index Template/assets/css/nice-select.css" rel="stylesheet" />
     <link href="~/index template/assets/css/owl.carousel.min.css" rel="stylesheet" />
@@ -34,6 +34,33 @@
 
 
     <script src="~/Index Template/assets/js/wow.min.js"></script>
+
+
+    <style>
+        body, html {
+            height: 100%;
+        }
+
+        .main_index {
+            /* The image used */
+            /*background-image: url("~/Admin Template/assets/img/office-dark.jpg");*/
+            /*background-image: url('../../Admin Template/assets/img/office-dark.jpg');*/
+            /*background-image: url('../../Index Template/assets/img/hero/h1_hero.jpg');*/
+           /* background-image: url('../../Index Template/assets/img/elements/g8.jpg');*/
+            background-image: url('../../Index Template/assets/img/blog/home-blog2.jpg');
+            /* Half height */
+            height: 50%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+
+    </style>
+
+
+
 </head>
 <body>
     @*<div class="navbar navbar-inverse navbar-fixed-top">
@@ -89,9 +116,9 @@
                                 <div class="main-menu">
                                     <nav class="d-none d-lg-block">
                                         <ul id="navigation">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="job_listing.html">Find a Jobs </a></li>
-                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="index.html">@Html.ActionLink("Home", "index", "Applicant")</a></li>
+                                            <li><a href="job_listing.html">@Html.ActionLink("Find a Jobs", "FindJobs", "Applicant") </a></li>
+                                            <li><a href="about.html">@Html.ActionLink("About", "About", "Home")</a></li>
                                             <li>
                                                 <a href="#">Login</a>
                                                 <ul class="submenu">

@@ -204,10 +204,41 @@ namespace JobPortal.Controllers
 
         public ActionResult Company()
         {
-            var companydetails = from x in _context. select x;
+            var companydetails = from x in _context.companies select x;
             return View(companydetails);
 
+
+            //var results = from c in _context.companies
+            //              join cn in _context.business_streams on c.business_stream_id equals cn.id
+            //              orderby cn.id
+
+            //              //where (c.id== cn.id) && (c. == cn.) && (c.establishment_date == companies.) && (company.SectorID == sect.ID)
+            //              select new { CompanyName = c.company_name, ProfileDescription = c.profile_description, EstablishmentDate = c.establishment_date, CompanyWebsite = c.company_website_url, BusinessType = cn.business_stream_name };
+
+
+            //return View(results);
+
+
+
+
+
+
+            //join ct in _context.Cities on c.equals ct.ID
+            //         join sect in _context.Sectors on c.SectorID equals sect.ID
+
+
+
         }
+
+
+
+        public ActionResult CompanyDetails(int id)
+        {
+            var getcompanydetails = _context.companies.Single(x => x.id == id);
+            return View(getcompanydetails);
+        }
+
+
 
     }
 }

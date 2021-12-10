@@ -113,40 +113,41 @@
         </div>
         <div class="row">
             <div class="row">
-                <div class="col-12 col-xl-4">
+                <div class="col-12 col-xl-">
 
                 </div>
-                <div class="col-12 col-xl-4">
+                <div class="@*col-12 col-xl-4*@">
                     <div class="card card-plain h-100">
 
                         <div class="card-body p-3">
 
                             <hr class="horizontal gray-light my-4">
-                            <ul class="list-group">
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Company Name:</strong> &nbsp;@Html.DisplayFor(model => model.company_name)</li>
+                            <ul class="list-group list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg border border-dark ">
+                                <div class="text-center">
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Company Name:</strong> &nbsp;@Html.DisplayFor(model => model.company_name)</li>
 
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Job Title:</strong> &nbsp;@Html.DisplayFor(model => model.job_title)</li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Job Description:</strong> &nbsp;@Html.DisplayFor(model => model.job_description)</li>
-
-
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Start Date:</strong> &nbsp;@Html.DisplayFor(model => model.start_date)</li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">End Date:</strong> &nbsp;@Html.DisplayFor(model => model.end_date)</li>
-
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Job Location:</strong> &nbsp; @Html.DisplayFor(model => model.job_location_country)</li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Job Location State:</strong> &nbsp; @Html.DisplayFor(model => model.job_location_state)</li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Job Location City:</strong> &nbsp;@Html.DisplayFor(model => model.job_location_city)</li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Current Status:</strong> &nbsp;@Html.DisplayFor(model => model.currently_working)</li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Job Title:</strong> &nbsp;@Html.DisplayFor(model => model.job_title)</li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Job Description:</strong> &nbsp;@Html.DisplayFor(model => model.job_description)</li>
 
 
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Start Date:</strong> &nbsp;@Html.DisplayFor(model => model.start_date)</li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">End Date:</strong> &nbsp;@Html.DisplayFor(model => model.end_date)</li>
 
-                                
-                                <p>
-                                    @Html.ActionLink("Edit", "Edit", new { id = Model.user_account_id }) |
-                                    @Html.ActionLink("Back to List", "CandidateDetails", new { id = Model.user_account_id })
-                                </p>
-                                
-                            </ul>
-                        </div>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Job Location:</strong> &nbsp; @Html.DisplayFor(model => model.job_location_country)</li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Job Location State:</strong> &nbsp; @Html.DisplayFor(model => model.job_location_state)</li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Job Location City:</strong> &nbsp;@Html.DisplayFor(model => model.job_location_city)</li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Current Status:</strong> &nbsp;@Html.DisplayFor(model => model.currently_working)</li>
+
+                                </div>
+
+
+                        <p class="text-success">
+                            @Html.ActionLink("Edit", "Edit", new { id = Model.user_account_id }) |
+                            @Html.ActionLink("Back to List", "CandidateDetails", new { id = Model.user_account_id })
+                        </p>
+
+                        </ul>
+                    </div>
                     </div>
                 </div>
 

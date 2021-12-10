@@ -43,3 +43,16 @@ textarea {
 .custom-link-color:hover {
     color: #fb246a;
 }
+
+
+.employerIndex {
+    /* The image used */
+    background-image: url('../../Index Template/assets/img/hero/h1_hero.jpg');
+    background-image: url('../../Index Template/assets/img/elements/g8.jpg');
+    /* Half height */
+    height: 50%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

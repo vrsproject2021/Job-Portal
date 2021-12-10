@@ -585,6 +585,50 @@ namespace JobPortal.Controllers
         }
         #endregion
 
+
+
+        public ActionResult availablejobIndex(string skill, string location)
+        {
+            IList<AvailableJobModel> availableJobsList = new List<AvailableJobModel>();
+
+
+            try
+            {
+
+                var availableJobs = _context.search_for_jobs(skill, location);
+
+                foreach (var availableJob in availableJobs)
+                {
+                    availableJobsList.Add(new AvailableJobModel()
+                    {
+                        job_description = availableJob.job_description,
+                        company_name = availableJob.company_name,
+                        city = availableJob.city,
+                        state = availableJob.state,
+                        skill_level = availableJob.skill_level,
+                        skill_name = availableJob.skill_name,
+                        job_type = availableJob.job_type,
+                        job_post_id = availableJob.id
+
+                    }); ;
+                }
+            }
+            catch
+            {
+                return View("Error");
+            }
+
+
+            return View(availableJobsList);
+        }
+
+
+
+
+
+
+
+
         #region Apply for Jobs
 
         [HttpPost]
