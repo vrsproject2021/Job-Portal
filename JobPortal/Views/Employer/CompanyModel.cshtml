@@ -12,54 +12,68 @@
         {
             @Html.AntiForgeryToken()
 
-            <div class="form-horizontal">
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(model => model.company_name, htmlAttributes: new { @class = "control-label" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.company_name, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.company_name, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.company_name, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.company_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.company_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.profile_description, htmlAttributes: new { @class = "control-label" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.profile_description, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.profile_description, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.business_stream_id, htmlAttributes: new { @class = "control-label" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.business_stream_id, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.business_stream_id, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.establishment_date, htmlAttributes: new { @class = "control-label" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.establishment_date, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.establishment_date, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.company_website_url, htmlAttributes: new { @class = "control-label" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.company_website_url, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.company_website_url, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.profile_description, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.profile_description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.profile_description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                @*<label class="control-label col-md-10">Business Stream</label>*@
 
 
+                <div class="col-md-15">
+                    @Html.DropDownListFor(model => model.business_stream_id ,new List<SelectListItem>
+                    {
+                    new SelectListItem() {Text = "Select Business Stream", Value="Select Business Stream"},
+                    new SelectListItem() {Text = "IT", Value="IT"},
+                    new SelectListItem() {Text = "Construction", Value="Construction"},
+                    //new SelectListItem() {Text = "Contract", Value="Contract"},
+                    //new SelectListItem() {Text = "Temporary", Value="Temporary"},
+                    }, new { @class = "form-control" })
 
-                <div class="form-group">
-                    <input type="submit" value="Post" class="btn btn-default" />
+
+                    @Html.ValidationMessageFor(model => model.business_stream_id, "", new { @class = "text-danger" })
                 </div>
             </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.establishment_date, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.establishment_date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.establishment_date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.company_website_url, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.company_website_url, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.company_website_url, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <input type="submit" value="Post" class="btn btn-default" />
+        </div>
+    </div>
         }
 
         <div>

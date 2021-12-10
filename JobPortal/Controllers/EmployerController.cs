@@ -55,30 +55,24 @@ namespace JobPortal.Controllers
         public ActionResult Login(string email_id, string password)
         {
             password = encrypt(password);
-            //if (ModelState.IsValid)
-            //{
-            var loginDetails = _context.user_accounts.Where(u => u.email_id == email_id && u.password == password && u.user_type == "jobprovider").FirstOrDefault();
-            if (loginDetails != null)
-
+            if (ModelState.IsValid)
             {
-                Session["User"] = loginDetails.email_id;
-                Session["UserId"] = loginDetails.id;
-                if (loginDetails.user_type == "jobprovider")
+                var loginDetails = _context.user_accounts.Where(u => u.email_id == email_id && u.password == password && u.user_type == "jobprovider").FirstOrDefault();
+                if (loginDetails != null)
                 {
+                    Session["User"] = loginDetails.email_id;
+                    Session["UserId"] = loginDetails.id;
+
                     return RedirectToAction("Index", "Employer");
                 }
-
-
-
                 else
                 {
                     ViewBag.Error = "Incorrect password or email address";
                     return View();
                 }
-                //}
 
             }
-                else
+            else
             {
                 return View();
             }
@@ -105,6 +99,7 @@ namespace JobPortal.Controllers
                 newUser.user_type = "jobprovider";
                 _context.user_accounts.InsertOnSubmit(newUser);
                 _context.SubmitChanges();
+                TempData["Message"] = "Successfully Registered";
                 return RedirectToAction("Login", "Employer");
 
             }
@@ -114,6 +109,7 @@ namespace JobPortal.Controllers
 
         public ActionResult Jobpost()
         {
+           
             return View();
         }
         [HttpPost]
@@ -121,47 +117,72 @@ namespace JobPortal.Controllers
 
         public ActionResult Jobpost(provider jobpostobj)
         {
-            var jobPost = new job_post();
-            //jobPost.posted_by_id = jobpostobj.posted_by_id;
-            jobPost.posted_by_id = (int)Session["UserId"];
-            jobPost.job_type_id = jobpostobj.job_type_id;
-            jobPost.company_id = jobpostobj.company_id;
-            jobPost.created_date = jobpostobj.created_date;
-            jobPost.job_description = jobpostobj.job_description;
-            jobPost.job_location_id = jobpostobj.job_location_id;
-            jobPost.is_active = jobpostobj.is_active;
-            _context.job_posts.InsertOnSubmit(jobPost);
-            _context.SubmitChanges();
-            return RedirectToAction("LocationModel", "Employer");
+            if (ModelState.IsValid)
+            {
+                var jobPost = new job_post();
+                //jobPost.posted_by_id = jobpostobj.posted_by_id;
+                jobPost.posted_by_id = (int)Session["UserId"];
+                jobPost.job_type_id = jobpostobj.job_type_id;
+                jobPost.company_id = jobpostobj.company_id;
+                jobPost.created_date = jobpostobj.created_date;
+                jobPost.job_description = jobpostobj.job_description;
+                jobPost.job_location_id = jobpostobj.job_location_id;
+                jobPost.is_active = jobpostobj.is_active;
+                _context.job_posts.InsertOnSubmit(jobPost);
+                _context.SubmitChanges();
+                return RedirectToAction("LocationModel", "Employer");
+
+            }
+
+            else
+            {
+                return View();
+            }
 
         }
 
 
         public ActionResult CompanyModel()
         {
-            return View();
+            if (Session["UserId"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Employer");
+            }
+            //return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
 
         public ActionResult CompanyModel(CompanyModel companyobj)
         {
-            var companyDetails = new company();
-            companyDetails.company_name = companyobj.company_name;
-            companyDetails.profile_description = companyobj.profile_description;
-            companyDetails.business_stream_id = companyobj.business_stream_id;
-            companyDetails.establishment_date = companyobj.establishment_date;
-            companyDetails.company_website_url = companyobj.company_website_url;
-            _context.companies.InsertOnSubmit(companyDetails);
-            _context.SubmitChanges();
-            return RedirectToAction("Index", "Employer");
+            if (ModelState.IsValid)
+            {
+                var companyDetails = new company();
+                companyDetails.company_name = companyobj.company_name;
+                companyDetails.profile_description = companyobj.profile_description;
+                companyDetails.business_stream_id = companyobj.business_stream_id;
+                companyDetails.establishment_date = companyobj.establishment_date;
+                companyDetails.company_website_url = companyobj.company_website_url;
+                _context.companies.InsertOnSubmit(companyDetails);
+                _context.SubmitChanges();
+                return RedirectToAction("Index", "Employer");
+            }
+            else
+            {
+                return View();
+            }
+
 
         }
 
         public ActionResult LOGOUT()
         {
             Session.Abandon();
-            return RedirectToAction("Index", "Employer");
+            return RedirectToAction("Login", "Employer");
         }
         [HttpGet]
         public ActionResult LocationModel()
