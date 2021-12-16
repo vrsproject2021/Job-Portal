@@ -1,20 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="JobPortaldb" Class="DBOperationDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=LAPTOP-F0VJ5Q4T\SQLEXPRESS;Initial Catalog=JobPortaldb;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="JobPortaldbConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.user_account" Member="user_accounts">
-    <Type Name="user_account">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="email_id" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
-      <Column Name="password" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="phone_number" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="user_type" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="created_on" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="is_active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="user_account_seeker_profile" Member="seeker_profile" ThisKey="id" OtherKey="user_account_id" Type="seeker_profile" Cardinality="One" />
-      <Association Name="user_account_seeker_log" Member="seeker_log" ThisKey="id" OtherKey="user_account_id" Type="seeker_log" Cardinality="One" />
-      <Association Name="user_account_job_post_activity" Member="job_post_activities" ThisKey="id" OtherKey="user_account_id" Type="job_post_activity" />
-      <Association Name="user_account_job_post" Member="job_posts" ThisKey="id" OtherKey="posted_by_id" Type="job_post" />
-    </Type>
-  </Table>
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-GC226G0\SQLEXPRESS;Initial Catalog=JobPortaldb;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="JobPortaldbConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.skill_set" Member="skill_sets">
     <Type Name="skill_set">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -107,33 +92,6 @@
       <Association Name="job_post_job_post_skill_set" Member="job_post" ThisKey="job_post_id" OtherKey="id" Type="job_post" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.job_post_activity" Member="job_post_activities">
-    <Type Name="job_post_activity">
-      <Column Name="user_account_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="job_post_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="apply_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="user_account_job_post_activity" Member="user_account" ThisKey="user_account_id" OtherKey="id" Type="user_account" IsForeignKey="true" />
-      <Association Name="job_post_job_post_activity" Member="job_post" ThisKey="job_post_id" OtherKey="id" Type="job_post" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.job_post" Member="job_posts">
-    <Type Name="job_post">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="posted_by_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="job_type_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="company_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="created_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="job_description" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="job_location_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="is_active" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
-      <Association Name="job_post_job_post_skill_set" Member="job_post_skill_sets" ThisKey="id" OtherKey="job_post_id" Type="job_post_skill_set" />
-      <Association Name="job_post_job_post_activity" Member="job_post_activities" ThisKey="id" OtherKey="job_post_id" Type="job_post_activity" />
-      <Association Name="job_type_job_post" Member="job_type" ThisKey="job_type_id" OtherKey="id" Type="job_type" IsForeignKey="true" />
-      <Association Name="user_account_job_post" Member="user_account" ThisKey="posted_by_id" OtherKey="id" Type="user_account" IsForeignKey="true" />
-      <Association Name="job_location_job_post" Member="job_location" ThisKey="job_location_id" OtherKey="id" Type="job_location" IsForeignKey="true" />
-      <Association Name="company_job_post" Member="company" ThisKey="company_id" OtherKey="id" Type="company" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.job_location" Member="job_locations">
     <Type Name="job_location">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -150,7 +108,44 @@
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="company_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="company_image" Member="company_image1" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Association Name="company_company_image" Member="company" ThisKey="company_id" OtherKey="id" Type="company" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.business_stream" Member="business_streams">
+    <Type Name="business_stream">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="business_stream_name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.user_account" Member="user_accounts">
+    <Type Name="user_account">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="email_id" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="phone_number" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="user_type" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="user_account_seeker_profile" Member="seeker_profile" ThisKey="id" OtherKey="user_account_id" Type="seeker_profile" Cardinality="One" />
+      <Association Name="user_account_seeker_log" Member="seeker_log" ThisKey="id" OtherKey="user_account_id" Type="seeker_log" Cardinality="One" />
+      <Association Name="user_account_company" Member="companies" ThisKey="id" OtherKey="user_account_id" Type="company" />
+      <Association Name="user_account_job_post_activity" Member="job_post_activities" ThisKey="id" OtherKey="user_account_id" Type="job_post_activity" />
+    </Type>
+  </Table>
+  <Table Name="dbo.job_post" Member="job_posts">
+    <Type Name="job_post">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="posted_by_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="job_type_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="company_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="created_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="end_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="job_description" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="job_location_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="is_active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[min salary]" Member="min_salary" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[max salary]" Member="max_salary" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="job_post_job_post_skill_set" Member="job_post_skill_sets" ThisKey="id" OtherKey="job_post_id" Type="job_post_skill_set" />
+      <Association Name="job_post_job_post_activity" Member="job_post_activities" ThisKey="id" OtherKey="job_post_id" Type="job_post_activity" />
+      <Association Name="job_location_job_post" Member="job_location" ThisKey="job_location_id" OtherKey="id" Type="job_location" IsForeignKey="true" />
+      <Association Name="job_type_job_post" Member="job_type" ThisKey="job_type_id" OtherKey="id" Type="job_type" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.company" Member="companies">
@@ -161,16 +156,18 @@
       <Column Name="business_stream_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="establishment_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="company_website_url" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Association Name="company_job_post" Member="job_posts" ThisKey="id" OtherKey="company_id" Type="job_post" />
-      <Association Name="company_company_image" Member="company_images" ThisKey="id" OtherKey="company_id" Type="company_image" />
-      <Association Name="business_stream_company" Member="business_stream" ThisKey="business_stream_id" OtherKey="id" Type="business_stream" IsForeignKey="true" />
+      <Column Name="user_account_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="user_account_company" Member="user_account" ThisKey="user_account_id" OtherKey="id" Type="user_account" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.business_stream" Member="business_streams">
-    <Type Name="business_stream">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="business_stream_name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Association Name="business_stream_company" Member="companies" ThisKey="id" OtherKey="business_stream_id" Type="company" />
+  <Table Name="dbo.job_post_activity" Member="job_post_activities">
+    <Type Name="job_post_activity">
+      <Column Name="user_account_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="job_post_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="apply_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="is_deleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="job_post_job_post_activity" Member="job_post" ThisKey="job_post_id" OtherKey="id" Type="job_post" IsForeignKey="true" />
+      <Association Name="user_account_job_post_activity" Member="user_account" ThisKey="user_account_id" OtherKey="id" Type="user_account" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.search_for_jobs" Method="search_for_jobs">
