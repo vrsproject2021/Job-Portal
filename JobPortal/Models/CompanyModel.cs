@@ -8,6 +8,8 @@ namespace JobPortal.Models
 {
     public class CompanyModel
     {
+        //internal int user_account_id;
+
         [Key]
         public int id { get; set; }
 
@@ -32,5 +34,7 @@ namespace JobPortal.Models
         [Required(ErrorMessage = "Enter Your Website")]
         [Display(Name = "Website")]
         public string company_website_url { get; set; }
+
+        public int user_account_id { get; set; }
     }
 }

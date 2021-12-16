@@ -37,6 +37,15 @@
                     @*<label class="control-label col-md-10">Business Stream</label>*@
 
 
+                <div class="col-md-15">
+                    @Html.DropDownListFor(model => model.business_stream_id ,new List<SelectListItem>
+                    {
+                    new SelectListItem() {Text = "Select Business Stream", Value="Select Business Stream"},
+                    new SelectListItem() {Text = "IT", Value="1"},
+                    new SelectListItem() {Text = "Construction", Value="2"},
+                    //new SelectListItem() {Text = "Contract", Value="Contract"},
+                    //new SelectListItem() {Text = "Temporary", Value="Temporary"},
+                    }, new { @class = "form-control" })
                     <div class="col-md-7">
                         @Html.DropDownListFor(model => model.business_stream_id, new List<SelectListItem>
                         {

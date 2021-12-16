@@ -29,32 +29,32 @@ namespace JobPortal.Controllers
         {
             return View();
         }
-        public string encrypt(string clearText)
-        {
-            string EncryptionKey = "MAKV2SPBNI99212";
-            byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
-            using (Aes encryptor = Aes.Create())
-            {
-                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
-                encryptor.Key = pdb.GetBytes(32);
-                encryptor.IV = pdb.GetBytes(16);
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
-                    {
-                        cs.Write(clearBytes, 0, clearBytes.Length);
-                        cs.Close();
-                    }
-                    clearText = Convert.ToBase64String(ms.ToArray());
-                }
-            }
-            return clearText;
-        }
+        //public string encrypt(string clearText)
+        //{
+        //    string EncryptionKey = "MAKV2SPBNI99212";
+        //    byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
+        //    using (Aes encryptor = Aes.Create())
+        //    {
+        //        Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+        //        encryptor.Key = pdb.GetBytes(32);
+        //        encryptor.IV = pdb.GetBytes(16);
+        //        using (MemoryStream ms = new MemoryStream())
+        //        {
+        //            using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+        //            {
+        //                cs.Write(clearBytes, 0, clearBytes.Length);
+        //                cs.Close();
+        //            }
+        //            clearText = Convert.ToBase64String(ms.ToArray());
+        //        }
+        //    }
+        //    return clearText;
+        //}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(string email_id, string password)
         {
-            password = encrypt(password);
+            //password = encrypt(password);
             if (ModelState.IsValid)
             {
                 var loginDetails = _context.user_accounts.Where(u => u.email_id == email_id && u.password == password && u.user_type == "jobprovider").FirstOrDefault();
@@ -110,25 +110,59 @@ namespace JobPortal.Controllers
 
         public ActionResult Jobpost()
         {
+            if (Session["UserId"] != null)
+            {
+                var jobtypes = _context.job_types.ToList();
+
+                List<SelectListItem> ObjItem = new List<SelectListItem>();
+
+                foreach (var item in jobtypes)
+                {
+                    ObjItem.Add(new SelectListItem() { Text = item.job_type1, Value = item.id.ToString() }); 
+                }
+
+                ViewBag.jobtype = ObjItem;
            
-            return View();
+                var companyname = _context.companies.ToList();
+
+                List<SelectListItem> Objcompany = new List<SelectListItem>();
+
+                foreach (var item in companyname)
+                {
+                    Objcompany.Add(new SelectListItem() { Text = item.company_name, Value = item.id.ToString() });
+                }
+                ViewBag.company = Objcompany;
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Employer");
+            }
+
+            //return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
 
         public ActionResult Jobpost(provider jobpostobj)
         {
+            jobpostobj.created_date = DateTime.Now;
+            jobpostobj.is_active = true;
             if (ModelState.IsValid)
             {
                 var jobPost = new job_post();
                 //jobPost.posted_by_id = jobpostobj.posted_by_id;
                 jobPost.posted_by_id = (int)Session["UserId"];
                 jobPost.job_type_id = jobpostobj.job_type_id;
+                //jobPost.job = jobpostobj.job;
                 jobPost.job = jobpostobj.job;
                 jobPost.company_id = jobpostobj.company_id;
                 jobPost.created_date = jobpostobj.created_date;
+                jobPost.end_date = jobpostobj.end_date;
                 jobPost.job_description = jobpostobj.job_description;
                 jobPost.job_location_id = jobpostobj.job_location_id;
+                jobPost.min_salary = jobpostobj.min_salary;
+                jobPost.max_salary = jobpostobj.max_salary;
                 jobPost.is_active = jobpostobj.is_active;
                 _context.job_posts.InsertOnSubmit(jobPost);
                 _context.SubmitChanges();
@@ -148,6 +182,7 @@ namespace JobPortal.Controllers
         {
             if (Session["UserId"] != null)
             {
+                
                 return View();
             }
             else
@@ -164,11 +199,13 @@ namespace JobPortal.Controllers
             if (ModelState.IsValid)
             {
                 var companyDetails = new company();
+                companyDetails.user_account_id = (int)Session["UserId"];
                 companyDetails.company_name = companyobj.company_name;
                 companyDetails.profile_description = companyobj.profile_description;
                 companyDetails.business_stream_id = companyobj.business_stream_id;
                 companyDetails.establishment_date = companyobj.establishment_date;
                 companyDetails.company_website_url = companyobj.company_website_url;
+                //companyDetails.user_account_id = companyobj.user_account_id;
                 _context.companies.InsertOnSubmit(companyDetails);
                 _context.SubmitChanges();
                 return RedirectToAction("Index", "Employer");
@@ -197,6 +234,22 @@ namespace JobPortal.Controllers
 
         public ActionResult LocationModel(LocationModel locationobj)
         {
+            if (ModelState.IsValid)
+            {
+                var joblocation = new job_location();
+            joblocation.street_address = locationobj.street_address;
+            joblocation.city = locationobj.city;
+            joblocation.state = locationobj.state;
+            joblocation.country = locationobj.country;
+            joblocation.zip = locationobj.zip;
+            _context.job_locations.InsertOnSubmit(joblocation);
+            _context.SubmitChanges();
+            return RedirectToAction("CompanyModel", "Employer");
+            }
+            else
+            {
+                return View();
+            }
             if (ModelState.IsValid)
             {
                 var joblocation = new job_location();
