@@ -56,12 +56,14 @@ namespace JobPortal.Controllers
         public ActionResult Login(string email_id, string password)
         {
             //password = encrypt(password);
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && password!="")
             {
 
                 
                 var loginDetails = _context.user_accounts.Where(u => u.email_id == email_id ).FirstOrDefault();
-                var passwordIsCorrect = Crypto.VerifyHashedPassword(loginDetails.password,password);
+
+                var passwordIsCorrect = Crypto.VerifyHashedPassword(loginDetails.password, password);
+
                 if (loginDetails != null && passwordIsCorrect == true)
                 {
                     Session["User"] = loginDetails.email_id;
@@ -79,7 +81,8 @@ namespace JobPortal.Controllers
 
             }
             else 
-            { 
+            {
+                ViewBag.Error = "Incorrect password or email address";
                 return View(); 
             }
 
@@ -494,33 +497,32 @@ namespace JobPortal.Controllers
 
             if (Session["UserId"] != null)
             {
-                try
-                {
+                //try
+                //{
 
                     var appliedJobs = _context.get_applied_jobs((int)Session["UserId"]);
-                   
-                        foreach (var appliedJob in appliedJobs.ToList())
+                    foreach (var appliedJob in appliedJobs.ToList())
+                    {
+                        appliedJobsList.Add(new AppliedJobModel()
                         {
-                            appliedJobsList.Add(new AppliedJobModel()
-                            {
-                                job_description = appliedJob.job_description,
-                                company_name = appliedJob.company_name,
-                                city = appliedJob.city,
-                                state = appliedJob.state,
-                                skill_level = appliedJob.skill_level,
-                                skill_name = appliedJob.skill_name,
-                                job_type = appliedJob.job_type,
-                                apply_date = (DateTime)appliedJob.apply_date,
-                                job_post_id = appliedJob.job_post_id
+                            job_description = appliedJob.job_description,
+                            company_name = appliedJob.company_name,
+                            city = appliedJob.city,
+                            state = appliedJob.state,
+                            skill_level = appliedJob.skill_level,
+                            skill_name = appliedJob.skill_name,
+                            job_type = appliedJob.job_type,
+                            apply_date = (DateTime)appliedJob.apply_date,
+                            job_post_id = appliedJob.job_post_id
 
-                            }); ;
-                        }
-                return View(appliedJobsList);
-                   }
-                catch
-                {
-                    return View("Error");
-                }
+                        }); ;
+                    }
+                    return View(appliedJobsList);
+                //}
+                //catch
+                //{
+                //    return View("Error");
+                //}
             }
             else
             {
@@ -648,7 +650,7 @@ namespace JobPortal.Controllers
                 }
                 catch
                 {
-                    return View("Error");
+                    return RedirectToAction("AppliedJobs", "Applicant");
                 }
                 return RedirectToAction("AppliedJobs", "Applicant");
             }

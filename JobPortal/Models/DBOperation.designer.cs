@@ -30,54 +30,54 @@ namespace JobPortal.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void Insertuser_account(user_account instance);
-    partial void Updateuser_account(user_account instance);
-    partial void Deleteuser_account(user_account instance);
-    partial void Insertskill_set(skill_set instance);
-    partial void Updateskill_set(skill_set instance);
-    partial void Deleteskill_set(skill_set instance);
-    partial void Insertseeker_skill(seeker_skill instance);
-    partial void Updateseeker_skill(seeker_skill instance);
-    partial void Deleteseeker_skill(seeker_skill instance);
-    partial void Insertseeker_profile(seeker_profile instance);
-    partial void Updateseeker_profile(seeker_profile instance);
-    partial void Deleteseeker_profile(seeker_profile instance);
-    partial void Insertseeker_log(seeker_log instance);
-    partial void Updateseeker_log(seeker_log instance);
-    partial void Deleteseeker_log(seeker_log instance);
-    partial void Insertseeker_file(seeker_file instance);
-    partial void Updateseeker_file(seeker_file instance);
-    partial void Deleteseeker_file(seeker_file instance);
-    partial void Insertseeker_experience(seeker_experience instance);
-    partial void Updateseeker_experience(seeker_experience instance);
-    partial void Deleteseeker_experience(seeker_experience instance);
-    partial void Insertseeker_education(seeker_education instance);
-    partial void Updateseeker_education(seeker_education instance);
-    partial void Deleteseeker_education(seeker_education instance);
-    partial void Insertjob_type(job_type instance);
-    partial void Updatejob_type(job_type instance);
-    partial void Deletejob_type(job_type instance);
-    partial void Insertjob_post_skill_set(job_post_skill_set instance);
-    partial void Updatejob_post_skill_set(job_post_skill_set instance);
-    partial void Deletejob_post_skill_set(job_post_skill_set instance);
-    partial void Insertjob_post_activity(job_post_activity instance);
-    partial void Updatejob_post_activity(job_post_activity instance);
-    partial void Deletejob_post_activity(job_post_activity instance);
+    partial void Insertbusiness_stream(business_stream instance);
+    partial void Updatebusiness_stream(business_stream instance);
+    partial void Deletebusiness_stream(business_stream instance);
+    partial void Insertcompany(company instance);
+    partial void Updatecompany(company instance);
+    partial void Deletecompany(company instance);
+    partial void Insertcompany_image(company_image instance);
+    partial void Updatecompany_image(company_image instance);
+    partial void Deletecompany_image(company_image instance);
     partial void Insertjob_location(job_location instance);
     partial void Updatejob_location(job_location instance);
     partial void Deletejob_location(job_location instance);
     partial void Insertjob_post(job_post instance);
     partial void Updatejob_post(job_post instance);
     partial void Deletejob_post(job_post instance);
-    partial void Insertcompany_image(company_image instance);
-    partial void Updatecompany_image(company_image instance);
-    partial void Deletecompany_image(company_image instance);
-    partial void Insertcompany(company instance);
-    partial void Updatecompany(company instance);
-    partial void Deletecompany(company instance);
-    partial void Insertbusiness_stream(business_stream instance);
-    partial void Updatebusiness_stream(business_stream instance);
-    partial void Deletebusiness_stream(business_stream instance);
+    partial void Insertjob_post_activity(job_post_activity instance);
+    partial void Updatejob_post_activity(job_post_activity instance);
+    partial void Deletejob_post_activity(job_post_activity instance);
+    partial void Insertjob_post_skill_set(job_post_skill_set instance);
+    partial void Updatejob_post_skill_set(job_post_skill_set instance);
+    partial void Deletejob_post_skill_set(job_post_skill_set instance);
+    partial void Insertjob_type(job_type instance);
+    partial void Updatejob_type(job_type instance);
+    partial void Deletejob_type(job_type instance);
+    partial void Insertseeker_education(seeker_education instance);
+    partial void Updateseeker_education(seeker_education instance);
+    partial void Deleteseeker_education(seeker_education instance);
+    partial void Insertseeker_experience(seeker_experience instance);
+    partial void Updateseeker_experience(seeker_experience instance);
+    partial void Deleteseeker_experience(seeker_experience instance);
+    partial void Insertseeker_file(seeker_file instance);
+    partial void Updateseeker_file(seeker_file instance);
+    partial void Deleteseeker_file(seeker_file instance);
+    partial void Insertseeker_log(seeker_log instance);
+    partial void Updateseeker_log(seeker_log instance);
+    partial void Deleteseeker_log(seeker_log instance);
+    partial void Insertseeker_profile(seeker_profile instance);
+    partial void Updateseeker_profile(seeker_profile instance);
+    partial void Deleteseeker_profile(seeker_profile instance);
+    partial void Insertseeker_skill(seeker_skill instance);
+    partial void Updateseeker_skill(seeker_skill instance);
+    partial void Deleteseeker_skill(seeker_skill instance);
+    partial void Insertskill_set(skill_set instance);
+    partial void Updateskill_set(skill_set instance);
+    partial void Deleteskill_set(skill_set instance);
+    partial void Insertuser_account(user_account instance);
+    partial void Updateuser_account(user_account instance);
+    partial void Deleteuser_account(user_account instance);
     #endregion
 		
 		public DBOperationDataContext() : 
@@ -110,91 +110,27 @@ namespace JobPortal.Models
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<user_account> user_accounts
+		public System.Data.Linq.Table<business_stream> business_streams
 		{
 			get
 			{
-				return this.GetTable<user_account>();
+				return this.GetTable<business_stream>();
 			}
 		}
 		
-		public System.Data.Linq.Table<skill_set> skill_sets
+		public System.Data.Linq.Table<company> companies
 		{
 			get
 			{
-				return this.GetTable<skill_set>();
+				return this.GetTable<company>();
 			}
 		}
 		
-		public System.Data.Linq.Table<seeker_skill> seeker_skills
+		public System.Data.Linq.Table<company_image> company_images
 		{
 			get
 			{
-				return this.GetTable<seeker_skill>();
-			}
-		}
-		
-		public System.Data.Linq.Table<seeker_profile> seeker_profiles
-		{
-			get
-			{
-				return this.GetTable<seeker_profile>();
-			}
-		}
-		
-		public System.Data.Linq.Table<seeker_log> seeker_logs
-		{
-			get
-			{
-				return this.GetTable<seeker_log>();
-			}
-		}
-		
-		public System.Data.Linq.Table<seeker_file> seeker_files
-		{
-			get
-			{
-				return this.GetTable<seeker_file>();
-			}
-		}
-		
-		public System.Data.Linq.Table<seeker_experience> seeker_experiences
-		{
-			get
-			{
-				return this.GetTable<seeker_experience>();
-			}
-		}
-		
-		public System.Data.Linq.Table<seeker_education> seeker_educations
-		{
-			get
-			{
-				return this.GetTable<seeker_education>();
-			}
-		}
-		
-		public System.Data.Linq.Table<job_type> job_types
-		{
-			get
-			{
-				return this.GetTable<job_type>();
-			}
-		}
-		
-		public System.Data.Linq.Table<job_post_skill_set> job_post_skill_sets
-		{
-			get
-			{
-				return this.GetTable<job_post_skill_set>();
-			}
-		}
-		
-		public System.Data.Linq.Table<job_post_activity> job_post_activities
-		{
-			get
-			{
-				return this.GetTable<job_post_activity>();
+				return this.GetTable<company_image>();
 			}
 		}
 		
@@ -214,49 +150,99 @@ namespace JobPortal.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<company_image> company_images
+		public System.Data.Linq.Table<job_post_activity> job_post_activities
 		{
 			get
 			{
-				return this.GetTable<company_image>();
+				return this.GetTable<job_post_activity>();
 			}
 		}
 		
-		public System.Data.Linq.Table<company> companies
+		public System.Data.Linq.Table<job_post_skill_set> job_post_skill_sets
 		{
 			get
 			{
-				return this.GetTable<company>();
+				return this.GetTable<job_post_skill_set>();
 			}
 		}
 		
-		public System.Data.Linq.Table<business_stream> business_streams
+		public System.Data.Linq.Table<job_type> job_types
 		{
 			get
 			{
-				return this.GetTable<business_stream>();
+				return this.GetTable<job_type>();
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.search_for_jobs")]
-		public ISingleResult<search_for_jobsResult> search_for_jobs([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string skill_searched, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string location_searched)
+		public System.Data.Linq.Table<seeker_education> seeker_educations
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), skill_searched, location_searched);
-			return ((ISingleResult<search_for_jobsResult>)(result.ReturnValue));
+			get
+			{
+				return this.GetTable<seeker_education>();
+			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.get_seeker_skills")]
-		public ISingleResult<get_seeker_skillsResult> get_seeker_skills([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> user_id)
+		public System.Data.Linq.Table<seeker_experience> seeker_experiences
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), user_id);
-			return ((ISingleResult<get_seeker_skillsResult>)(result.ReturnValue));
+			get
+			{
+				return this.GetTable<seeker_experience>();
+			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.get_applied_jobs")]
-		public ISingleResult<get_applied_jobsResult> get_applied_jobs([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> user_id)
+		public System.Data.Linq.Table<seeker_file> seeker_files
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), user_id);
-			return ((ISingleResult<get_applied_jobsResult>)(result.ReturnValue));
+			get
+			{
+				return this.GetTable<seeker_file>();
+			}
+		}
+		
+		public System.Data.Linq.Table<seeker_log> seeker_logs
+		{
+			get
+			{
+				return this.GetTable<seeker_log>();
+			}
+		}
+		
+		public System.Data.Linq.Table<seeker_profile> seeker_profiles
+		{
+			get
+			{
+				return this.GetTable<seeker_profile>();
+			}
+		}
+		
+		public System.Data.Linq.Table<seeker_skill> seeker_skills
+		{
+			get
+			{
+				return this.GetTable<seeker_skill>();
+			}
+		}
+		
+		public System.Data.Linq.Table<skill_set> skill_sets
+		{
+			get
+			{
+				return this.GetTable<skill_set>();
+			}
+		}
+		
+		public System.Data.Linq.Table<user_account> user_accounts
+		{
+			get
+			{
+				return this.GetTable<user_account>();
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.add_seeker_skill")]
+		public ISingleResult<add_seeker_skillResult> add_seeker_skill([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> user_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string skill_name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> skill_level)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), user_id, skill_name, skill_level);
+			return ((ISingleResult<add_seeker_skillResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.delete_seeker_skill")]
@@ -266,35 +252,589 @@ namespace JobPortal.Models
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.add_seeker_skill")]
-		public ISingleResult<add_seeker_skillResult> add_seeker_skill([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> user_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string skill_name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> skill_level)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.get_applied_jobs")]
+		public ISingleResult<get_applied_jobsResult> get_applied_jobs([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> user_id)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), user_id, skill_name, skill_level);
-			return ((ISingleResult<add_seeker_skillResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), user_id);
+			return ((ISingleResult<get_applied_jobsResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.get_seeker_skills")]
+		public ISingleResult<get_seeker_skillsResult> get_seeker_skills([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> user_id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), user_id);
+			return ((ISingleResult<get_seeker_skillsResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.search_for_jobs")]
+		public ISingleResult<search_for_jobsResult> search_for_jobs([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string skill_searched, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string location_searched)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), skill_searched, location_searched);
+			return ((ISingleResult<search_for_jobsResult>)(result.ReturnValue));
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.user_account")]
-	public partial class user_account : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.business_stream")]
+	public partial class business_stream : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _id;
 		
-		private string _email_id;
+		private string _business_stream_name;
 		
-		private string _password;
+		private EntitySet<company> _companies;
 		
-		private string _phone_number;
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onbusiness_stream_nameChanging(string value);
+    partial void Onbusiness_stream_nameChanged();
+    #endregion
 		
-		private string _user_type;
+		public business_stream()
+		{
+			this._companies = new EntitySet<company>(new Action<company>(this.attach_companies), new Action<company>(this.detach_companies));
+			OnCreated();
+		}
 		
-		private EntityRef<seeker_profile> _seeker_profile;
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
 		
-		private EntityRef<seeker_log> _seeker_log;
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_business_stream_name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string business_stream_name
+		{
+			get
+			{
+				return this._business_stream_name;
+			}
+			set
+			{
+				if ((this._business_stream_name != value))
+				{
+					this.Onbusiness_stream_nameChanging(value);
+					this.SendPropertyChanging();
+					this._business_stream_name = value;
+					this.SendPropertyChanged("business_stream_name");
+					this.Onbusiness_stream_nameChanged();
+				}
+			}
+		}
 		
-		private EntitySet<job_post_activity> _job_post_activities;
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="business_stream_company", Storage="_companies", ThisKey="id", OtherKey="business_stream_id")]
+		public EntitySet<company> companies
+		{
+			get
+			{
+				return this._companies;
+			}
+			set
+			{
+				this._companies.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_companies(company entity)
+		{
+			this.SendPropertyChanging();
+			entity.business_stream = this;
+		}
+		
+		private void detach_companies(company entity)
+		{
+			this.SendPropertyChanging();
+			entity.business_stream = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.company")]
+	public partial class company : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _company_name;
+		
+		private string _profile_description;
+		
+		private int _business_stream_id;
+		
+		private System.DateTime _establishment_date;
+		
+		private string _company_website_url;
+		
+		private EntitySet<company_image> _company_images;
+		
+		private EntitySet<job_post> _job_posts;
+		
+		private EntityRef<business_stream> _business_stream;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Oncompany_nameChanging(string value);
+    partial void Oncompany_nameChanged();
+    partial void Onprofile_descriptionChanging(string value);
+    partial void Onprofile_descriptionChanged();
+    partial void Onbusiness_stream_idChanging(int value);
+    partial void Onbusiness_stream_idChanged();
+    partial void Onestablishment_dateChanging(System.DateTime value);
+    partial void Onestablishment_dateChanged();
+    partial void Oncompany_website_urlChanging(string value);
+    partial void Oncompany_website_urlChanged();
+    #endregion
+		
+		public company()
+		{
+			this._company_images = new EntitySet<company_image>(new Action<company_image>(this.attach_company_images), new Action<company_image>(this.detach_company_images));
+			this._job_posts = new EntitySet<job_post>(new Action<job_post>(this.attach_job_posts), new Action<job_post>(this.detach_job_posts));
+			this._business_stream = default(EntityRef<business_stream>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_company_name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string company_name
+		{
+			get
+			{
+				return this._company_name;
+			}
+			set
+			{
+				if ((this._company_name != value))
+				{
+					this.Oncompany_nameChanging(value);
+					this.SendPropertyChanging();
+					this._company_name = value;
+					this.SendPropertyChanged("company_name");
+					this.Oncompany_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_profile_description", DbType="VarChar(1000) NOT NULL", CanBeNull=false)]
+		public string profile_description
+		{
+			get
+			{
+				return this._profile_description;
+			}
+			set
+			{
+				if ((this._profile_description != value))
+				{
+					this.Onprofile_descriptionChanging(value);
+					this.SendPropertyChanging();
+					this._profile_description = value;
+					this.SendPropertyChanged("profile_description");
+					this.Onprofile_descriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_business_stream_id", DbType="Int NOT NULL")]
+		public int business_stream_id
+		{
+			get
+			{
+				return this._business_stream_id;
+			}
+			set
+			{
+				if ((this._business_stream_id != value))
+				{
+					if (this._business_stream.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onbusiness_stream_idChanging(value);
+					this.SendPropertyChanging();
+					this._business_stream_id = value;
+					this.SendPropertyChanged("business_stream_id");
+					this.Onbusiness_stream_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_establishment_date", DbType="Date NOT NULL")]
+		public System.DateTime establishment_date
+		{
+			get
+			{
+				return this._establishment_date;
+			}
+			set
+			{
+				if ((this._establishment_date != value))
+				{
+					this.Onestablishment_dateChanging(value);
+					this.SendPropertyChanging();
+					this._establishment_date = value;
+					this.SendPropertyChanged("establishment_date");
+					this.Onestablishment_dateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_company_website_url", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string company_website_url
+		{
+			get
+			{
+				return this._company_website_url;
+			}
+			set
+			{
+				if ((this._company_website_url != value))
+				{
+					this.Oncompany_website_urlChanging(value);
+					this.SendPropertyChanging();
+					this._company_website_url = value;
+					this.SendPropertyChanged("company_website_url");
+					this.Oncompany_website_urlChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="company_company_image", Storage="_company_images", ThisKey="id", OtherKey="company_id")]
+		public EntitySet<company_image> company_images
+		{
+			get
+			{
+				return this._company_images;
+			}
+			set
+			{
+				this._company_images.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="company_job_post", Storage="_job_posts", ThisKey="id", OtherKey="company_id")]
+		public EntitySet<job_post> job_posts
+		{
+			get
+			{
+				return this._job_posts;
+			}
+			set
+			{
+				this._job_posts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="business_stream_company", Storage="_business_stream", ThisKey="business_stream_id", OtherKey="id", IsForeignKey=true)]
+		public business_stream business_stream
+		{
+			get
+			{
+				return this._business_stream.Entity;
+			}
+			set
+			{
+				business_stream previousValue = this._business_stream.Entity;
+				if (((previousValue != value) 
+							|| (this._business_stream.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._business_stream.Entity = null;
+						previousValue.companies.Remove(this);
+					}
+					this._business_stream.Entity = value;
+					if ((value != null))
+					{
+						value.companies.Add(this);
+						this._business_stream_id = value.id;
+					}
+					else
+					{
+						this._business_stream_id = default(int);
+					}
+					this.SendPropertyChanged("business_stream");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_company_images(company_image entity)
+		{
+			this.SendPropertyChanging();
+			entity.company = this;
+		}
+		
+		private void detach_company_images(company_image entity)
+		{
+			this.SendPropertyChanging();
+			entity.company = null;
+		}
+		
+		private void attach_job_posts(job_post entity)
+		{
+			this.SendPropertyChanging();
+			entity.company = this;
+		}
+		
+		private void detach_job_posts(job_post entity)
+		{
+			this.SendPropertyChanging();
+			entity.company = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.company_image")]
+	public partial class company_image : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private int _company_id;
+		
+		private string _company_image1;
+		
+		private EntityRef<company> _company;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Oncompany_idChanging(int value);
+    partial void Oncompany_idChanged();
+    partial void Oncompany_image1Changing(string value);
+    partial void Oncompany_image1Changed();
+    #endregion
+		
+		public company_image()
+		{
+			this._company = default(EntityRef<company>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_company_id", DbType="Int NOT NULL")]
+		public int company_id
+		{
+			get
+			{
+				return this._company_id;
+			}
+			set
+			{
+				if ((this._company_id != value))
+				{
+					if (this._company.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Oncompany_idChanging(value);
+					this.SendPropertyChanging();
+					this._company_id = value;
+					this.SendPropertyChanged("company_id");
+					this.Oncompany_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="company_image", Storage="_company_image1", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string company_image1
+		{
+			get
+			{
+				return this._company_image1;
+			}
+			set
+			{
+				if ((this._company_image1 != value))
+				{
+					this.Oncompany_image1Changing(value);
+					this.SendPropertyChanging();
+					this._company_image1 = value;
+					this.SendPropertyChanged("company_image1");
+					this.Oncompany_image1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="company_company_image", Storage="_company", ThisKey="company_id", OtherKey="id", IsForeignKey=true)]
+		public company company
+		{
+			get
+			{
+				return this._company.Entity;
+			}
+			set
+			{
+				company previousValue = this._company.Entity;
+				if (((previousValue != value) 
+							|| (this._company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._company.Entity = null;
+						previousValue.company_images.Remove(this);
+					}
+					this._company.Entity = value;
+					if ((value != null))
+					{
+						value.company_images.Add(this);
+						this._company_id = value.id;
+					}
+					else
+					{
+						this._company_id = default(int);
+					}
+					this.SendPropertyChanged("company");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.job_location")]
+	public partial class job_location : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _street_address;
+		
+		private string _city;
+		
+		private string _state;
+		
+		private string _country;
+		
+		private string _zip;
 		
 		private EntitySet<job_post> _job_posts;
 		
@@ -304,21 +844,20 @@ namespace JobPortal.Models
     partial void OnCreated();
     partial void OnidChanging(int value);
     partial void OnidChanged();
-    partial void Onemail_idChanging(string value);
-    partial void Onemail_idChanged();
-    partial void OnpasswordChanging(string value);
-    partial void OnpasswordChanged();
-    partial void Onphone_numberChanging(string value);
-    partial void Onphone_numberChanged();
-    partial void Onuser_typeChanging(string value);
-    partial void Onuser_typeChanged();
+    partial void Onstreet_addressChanging(string value);
+    partial void Onstreet_addressChanged();
+    partial void OncityChanging(string value);
+    partial void OncityChanged();
+    partial void OnstateChanging(string value);
+    partial void OnstateChanged();
+    partial void OncountryChanging(string value);
+    partial void OncountryChanged();
+    partial void OnzipChanging(string value);
+    partial void OnzipChanged();
     #endregion
 		
-		public user_account()
+		public job_location()
 		{
-			this._seeker_profile = default(EntityRef<seeker_profile>);
-			this._seeker_log = default(EntityRef<seeker_log>);
-			this._job_post_activities = new EntitySet<job_post_activity>(new Action<job_post_activity>(this.attach_job_post_activities), new Action<job_post_activity>(this.detach_job_post_activities));
 			this._job_posts = new EntitySet<job_post>(new Action<job_post>(this.attach_job_posts), new Action<job_post>(this.detach_job_posts));
 			OnCreated();
 		}
@@ -343,158 +882,107 @@ namespace JobPortal.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email_id", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
-		public string email_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_street_address", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string street_address
 		{
 			get
 			{
-				return this._email_id;
+				return this._street_address;
 			}
 			set
 			{
-				if ((this._email_id != value))
+				if ((this._street_address != value))
 				{
-					this.Onemail_idChanging(value);
+					this.Onstreet_addressChanging(value);
 					this.SendPropertyChanging();
-					this._email_id = value;
-					this.SendPropertyChanged("email_id");
-					this.Onemail_idChanged();
+					this._street_address = value;
+					this.SendPropertyChanged("street_address");
+					this.Onstreet_addressChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string password
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_city", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string city
 		{
 			get
 			{
-				return this._password;
+				return this._city;
 			}
 			set
 			{
-				if ((this._password != value))
+				if ((this._city != value))
 				{
-					this.OnpasswordChanging(value);
+					this.OncityChanging(value);
 					this.SendPropertyChanging();
-					this._password = value;
-					this.SendPropertyChanged("password");
-					this.OnpasswordChanged();
+					this._city = value;
+					this.SendPropertyChanged("city");
+					this.OncityChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone_number", DbType="NVarChar(15)")]
-		public string phone_number
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string state
 		{
 			get
 			{
-				return this._phone_number;
+				return this._state;
 			}
 			set
 			{
-				if ((this._phone_number != value))
+				if ((this._state != value))
 				{
-					this.Onphone_numberChanging(value);
+					this.OnstateChanging(value);
 					this.SendPropertyChanging();
-					this._phone_number = value;
-					this.SendPropertyChanged("phone_number");
-					this.Onphone_numberChanged();
+					this._state = value;
+					this.SendPropertyChanged("state");
+					this.OnstateChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_type", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string user_type
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_country", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string country
 		{
 			get
 			{
-				return this._user_type;
+				return this._country;
 			}
 			set
 			{
-				if ((this._user_type != value))
+				if ((this._country != value))
 				{
-					this.Onuser_typeChanging(value);
+					this.OncountryChanging(value);
 					this.SendPropertyChanging();
-					this._user_type = value;
-					this.SendPropertyChanged("user_type");
-					this.Onuser_typeChanged();
+					this._country = value;
+					this.SendPropertyChanged("country");
+					this.OncountryChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_account_seeker_profile", Storage="_seeker_profile", ThisKey="id", OtherKey="user_account_id", IsUnique=true, IsForeignKey=false)]
-		public seeker_profile seeker_profile
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_zip", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string zip
 		{
 			get
 			{
-				return this._seeker_profile.Entity;
+				return this._zip;
 			}
 			set
 			{
-				seeker_profile previousValue = this._seeker_profile.Entity;
-				if (((previousValue != value) 
-							|| (this._seeker_profile.HasLoadedOrAssignedValue == false)))
+				if ((this._zip != value))
 				{
+					this.OnzipChanging(value);
 					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._seeker_profile.Entity = null;
-						previousValue.user_account = null;
-					}
-					this._seeker_profile.Entity = value;
-					if ((value != null))
-					{
-						value.user_account = this;
-					}
-					this.SendPropertyChanged("seeker_profile");
+					this._zip = value;
+					this.SendPropertyChanged("zip");
+					this.OnzipChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_account_seeker_log", Storage="_seeker_log", ThisKey="id", OtherKey="user_account_id", IsUnique=true, IsForeignKey=false)]
-		public seeker_log seeker_log
-		{
-			get
-			{
-				return this._seeker_log.Entity;
-			}
-			set
-			{
-				seeker_log previousValue = this._seeker_log.Entity;
-				if (((previousValue != value) 
-							|| (this._seeker_log.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._seeker_log.Entity = null;
-						previousValue.user_account = null;
-					}
-					this._seeker_log.Entity = value;
-					if ((value != null))
-					{
-						value.user_account = this;
-					}
-					this.SendPropertyChanged("seeker_log");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_account_job_post_activity", Storage="_job_post_activities", ThisKey="id", OtherKey="user_account_id")]
-		public EntitySet<job_post_activity> job_post_activities
-		{
-			get
-			{
-				return this._job_post_activities;
-			}
-			set
-			{
-				this._job_post_activities.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_account_job_post", Storage="_job_posts", ThisKey="id", OtherKey="posted_by_id")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="job_location_job_post", Storage="_job_posts", ThisKey="id", OtherKey="job_location_id")]
 		public EntitySet<job_post> job_posts
 		{
 			get
@@ -527,59 +1015,84 @@ namespace JobPortal.Models
 			}
 		}
 		
-		private void attach_job_post_activities(job_post_activity entity)
-		{
-			this.SendPropertyChanging();
-			entity.user_account = this;
-		}
-		
-		private void detach_job_post_activities(job_post_activity entity)
-		{
-			this.SendPropertyChanging();
-			entity.user_account = null;
-		}
-		
 		private void attach_job_posts(job_post entity)
 		{
 			this.SendPropertyChanging();
-			entity.user_account = this;
+			entity.job_location = this;
 		}
 		
 		private void detach_job_posts(job_post entity)
 		{
 			this.SendPropertyChanging();
-			entity.user_account = null;
+			entity.job_location = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.skill_set")]
-	public partial class skill_set : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.job_post")]
+	public partial class job_post : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _id;
 		
-		private string _skill_name;
+		private int _posted_by_id;
 		
-		private EntitySet<seeker_skill> _seeker_skills;
+		private int _job_type_id;
+		
+		private int _company_id;
+		
+		private System.DateTime _created_date;
+		
+		private string _job_description;
+		
+		private int _job_location_id;
+		
+		private bool _is_active;
+		
+		private EntitySet<job_post_activity> _job_post_activities;
 		
 		private EntitySet<job_post_skill_set> _job_post_skill_sets;
 		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
+		private EntityRef<company> _company;
+		
+		private EntityRef<job_location> _job_location;
+		
+		private EntityRef<job_type> _job_type;
+		
+		private EntityRef<user_account> _user_account;
+        internal object job;
+
+        #region Extensibility Method Definitions
+        partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
     partial void OnidChanging(int value);
     partial void OnidChanged();
-    partial void Onskill_nameChanging(string value);
-    partial void Onskill_nameChanged();
+    partial void Onposted_by_idChanging(int value);
+    partial void Onposted_by_idChanged();
+    partial void Onjob_type_idChanging(int value);
+    partial void Onjob_type_idChanged();
+    partial void Oncompany_idChanging(int value);
+    partial void Oncompany_idChanged();
+    partial void Oncreated_dateChanging(System.DateTime value);
+    partial void Oncreated_dateChanged();
+    partial void Onjob_descriptionChanging(string value);
+    partial void Onjob_descriptionChanged();
+    partial void Onjob_location_idChanging(int value);
+    partial void Onjob_location_idChanged();
+    partial void Onis_activeChanging(bool value);
+    partial void Onis_activeChanged();
     #endregion
 		
-		public skill_set()
+		public job_post()
 		{
-			this._seeker_skills = new EntitySet<seeker_skill>(new Action<seeker_skill>(this.attach_seeker_skills), new Action<seeker_skill>(this.detach_seeker_skills));
+			this._job_post_activities = new EntitySet<job_post_activity>(new Action<job_post_activity>(this.attach_job_post_activities), new Action<job_post_activity>(this.detach_job_post_activities));
 			this._job_post_skill_sets = new EntitySet<job_post_skill_set>(new Action<job_post_skill_set>(this.attach_job_post_skill_sets), new Action<job_post_skill_set>(this.detach_job_post_skill_sets));
+			this._company = default(EntityRef<company>);
+			this._job_location = default(EntityRef<job_location>);
+			this._job_type = default(EntityRef<job_type>);
+			this._user_account = default(EntityRef<user_account>);
 			OnCreated();
 		}
 		
@@ -603,40 +1116,176 @@ namespace JobPortal.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string skill_name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_posted_by_id", DbType="Int NOT NULL")]
+		public int posted_by_id
 		{
 			get
 			{
-				return this._skill_name;
+				return this._posted_by_id;
 			}
 			set
 			{
-				if ((this._skill_name != value))
+				if ((this._posted_by_id != value))
 				{
-					this.Onskill_nameChanging(value);
+					if (this._user_account.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onposted_by_idChanging(value);
 					this.SendPropertyChanging();
-					this._skill_name = value;
-					this.SendPropertyChanged("skill_name");
-					this.Onskill_nameChanged();
+					this._posted_by_id = value;
+					this.SendPropertyChanged("posted_by_id");
+					this.Onposted_by_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="skill_set_seeker_skill", Storage="_seeker_skills", ThisKey="id", OtherKey="skill_set_id")]
-		public EntitySet<seeker_skill> seeker_skills
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_job_type_id", DbType="Int NOT NULL")]
+		public int job_type_id
 		{
 			get
 			{
-				return this._seeker_skills;
+				return this._job_type_id;
 			}
 			set
 			{
-				this._seeker_skills.Assign(value);
+				if ((this._job_type_id != value))
+				{
+					if (this._job_type.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onjob_type_idChanging(value);
+					this.SendPropertyChanging();
+					this._job_type_id = value;
+					this.SendPropertyChanged("job_type_id");
+					this.Onjob_type_idChanged();
+				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="skill_set_job_post_skill_set", Storage="_job_post_skill_sets", ThisKey="id", OtherKey="skill_set_id")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_company_id", DbType="Int NOT NULL")]
+		public int company_id
+		{
+			get
+			{
+				return this._company_id;
+			}
+			set
+			{
+				if ((this._company_id != value))
+				{
+					if (this._company.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Oncompany_idChanging(value);
+					this.SendPropertyChanging();
+					this._company_id = value;
+					this.SendPropertyChanged("company_id");
+					this.Oncompany_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_date", DbType="Date NOT NULL")]
+		public System.DateTime created_date
+		{
+			get
+			{
+				return this._created_date;
+			}
+			set
+			{
+				if ((this._created_date != value))
+				{
+					this.Oncreated_dateChanging(value);
+					this.SendPropertyChanging();
+					this._created_date = value;
+					this.SendPropertyChanged("created_date");
+					this.Oncreated_dateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_job_description", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string job_description
+		{
+			get
+			{
+				return this._job_description;
+			}
+			set
+			{
+				if ((this._job_description != value))
+				{
+					this.Onjob_descriptionChanging(value);
+					this.SendPropertyChanging();
+					this._job_description = value;
+					this.SendPropertyChanged("job_description");
+					this.Onjob_descriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_job_location_id", DbType="Int NOT NULL")]
+		public int job_location_id
+		{
+			get
+			{
+				return this._job_location_id;
+			}
+			set
+			{
+				if ((this._job_location_id != value))
+				{
+					if (this._job_location.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onjob_location_idChanging(value);
+					this.SendPropertyChanging();
+					this._job_location_id = value;
+					this.SendPropertyChanged("job_location_id");
+					this.Onjob_location_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_active", DbType="Bit NOT NULL")]
+		public bool is_active
+		{
+			get
+			{
+				return this._is_active;
+			}
+			set
+			{
+				if ((this._is_active != value))
+				{
+					this.Onis_activeChanging(value);
+					this.SendPropertyChanging();
+					this._is_active = value;
+					this.SendPropertyChanged("is_active");
+					this.Onis_activeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="job_post_job_post_activity", Storage="_job_post_activities", ThisKey="id", OtherKey="job_post_id")]
+		public EntitySet<job_post_activity> job_post_activities
+		{
+			get
+			{
+				return this._job_post_activities;
+			}
+			set
+			{
+				this._job_post_activities.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="job_post_job_post_skill_set", Storage="_job_post_skill_sets", ThisKey="id", OtherKey="job_post_id")]
 		public EntitySet<job_post_skill_set> job_post_skill_sets
 		{
 			get
@@ -646,6 +1295,142 @@ namespace JobPortal.Models
 			set
 			{
 				this._job_post_skill_sets.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="company_job_post", Storage="_company", ThisKey="company_id", OtherKey="id", IsForeignKey=true)]
+		public company company
+		{
+			get
+			{
+				return this._company.Entity;
+			}
+			set
+			{
+				company previousValue = this._company.Entity;
+				if (((previousValue != value) 
+							|| (this._company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._company.Entity = null;
+						previousValue.job_posts.Remove(this);
+					}
+					this._company.Entity = value;
+					if ((value != null))
+					{
+						value.job_posts.Add(this);
+						this._company_id = value.id;
+					}
+					else
+					{
+						this._company_id = default(int);
+					}
+					this.SendPropertyChanged("company");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="job_location_job_post", Storage="_job_location", ThisKey="job_location_id", OtherKey="id", IsForeignKey=true)]
+		public job_location job_location
+		{
+			get
+			{
+				return this._job_location.Entity;
+			}
+			set
+			{
+				job_location previousValue = this._job_location.Entity;
+				if (((previousValue != value) 
+							|| (this._job_location.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._job_location.Entity = null;
+						previousValue.job_posts.Remove(this);
+					}
+					this._job_location.Entity = value;
+					if ((value != null))
+					{
+						value.job_posts.Add(this);
+						this._job_location_id = value.id;
+					}
+					else
+					{
+						this._job_location_id = default(int);
+					}
+					this.SendPropertyChanged("job_location");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="job_type_job_post", Storage="_job_type", ThisKey="job_type_id", OtherKey="id", IsForeignKey=true)]
+		public job_type job_type
+		{
+			get
+			{
+				return this._job_type.Entity;
+			}
+			set
+			{
+				job_type previousValue = this._job_type.Entity;
+				if (((previousValue != value) 
+							|| (this._job_type.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._job_type.Entity = null;
+						previousValue.job_posts.Remove(this);
+					}
+					this._job_type.Entity = value;
+					if ((value != null))
+					{
+						value.job_posts.Add(this);
+						this._job_type_id = value.id;
+					}
+					else
+					{
+						this._job_type_id = default(int);
+					}
+					this.SendPropertyChanged("job_type");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_account_job_post", Storage="_user_account", ThisKey="posted_by_id", OtherKey="id", IsForeignKey=true)]
+		public user_account user_account
+		{
+			get
+			{
+				return this._user_account.Entity;
+			}
+			set
+			{
+				user_account previousValue = this._user_account.Entity;
+				if (((previousValue != value) 
+							|| (this._user_account.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._user_account.Entity = null;
+						previousValue.job_posts.Remove(this);
+					}
+					this._user_account.Entity = value;
+					if ((value != null))
+					{
+						value.job_posts.Add(this);
+						this._posted_by_id = value.id;
+					}
+					else
+					{
+						this._posted_by_id = default(int);
+					}
+					this.SendPropertyChanged("user_account");
+				}
 			}
 		}
 		
@@ -669,46 +1454,46 @@ namespace JobPortal.Models
 			}
 		}
 		
-		private void attach_seeker_skills(seeker_skill entity)
+		private void attach_job_post_activities(job_post_activity entity)
 		{
 			this.SendPropertyChanging();
-			entity.skill_set = this;
+			entity.job_post = this;
 		}
 		
-		private void detach_seeker_skills(seeker_skill entity)
+		private void detach_job_post_activities(job_post_activity entity)
 		{
 			this.SendPropertyChanging();
-			entity.skill_set = null;
+			entity.job_post = null;
 		}
 		
 		private void attach_job_post_skill_sets(job_post_skill_set entity)
 		{
 			this.SendPropertyChanging();
-			entity.skill_set = this;
+			entity.job_post = this;
 		}
 		
 		private void detach_job_post_skill_sets(job_post_skill_set entity)
 		{
 			this.SendPropertyChanging();
-			entity.skill_set = null;
+			entity.job_post = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.seeker_skill")]
-	public partial class seeker_skill : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.job_post_activity")]
+	public partial class job_post_activity : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _user_account_id;
 		
-		private int _skill_set_id;
+		private int _job_post_id;
 		
-		private int _skill_level;
+		private System.Nullable<System.DateTime> _apply_date;
 		
-		private EntityRef<skill_set> _skill_set;
+		private EntityRef<job_post> _job_post;
 		
-		private EntityRef<seeker_profile> _seeker_profile;
+		private EntityRef<user_account> _user_account;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -716,16 +1501,16 @@ namespace JobPortal.Models
     partial void OnCreated();
     partial void Onuser_account_idChanging(int value);
     partial void Onuser_account_idChanged();
-    partial void Onskill_set_idChanging(int value);
-    partial void Onskill_set_idChanged();
-    partial void Onskill_levelChanging(int value);
-    partial void Onskill_levelChanged();
+    partial void Onjob_post_idChanging(int value);
+    partial void Onjob_post_idChanged();
+    partial void Onapply_dateChanging(System.Nullable<System.DateTime> value);
+    partial void Onapply_dateChanged();
     #endregion
 		
-		public seeker_skill()
+		public job_post_activity()
 		{
-			this._skill_set = default(EntityRef<skill_set>);
-			this._seeker_profile = default(EntityRef<seeker_profile>);
+			this._job_post = default(EntityRef<job_post>);
+			this._user_account = default(EntityRef<user_account>);
 			OnCreated();
 		}
 		
@@ -740,7 +1525,7 @@ namespace JobPortal.Models
 			{
 				if ((this._user_account_id != value))
 				{
-					if (this._seeker_profile.HasLoadedOrAssignedValue)
+					if (this._user_account.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -751,6 +1536,174 @@ namespace JobPortal.Models
 					this.Onuser_account_idChanged();
 				}
 			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_job_post_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int job_post_id
+		{
+			get
+			{
+				return this._job_post_id;
+			}
+			set
+			{
+				if ((this._job_post_id != value))
+				{
+					if (this._job_post.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onjob_post_idChanging(value);
+					this.SendPropertyChanging();
+					this._job_post_id = value;
+					this.SendPropertyChanged("job_post_id");
+					this.Onjob_post_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apply_date", DbType="Date")]
+		public System.Nullable<System.DateTime> apply_date
+		{
+			get
+			{
+				return this._apply_date;
+			}
+			set
+			{
+				if ((this._apply_date != value))
+				{
+					this.Onapply_dateChanging(value);
+					this.SendPropertyChanging();
+					this._apply_date = value;
+					this.SendPropertyChanged("apply_date");
+					this.Onapply_dateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="job_post_job_post_activity", Storage="_job_post", ThisKey="job_post_id", OtherKey="id", IsForeignKey=true)]
+		public job_post job_post
+		{
+			get
+			{
+				return this._job_post.Entity;
+			}
+			set
+			{
+				job_post previousValue = this._job_post.Entity;
+				if (((previousValue != value) 
+							|| (this._job_post.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._job_post.Entity = null;
+						previousValue.job_post_activities.Remove(this);
+					}
+					this._job_post.Entity = value;
+					if ((value != null))
+					{
+						value.job_post_activities.Add(this);
+						this._job_post_id = value.id;
+					}
+					else
+					{
+						this._job_post_id = default(int);
+					}
+					this.SendPropertyChanged("job_post");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_account_job_post_activity", Storage="_user_account", ThisKey="user_account_id", OtherKey="id", IsForeignKey=true)]
+		public user_account user_account
+		{
+			get
+			{
+				return this._user_account.Entity;
+			}
+			set
+			{
+				user_account previousValue = this._user_account.Entity;
+				if (((previousValue != value) 
+							|| (this._user_account.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._user_account.Entity = null;
+						previousValue.job_post_activities.Remove(this);
+					}
+					this._user_account.Entity = value;
+					if ((value != null))
+					{
+						value.job_post_activities.Add(this);
+						this._user_account_id = value.id;
+					}
+					else
+					{
+						this._user_account_id = default(int);
+					}
+					this.SendPropertyChanged("user_account");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.job_post_skill_set")]
+	public partial class job_post_skill_set : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _skill_set_id;
+		
+		private int _job_post_id;
+		
+		private int _skill_level;
+		
+		private EntityRef<job_post> _job_post;
+		
+		private EntityRef<skill_set> _skill_set;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onskill_set_idChanging(int value);
+    partial void Onskill_set_idChanged();
+    partial void Onjob_post_idChanging(int value);
+    partial void Onjob_post_idChanged();
+    partial void Onskill_levelChanging(int value);
+    partial void Onskill_levelChanged();
+    #endregion
+		
+		public job_post_skill_set()
+		{
+			this._job_post = default(EntityRef<job_post>);
+			this._skill_set = default(EntityRef<skill_set>);
+			OnCreated();
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_set_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
@@ -777,6 +1730,30 @@ namespace JobPortal.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_job_post_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int job_post_id
+		{
+			get
+			{
+				return this._job_post_id;
+			}
+			set
+			{
+				if ((this._job_post_id != value))
+				{
+					if (this._job_post.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onjob_post_idChanging(value);
+					this.SendPropertyChanging();
+					this._job_post_id = value;
+					this.SendPropertyChanged("job_post_id");
+					this.Onjob_post_idChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_level", DbType="Int NOT NULL")]
 		public int skill_level
 		{
@@ -797,7 +1774,41 @@ namespace JobPortal.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="skill_set_seeker_skill", Storage="_skill_set", ThisKey="skill_set_id", OtherKey="id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="job_post_job_post_skill_set", Storage="_job_post", ThisKey="job_post_id", OtherKey="id", IsForeignKey=true)]
+		public job_post job_post
+		{
+			get
+			{
+				return this._job_post.Entity;
+			}
+			set
+			{
+				job_post previousValue = this._job_post.Entity;
+				if (((previousValue != value) 
+							|| (this._job_post.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._job_post.Entity = null;
+						previousValue.job_post_skill_sets.Remove(this);
+					}
+					this._job_post.Entity = value;
+					if ((value != null))
+					{
+						value.job_post_skill_sets.Add(this);
+						this._job_post_id = value.id;
+					}
+					else
+					{
+						this._job_post_id = default(int);
+					}
+					this.SendPropertyChanged("job_post");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="skill_set_job_post_skill_set", Storage="_skill_set", ThisKey="skill_set_id", OtherKey="id", IsForeignKey=true)]
 		public skill_set skill_set
 		{
 			get
@@ -814,12 +1825,12 @@ namespace JobPortal.Models
 					if ((previousValue != null))
 					{
 						this._skill_set.Entity = null;
-						previousValue.seeker_skills.Remove(this);
+						previousValue.job_post_skill_sets.Remove(this);
 					}
 					this._skill_set.Entity = value;
 					if ((value != null))
 					{
-						value.seeker_skills.Add(this);
+						value.job_post_skill_sets.Add(this);
 						this._skill_set_id = value.id;
 					}
 					else
@@ -831,40 +1842,6 @@ namespace JobPortal.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="seeker_profile_seeker_skill", Storage="_seeker_profile", ThisKey="user_account_id", OtherKey="user_account_id", IsForeignKey=true)]
-		public seeker_profile seeker_profile
-		{
-			get
-			{
-				return this._seeker_profile.Entity;
-			}
-			set
-			{
-				seeker_profile previousValue = this._seeker_profile.Entity;
-				if (((previousValue != value) 
-							|| (this._seeker_profile.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._seeker_profile.Entity = null;
-						previousValue.seeker_skills.Remove(this);
-					}
-					this._seeker_profile.Entity = value;
-					if ((value != null))
-					{
-						value.seeker_skills.Add(this);
-						this._user_account_id = value.user_account_id;
-					}
-					else
-					{
-						this._user_account_id = default(int);
-					}
-					this.SendPropertyChanged("seeker_profile");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -886,293 +1863,84 @@ namespace JobPortal.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.seeker_profile")]
-	public partial class seeker_profile : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.job_type")]
+	public partial class job_type : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _user_account_id;
+		private int _id;
 		
-		private string _first_name;
+		private string _job_type1;
 		
-		private string _last_name;
-		
-		private string _gender;
-		
-		private System.DateTime _date_of_birth;
-		
-		private EntitySet<seeker_skill> _seeker_skills;
-		
-		private EntityRef<seeker_file> _seeker_file;
-		
-		private EntityRef<seeker_experience> _seeker_experience;
-		
-		private EntityRef<seeker_education> _seeker_education;
-		
-		private EntityRef<user_account> _user_account;
+		private EntitySet<job_post> _job_posts;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void Onuser_account_idChanging(int value);
-    partial void Onuser_account_idChanged();
-    partial void Onfirst_nameChanging(string value);
-    partial void Onfirst_nameChanged();
-    partial void Onlast_nameChanging(string value);
-    partial void Onlast_nameChanged();
-    partial void OngenderChanging(string value);
-    partial void OngenderChanged();
-    partial void Ondate_of_birthChanging(System.DateTime value);
-    partial void Ondate_of_birthChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onjob_type1Changing(string value);
+    partial void Onjob_type1Changed();
     #endregion
 		
-		public seeker_profile()
+		public job_type()
 		{
-			this._seeker_skills = new EntitySet<seeker_skill>(new Action<seeker_skill>(this.attach_seeker_skills), new Action<seeker_skill>(this.detach_seeker_skills));
-			this._seeker_file = default(EntityRef<seeker_file>);
-			this._seeker_experience = default(EntityRef<seeker_experience>);
-			this._seeker_education = default(EntityRef<seeker_education>);
-			this._user_account = default(EntityRef<user_account>);
+			this._job_posts = new EntitySet<job_post>(new Action<job_post>(this.attach_job_posts), new Action<job_post>(this.detach_job_posts));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_account_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int user_account_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
 		{
 			get
 			{
-				return this._user_account_id;
+				return this._id;
 			}
 			set
 			{
-				if ((this._user_account_id != value))
+				if ((this._id != value))
 				{
-					if (this._user_account.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onuser_account_idChanging(value);
+					this.OnidChanging(value);
 					this.SendPropertyChanging();
-					this._user_account_id = value;
-					this.SendPropertyChanged("user_account_id");
-					this.Onuser_account_idChanged();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_first_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string first_name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="job_type", Storage="_job_type1", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string job_type1
 		{
 			get
 			{
-				return this._first_name;
+				return this._job_type1;
 			}
 			set
 			{
-				if ((this._first_name != value))
+				if ((this._job_type1 != value))
 				{
-					this.Onfirst_nameChanging(value);
+					this.Onjob_type1Changing(value);
 					this.SendPropertyChanging();
-					this._first_name = value;
-					this.SendPropertyChanged("first_name");
-					this.Onfirst_nameChanged();
+					this._job_type1 = value;
+					this.SendPropertyChanged("job_type1");
+					this.Onjob_type1Changed();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_last_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string last_name
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="job_type_job_post", Storage="_job_posts", ThisKey="id", OtherKey="job_type_id")]
+		public EntitySet<job_post> job_posts
 		{
 			get
 			{
-				return this._last_name;
+				return this._job_posts;
 			}
 			set
 			{
-				if ((this._last_name != value))
-				{
-					this.Onlast_nameChanging(value);
-					this.SendPropertyChanging();
-					this._last_name = value;
-					this.SendPropertyChanged("last_name");
-					this.Onlast_nameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="NChar(10) NOT NULL", CanBeNull=false)]
-		public string gender
-		{
-			get
-			{
-				return this._gender;
-			}
-			set
-			{
-				if ((this._gender != value))
-				{
-					this.OngenderChanging(value);
-					this.SendPropertyChanging();
-					this._gender = value;
-					this.SendPropertyChanged("gender");
-					this.OngenderChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date_of_birth", DbType="Date NOT NULL")]
-		public System.DateTime date_of_birth
-		{
-			get
-			{
-				return this._date_of_birth;
-			}
-			set
-			{
-				if ((this._date_of_birth != value))
-				{
-					this.Ondate_of_birthChanging(value);
-					this.SendPropertyChanging();
-					this._date_of_birth = value;
-					this.SendPropertyChanged("date_of_birth");
-					this.Ondate_of_birthChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="seeker_profile_seeker_skill", Storage="_seeker_skills", ThisKey="user_account_id", OtherKey="user_account_id")]
-		public EntitySet<seeker_skill> seeker_skills
-		{
-			get
-			{
-				return this._seeker_skills;
-			}
-			set
-			{
-				this._seeker_skills.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="seeker_profile_seeker_file", Storage="_seeker_file", ThisKey="user_account_id", OtherKey="user_account_id", IsUnique=true, IsForeignKey=false)]
-		public seeker_file seeker_file
-		{
-			get
-			{
-				return this._seeker_file.Entity;
-			}
-			set
-			{
-				seeker_file previousValue = this._seeker_file.Entity;
-				if (((previousValue != value) 
-							|| (this._seeker_file.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._seeker_file.Entity = null;
-						previousValue.seeker_profile = null;
-					}
-					this._seeker_file.Entity = value;
-					if ((value != null))
-					{
-						value.seeker_profile = this;
-					}
-					this.SendPropertyChanged("seeker_file");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="seeker_profile_seeker_experience", Storage="_seeker_experience", ThisKey="user_account_id", OtherKey="user_account_id", IsUnique=true, IsForeignKey=false)]
-		public seeker_experience seeker_experience
-		{
-			get
-			{
-				return this._seeker_experience.Entity;
-			}
-			set
-			{
-				seeker_experience previousValue = this._seeker_experience.Entity;
-				if (((previousValue != value) 
-							|| (this._seeker_experience.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._seeker_experience.Entity = null;
-						previousValue.seeker_profile = null;
-					}
-					this._seeker_experience.Entity = value;
-					if ((value != null))
-					{
-						value.seeker_profile = this;
-					}
-					this.SendPropertyChanged("seeker_experience");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="seeker_profile_seeker_education", Storage="_seeker_education", ThisKey="user_account_id", OtherKey="user_account_id", IsUnique=true, IsForeignKey=false)]
-		public seeker_education seeker_education
-		{
-			get
-			{
-				return this._seeker_education.Entity;
-			}
-			set
-			{
-				seeker_education previousValue = this._seeker_education.Entity;
-				if (((previousValue != value) 
-							|| (this._seeker_education.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._seeker_education.Entity = null;
-						previousValue.seeker_profile = null;
-					}
-					this._seeker_education.Entity = value;
-					if ((value != null))
-					{
-						value.seeker_profile = this;
-					}
-					this.SendPropertyChanged("seeker_education");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_account_seeker_profile", Storage="_user_account", ThisKey="user_account_id", OtherKey="id", IsForeignKey=true)]
-		public user_account user_account
-		{
-			get
-			{
-				return this._user_account.Entity;
-			}
-			set
-			{
-				user_account previousValue = this._user_account.Entity;
-				if (((previousValue != value) 
-							|| (this._user_account.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._user_account.Entity = null;
-						previousValue.seeker_profile = null;
-					}
-					this._user_account.Entity = value;
-					if ((value != null))
-					{
-						value.seeker_profile = this;
-						this._user_account_id = value.id;
-					}
-					else
-					{
-						this._user_account_id = default(int);
-					}
-					this.SendPropertyChanged("user_account");
-				}
+				this._job_posts.Assign(value);
 			}
 		}
 		
@@ -1196,183 +1964,38 @@ namespace JobPortal.Models
 			}
 		}
 		
-		private void attach_seeker_skills(seeker_skill entity)
+		private void attach_job_posts(job_post entity)
 		{
 			this.SendPropertyChanging();
-			entity.seeker_profile = this;
+			entity.job_type = this;
 		}
 		
-		private void detach_seeker_skills(seeker_skill entity)
+		private void detach_job_posts(job_post entity)
 		{
 			this.SendPropertyChanging();
-			entity.seeker_profile = null;
+			entity.job_type = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.seeker_log")]
-	public partial class seeker_log : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.seeker_education")]
+	public partial class seeker_education : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _user_account_id;
 		
-		private System.DateTime _last_login_date;
+		private string _certificate_degree_name;
 		
-		private System.Nullable<System.DateTime> _last_apply_date;
+		private string _major;
 		
-		private EntityRef<user_account> _user_account;
+		private string _university_institute_name;
 		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onuser_account_idChanging(int value);
-    partial void Onuser_account_idChanged();
-    partial void Onlast_login_dateChanging(System.DateTime value);
-    partial void Onlast_login_dateChanged();
-    partial void Onlast_apply_dateChanging(System.Nullable<System.DateTime> value);
-    partial void Onlast_apply_dateChanged();
-    #endregion
+		private System.DateTime _start_date;
 		
-		public seeker_log()
-		{
-			this._user_account = default(EntityRef<user_account>);
-			OnCreated();
-		}
+		private System.Nullable<System.DateTime> _end_date;
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_account_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int user_account_id
-		{
-			get
-			{
-				return this._user_account_id;
-			}
-			set
-			{
-				if ((this._user_account_id != value))
-				{
-					if (this._user_account.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onuser_account_idChanging(value);
-					this.SendPropertyChanging();
-					this._user_account_id = value;
-					this.SendPropertyChanged("user_account_id");
-					this.Onuser_account_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_last_login_date", DbType="Date NOT NULL")]
-		public System.DateTime last_login_date
-		{
-			get
-			{
-				return this._last_login_date;
-			}
-			set
-			{
-				if ((this._last_login_date != value))
-				{
-					this.Onlast_login_dateChanging(value);
-					this.SendPropertyChanging();
-					this._last_login_date = value;
-					this.SendPropertyChanged("last_login_date");
-					this.Onlast_login_dateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_last_apply_date", DbType="Date")]
-		public System.Nullable<System.DateTime> last_apply_date
-		{
-			get
-			{
-				return this._last_apply_date;
-			}
-			set
-			{
-				if ((this._last_apply_date != value))
-				{
-					this.Onlast_apply_dateChanging(value);
-					this.SendPropertyChanging();
-					this._last_apply_date = value;
-					this.SendPropertyChanged("last_apply_date");
-					this.Onlast_apply_dateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_account_seeker_log", Storage="_user_account", ThisKey="user_account_id", OtherKey="id", IsForeignKey=true)]
-		public user_account user_account
-		{
-			get
-			{
-				return this._user_account.Entity;
-			}
-			set
-			{
-				user_account previousValue = this._user_account.Entity;
-				if (((previousValue != value) 
-							|| (this._user_account.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._user_account.Entity = null;
-						previousValue.seeker_log = null;
-					}
-					this._user_account.Entity = value;
-					if ((value != null))
-					{
-						value.seeker_log = this;
-						this._user_account_id = value.id;
-					}
-					else
-					{
-						this._user_account_id = default(int);
-					}
-					this.SendPropertyChanged("user_account");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.seeker_files")]
-	public partial class seeker_file : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _user_account_id;
-		
-		private string _linkedin_address;
-		
-		private System.Nullable<int> _resume;
-		
-		private System.Data.Linq.Binary _image;
+		private string _cgpa_percentage;
 		
 		private EntityRef<seeker_profile> _seeker_profile;
 		
@@ -1382,15 +2005,21 @@ namespace JobPortal.Models
     partial void OnCreated();
     partial void Onuser_account_idChanging(int value);
     partial void Onuser_account_idChanged();
-    partial void Onlinkedin_addressChanging(string value);
-    partial void Onlinkedin_addressChanged();
-    partial void OnresumeChanging(System.Nullable<int> value);
-    partial void OnresumeChanged();
-    partial void OnimageChanging(System.Data.Linq.Binary value);
-    partial void OnimageChanged();
+    partial void Oncertificate_degree_nameChanging(string value);
+    partial void Oncertificate_degree_nameChanged();
+    partial void OnmajorChanging(string value);
+    partial void OnmajorChanged();
+    partial void Onuniversity_institute_nameChanging(string value);
+    partial void Onuniversity_institute_nameChanged();
+    partial void Onstart_dateChanging(System.DateTime value);
+    partial void Onstart_dateChanged();
+    partial void Onend_dateChanging(System.Nullable<System.DateTime> value);
+    partial void Onend_dateChanged();
+    partial void Oncgpa_percentageChanging(string value);
+    partial void Oncgpa_percentageChanged();
     #endregion
 		
-		public seeker_file()
+		public seeker_education()
 		{
 			this._seeker_profile = default(EntityRef<seeker_profile>);
 			OnCreated();
@@ -1420,67 +2049,127 @@ namespace JobPortal.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_linkedin_address", DbType="NVarChar(200)")]
-		public string linkedin_address
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_certificate_degree_name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string certificate_degree_name
 		{
 			get
 			{
-				return this._linkedin_address;
+				return this._certificate_degree_name;
 			}
 			set
 			{
-				if ((this._linkedin_address != value))
+				if ((this._certificate_degree_name != value))
 				{
-					this.Onlinkedin_addressChanging(value);
+					this.Oncertificate_degree_nameChanging(value);
 					this.SendPropertyChanging();
-					this._linkedin_address = value;
-					this.SendPropertyChanged("linkedin_address");
-					this.Onlinkedin_addressChanged();
+					this._certificate_degree_name = value;
+					this.SendPropertyChanged("certificate_degree_name");
+					this.Oncertificate_degree_nameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_resume", DbType="Int")]
-		public System.Nullable<int> resume
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_major", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string major
 		{
 			get
 			{
-				return this._resume;
+				return this._major;
 			}
 			set
 			{
-				if ((this._resume != value))
+				if ((this._major != value))
 				{
-					this.OnresumeChanging(value);
+					this.OnmajorChanging(value);
 					this.SendPropertyChanging();
-					this._resume = value;
-					this.SendPropertyChanged("resume");
-					this.OnresumeChanged();
+					this._major = value;
+					this.SendPropertyChanged("major");
+					this.OnmajorChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="Image", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary image
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_university_institute_name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string university_institute_name
 		{
 			get
 			{
-				return this._image;
+				return this._university_institute_name;
 			}
 			set
 			{
-				if ((this._image != value))
+				if ((this._university_institute_name != value))
 				{
-					this.OnimageChanging(value);
+					this.Onuniversity_institute_nameChanging(value);
 					this.SendPropertyChanging();
-					this._image = value;
-					this.SendPropertyChanged("image");
-					this.OnimageChanged();
+					this._university_institute_name = value;
+					this.SendPropertyChanged("university_institute_name");
+					this.Onuniversity_institute_nameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="seeker_profile_seeker_file", Storage="_seeker_profile", ThisKey="user_account_id", OtherKey="user_account_id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_start_date", DbType="Date NOT NULL")]
+		public System.DateTime start_date
+		{
+			get
+			{
+				return this._start_date;
+			}
+			set
+			{
+				if ((this._start_date != value))
+				{
+					this.Onstart_dateChanging(value);
+					this.SendPropertyChanging();
+					this._start_date = value;
+					this.SendPropertyChanged("start_date");
+					this.Onstart_dateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_end_date", DbType="Date")]
+		public System.Nullable<System.DateTime> end_date
+		{
+			get
+			{
+				return this._end_date;
+			}
+			set
+			{
+				if ((this._end_date != value))
+				{
+					this.Onend_dateChanging(value);
+					this.SendPropertyChanging();
+					this._end_date = value;
+					this.SendPropertyChanged("end_date");
+					this.Onend_dateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cgpa_percentage", DbType="NChar(10)")]
+		public string cgpa_percentage
+		{
+			get
+			{
+				return this._cgpa_percentage;
+			}
+			set
+			{
+				if ((this._cgpa_percentage != value))
+				{
+					this.Oncgpa_percentageChanging(value);
+					this.SendPropertyChanging();
+					this._cgpa_percentage = value;
+					this.SendPropertyChanged("cgpa_percentage");
+					this.Oncgpa_percentageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="seeker_profile_seeker_education", Storage="_seeker_profile", ThisKey="user_account_id", OtherKey="user_account_id", IsForeignKey=true)]
 		public seeker_profile seeker_profile
 		{
 			get
@@ -1497,12 +2186,12 @@ namespace JobPortal.Models
 					if ((previousValue != null))
 					{
 						this._seeker_profile.Entity = null;
-						previousValue.seeker_file = null;
+						previousValue.seeker_education = null;
 					}
 					this._seeker_profile.Entity = value;
 					if ((value != null))
 					{
-						value.seeker_file = this;
+						value.seeker_education = this;
 						this._user_account_id = value.user_account_id;
 					}
 					else
@@ -1854,25 +2543,19 @@ namespace JobPortal.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.seeker_education")]
-	public partial class seeker_education : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.seeker_files")]
+	public partial class seeker_file : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _user_account_id;
 		
-		private string _certificate_degree_name;
+		private string _linkedin_address;
 		
-		private string _major;
+		private System.Nullable<int> _resume;
 		
-		private string _university_institute_name;
-		
-		private System.DateTime _start_date;
-		
-		private System.Nullable<System.DateTime> _end_date;
-		
-		private string _cgpa_percentage;
+		private System.Data.Linq.Binary _image;
 		
 		private EntityRef<seeker_profile> _seeker_profile;
 		
@@ -1882,21 +2565,15 @@ namespace JobPortal.Models
     partial void OnCreated();
     partial void Onuser_account_idChanging(int value);
     partial void Onuser_account_idChanged();
-    partial void Oncertificate_degree_nameChanging(string value);
-    partial void Oncertificate_degree_nameChanged();
-    partial void OnmajorChanging(string value);
-    partial void OnmajorChanged();
-    partial void Onuniversity_institute_nameChanging(string value);
-    partial void Onuniversity_institute_nameChanged();
-    partial void Onstart_dateChanging(System.DateTime value);
-    partial void Onstart_dateChanged();
-    partial void Onend_dateChanging(System.Nullable<System.DateTime> value);
-    partial void Onend_dateChanged();
-    partial void Oncgpa_percentageChanging(string value);
-    partial void Oncgpa_percentageChanged();
+    partial void Onlinkedin_addressChanging(string value);
+    partial void Onlinkedin_addressChanged();
+    partial void OnresumeChanging(System.Nullable<int> value);
+    partial void OnresumeChanged();
+    partial void OnimageChanging(System.Data.Linq.Binary value);
+    partial void OnimageChanged();
     #endregion
 		
-		public seeker_education()
+		public seeker_file()
 		{
 			this._seeker_profile = default(EntityRef<seeker_profile>);
 			OnCreated();
@@ -1926,127 +2603,67 @@ namespace JobPortal.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_certificate_degree_name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string certificate_degree_name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_linkedin_address", DbType="NVarChar(200)")]
+		public string linkedin_address
 		{
 			get
 			{
-				return this._certificate_degree_name;
+				return this._linkedin_address;
 			}
 			set
 			{
-				if ((this._certificate_degree_name != value))
+				if ((this._linkedin_address != value))
 				{
-					this.Oncertificate_degree_nameChanging(value);
+					this.Onlinkedin_addressChanging(value);
 					this.SendPropertyChanging();
-					this._certificate_degree_name = value;
-					this.SendPropertyChanged("certificate_degree_name");
-					this.Oncertificate_degree_nameChanged();
+					this._linkedin_address = value;
+					this.SendPropertyChanged("linkedin_address");
+					this.Onlinkedin_addressChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_major", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string major
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_resume", DbType="Int")]
+		public System.Nullable<int> resume
 		{
 			get
 			{
-				return this._major;
+				return this._resume;
 			}
 			set
 			{
-				if ((this._major != value))
+				if ((this._resume != value))
 				{
-					this.OnmajorChanging(value);
+					this.OnresumeChanging(value);
 					this.SendPropertyChanging();
-					this._major = value;
-					this.SendPropertyChanged("major");
-					this.OnmajorChanged();
+					this._resume = value;
+					this.SendPropertyChanged("resume");
+					this.OnresumeChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_university_institute_name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string university_institute_name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary image
 		{
 			get
 			{
-				return this._university_institute_name;
+				return this._image;
 			}
 			set
 			{
-				if ((this._university_institute_name != value))
+				if ((this._image != value))
 				{
-					this.Onuniversity_institute_nameChanging(value);
+					this.OnimageChanging(value);
 					this.SendPropertyChanging();
-					this._university_institute_name = value;
-					this.SendPropertyChanged("university_institute_name");
-					this.Onuniversity_institute_nameChanged();
+					this._image = value;
+					this.SendPropertyChanged("image");
+					this.OnimageChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_start_date", DbType="Date NOT NULL")]
-		public System.DateTime start_date
-		{
-			get
-			{
-				return this._start_date;
-			}
-			set
-			{
-				if ((this._start_date != value))
-				{
-					this.Onstart_dateChanging(value);
-					this.SendPropertyChanging();
-					this._start_date = value;
-					this.SendPropertyChanged("start_date");
-					this.Onstart_dateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_end_date", DbType="Date")]
-		public System.Nullable<System.DateTime> end_date
-		{
-			get
-			{
-				return this._end_date;
-			}
-			set
-			{
-				if ((this._end_date != value))
-				{
-					this.Onend_dateChanging(value);
-					this.SendPropertyChanging();
-					this._end_date = value;
-					this.SendPropertyChanged("end_date");
-					this.Onend_dateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cgpa_percentage", DbType="NChar(10)")]
-		public string cgpa_percentage
-		{
-			get
-			{
-				return this._cgpa_percentage;
-			}
-			set
-			{
-				if ((this._cgpa_percentage != value))
-				{
-					this.Oncgpa_percentageChanging(value);
-					this.SendPropertyChanging();
-					this._cgpa_percentage = value;
-					this.SendPropertyChanged("cgpa_percentage");
-					this.Oncgpa_percentageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="seeker_profile_seeker_education", Storage="_seeker_profile", ThisKey="user_account_id", OtherKey="user_account_id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="seeker_profile_seeker_file", Storage="_seeker_profile", ThisKey="user_account_id", OtherKey="user_account_id", IsForeignKey=true)]
 		public seeker_profile seeker_profile
 		{
 			get
@@ -2063,12 +2680,12 @@ namespace JobPortal.Models
 					if ((previousValue != null))
 					{
 						this._seeker_profile.Entity = null;
-						previousValue.seeker_education = null;
+						previousValue.seeker_file = null;
 					}
 					this._seeker_profile.Entity = value;
 					if ((value != null))
 					{
-						value.seeker_education = this;
+						value.seeker_file = this;
 						this._user_account_id = value.user_account_id;
 					}
 					else
@@ -2101,327 +2718,19 @@ namespace JobPortal.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.job_type")]
-	public partial class job_type : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _job_type1;
-		
-		private EntitySet<job_post> _job_posts;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void Onjob_type1Changing(string value);
-    partial void Onjob_type1Changed();
-    #endregion
-		
-		public job_type()
-		{
-			this._job_posts = new EntitySet<job_post>(new Action<job_post>(this.attach_job_posts), new Action<job_post>(this.detach_job_posts));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="job_type", Storage="_job_type1", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string job_type1
-		{
-			get
-			{
-				return this._job_type1;
-			}
-			set
-			{
-				if ((this._job_type1 != value))
-				{
-					this.Onjob_type1Changing(value);
-					this.SendPropertyChanging();
-					this._job_type1 = value;
-					this.SendPropertyChanged("job_type1");
-					this.Onjob_type1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="job_type_job_post", Storage="_job_posts", ThisKey="id", OtherKey="job_type_id")]
-		public EntitySet<job_post> job_posts
-		{
-			get
-			{
-				return this._job_posts;
-			}
-			set
-			{
-				this._job_posts.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_job_posts(job_post entity)
-		{
-			this.SendPropertyChanging();
-			entity.job_type = this;
-		}
-		
-		private void detach_job_posts(job_post entity)
-		{
-			this.SendPropertyChanging();
-			entity.job_type = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.job_post_skill_set")]
-	public partial class job_post_skill_set : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _skill_set_id;
-		
-		private int _job_post_id;
-		
-		private int _skill_level;
-		
-		private EntityRef<skill_set> _skill_set;
-		
-		private EntityRef<job_post> _job_post;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onskill_set_idChanging(int value);
-    partial void Onskill_set_idChanged();
-    partial void Onjob_post_idChanging(int value);
-    partial void Onjob_post_idChanged();
-    partial void Onskill_levelChanging(int value);
-    partial void Onskill_levelChanged();
-    #endregion
-		
-		public job_post_skill_set()
-		{
-			this._skill_set = default(EntityRef<skill_set>);
-			this._job_post = default(EntityRef<job_post>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_set_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int skill_set_id
-		{
-			get
-			{
-				return this._skill_set_id;
-			}
-			set
-			{
-				if ((this._skill_set_id != value))
-				{
-					if (this._skill_set.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onskill_set_idChanging(value);
-					this.SendPropertyChanging();
-					this._skill_set_id = value;
-					this.SendPropertyChanged("skill_set_id");
-					this.Onskill_set_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_job_post_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int job_post_id
-		{
-			get
-			{
-				return this._job_post_id;
-			}
-			set
-			{
-				if ((this._job_post_id != value))
-				{
-					if (this._job_post.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onjob_post_idChanging(value);
-					this.SendPropertyChanging();
-					this._job_post_id = value;
-					this.SendPropertyChanged("job_post_id");
-					this.Onjob_post_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_level", DbType="Int NOT NULL")]
-		public int skill_level
-		{
-			get
-			{
-				return this._skill_level;
-			}
-			set
-			{
-				if ((this._skill_level != value))
-				{
-					this.Onskill_levelChanging(value);
-					this.SendPropertyChanging();
-					this._skill_level = value;
-					this.SendPropertyChanged("skill_level");
-					this.Onskill_levelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="skill_set_job_post_skill_set", Storage="_skill_set", ThisKey="skill_set_id", OtherKey="id", IsForeignKey=true)]
-		public skill_set skill_set
-		{
-			get
-			{
-				return this._skill_set.Entity;
-			}
-			set
-			{
-				skill_set previousValue = this._skill_set.Entity;
-				if (((previousValue != value) 
-							|| (this._skill_set.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._skill_set.Entity = null;
-						previousValue.job_post_skill_sets.Remove(this);
-					}
-					this._skill_set.Entity = value;
-					if ((value != null))
-					{
-						value.job_post_skill_sets.Add(this);
-						this._skill_set_id = value.id;
-					}
-					else
-					{
-						this._skill_set_id = default(int);
-					}
-					this.SendPropertyChanged("skill_set");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="job_post_job_post_skill_set", Storage="_job_post", ThisKey="job_post_id", OtherKey="id", IsForeignKey=true)]
-		public job_post job_post
-		{
-			get
-			{
-				return this._job_post.Entity;
-			}
-			set
-			{
-				job_post previousValue = this._job_post.Entity;
-				if (((previousValue != value) 
-							|| (this._job_post.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._job_post.Entity = null;
-						previousValue.job_post_skill_sets.Remove(this);
-					}
-					this._job_post.Entity = value;
-					if ((value != null))
-					{
-						value.job_post_skill_sets.Add(this);
-						this._job_post_id = value.id;
-					}
-					else
-					{
-						this._job_post_id = default(int);
-					}
-					this.SendPropertyChanged("job_post");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.job_post_activity")]
-	public partial class job_post_activity : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.seeker_log")]
+	public partial class seeker_log : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _user_account_id;
 		
-		private int _job_post_id;
+		private System.DateTime _last_login_date;
 		
-		private System.Nullable<System.DateTime> _apply_date;
+		private System.Nullable<System.DateTime> _last_apply_date;
 		
 		private EntityRef<user_account> _user_account;
-		
-		private EntityRef<job_post> _job_post;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2429,16 +2738,15 @@ namespace JobPortal.Models
     partial void OnCreated();
     partial void Onuser_account_idChanging(int value);
     partial void Onuser_account_idChanged();
-    partial void Onjob_post_idChanging(int value);
-    partial void Onjob_post_idChanged();
-    partial void Onapply_dateChanging(System.Nullable<System.DateTime> value);
-    partial void Onapply_dateChanged();
+    partial void Onlast_login_dateChanging(System.DateTime value);
+    partial void Onlast_login_dateChanged();
+    partial void Onlast_apply_dateChanging(System.Nullable<System.DateTime> value);
+    partial void Onlast_apply_dateChanged();
     #endregion
 		
-		public job_post_activity()
+		public seeker_log()
 		{
 			this._user_account = default(EntityRef<user_account>);
-			this._job_post = default(EntityRef<job_post>);
 			OnCreated();
 		}
 		
@@ -2466,51 +2774,47 @@ namespace JobPortal.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_job_post_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int job_post_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_last_login_date", DbType="Date NOT NULL")]
+		public System.DateTime last_login_date
 		{
 			get
 			{
-				return this._job_post_id;
+				return this._last_login_date;
 			}
 			set
 			{
-				if ((this._job_post_id != value))
+				if ((this._last_login_date != value))
 				{
-					if (this._job_post.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onjob_post_idChanging(value);
+					this.Onlast_login_dateChanging(value);
 					this.SendPropertyChanging();
-					this._job_post_id = value;
-					this.SendPropertyChanged("job_post_id");
-					this.Onjob_post_idChanged();
+					this._last_login_date = value;
+					this.SendPropertyChanged("last_login_date");
+					this.Onlast_login_dateChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apply_date", DbType="Date")]
-		public System.Nullable<System.DateTime> apply_date
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_last_apply_date", DbType="Date")]
+		public System.Nullable<System.DateTime> last_apply_date
 		{
 			get
 			{
-				return this._apply_date;
+				return this._last_apply_date;
 			}
 			set
 			{
-				if ((this._apply_date != value))
+				if ((this._last_apply_date != value))
 				{
-					this.Onapply_dateChanging(value);
+					this.Onlast_apply_dateChanging(value);
 					this.SendPropertyChanging();
-					this._apply_date = value;
-					this.SendPropertyChanged("apply_date");
-					this.Onapply_dateChanged();
+					this._last_apply_date = value;
+					this.SendPropertyChanged("last_apply_date");
+					this.Onlast_apply_dateChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_account_job_post_activity", Storage="_user_account", ThisKey="user_account_id", OtherKey="id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_account_seeker_log", Storage="_user_account", ThisKey="user_account_id", OtherKey="id", IsForeignKey=true)]
 		public user_account user_account
 		{
 			get
@@ -2527,12 +2831,12 @@ namespace JobPortal.Models
 					if ((previousValue != null))
 					{
 						this._user_account.Entity = null;
-						previousValue.job_post_activities.Remove(this);
+						previousValue.seeker_log = null;
 					}
 					this._user_account.Entity = value;
 					if ((value != null))
 					{
-						value.job_post_activities.Add(this);
+						value.seeker_log = this;
 						this._user_account_id = value.id;
 					}
 					else
@@ -2544,40 +2848,6 @@ namespace JobPortal.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="job_post_job_post_activity", Storage="_job_post", ThisKey="job_post_id", OtherKey="id", IsForeignKey=true)]
-		public job_post job_post
-		{
-			get
-			{
-				return this._job_post.Entity;
-			}
-			set
-			{
-				job_post previousValue = this._job_post.Entity;
-				if (((previousValue != value) 
-							|| (this._job_post.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._job_post.Entity = null;
-						previousValue.job_post_activities.Remove(this);
-					}
-					this._job_post.Entity = value;
-					if ((value != null))
-					{
-						value.job_post_activities.Add(this);
-						this._job_post_id = value.id;
-					}
-					else
-					{
-						this._job_post_id = default(int);
-					}
-					this.SendPropertyChanged("job_post");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2599,460 +2869,593 @@ namespace JobPortal.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.job_location")]
-	public partial class job_location : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.seeker_profile")]
+	public partial class seeker_profile : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _id;
+		private int _user_account_id;
 		
-		private string _street_address;
+		private string _first_name;
 		
-		private string _city;
+		private string _last_name;
 		
-		private string _state;
+		private string _gender;
 		
-		private string _country;
+		private System.DateTime _date_of_birth;
 		
-		private string _zip;
+		private EntityRef<seeker_education> _seeker_education;
 		
-		private EntitySet<job_post> _job_posts;
+		private EntityRef<seeker_experience> _seeker_experience;
 		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void Onstreet_addressChanging(string value);
-    partial void Onstreet_addressChanged();
-    partial void OncityChanging(string value);
-    partial void OncityChanged();
-    partial void OnstateChanging(string value);
-    partial void OnstateChanged();
-    partial void OncountryChanging(string value);
-    partial void OncountryChanged();
-    partial void OnzipChanging(string value);
-    partial void OnzipChanged();
-    #endregion
+		private EntityRef<seeker_file> _seeker_file;
 		
-		public job_location()
-		{
-			this._job_posts = new EntitySet<job_post>(new Action<job_post>(this.attach_job_posts), new Action<job_post>(this.detach_job_posts));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_street_address", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string street_address
-		{
-			get
-			{
-				return this._street_address;
-			}
-			set
-			{
-				if ((this._street_address != value))
-				{
-					this.Onstreet_addressChanging(value);
-					this.SendPropertyChanging();
-					this._street_address = value;
-					this.SendPropertyChanged("street_address");
-					this.Onstreet_addressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_city", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string city
-		{
-			get
-			{
-				return this._city;
-			}
-			set
-			{
-				if ((this._city != value))
-				{
-					this.OncityChanging(value);
-					this.SendPropertyChanging();
-					this._city = value;
-					this.SendPropertyChanged("city");
-					this.OncityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string state
-		{
-			get
-			{
-				return this._state;
-			}
-			set
-			{
-				if ((this._state != value))
-				{
-					this.OnstateChanging(value);
-					this.SendPropertyChanging();
-					this._state = value;
-					this.SendPropertyChanged("state");
-					this.OnstateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_country", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string country
-		{
-			get
-			{
-				return this._country;
-			}
-			set
-			{
-				if ((this._country != value))
-				{
-					this.OncountryChanging(value);
-					this.SendPropertyChanging();
-					this._country = value;
-					this.SendPropertyChanged("country");
-					this.OncountryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_zip", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string zip
-		{
-			get
-			{
-				return this._zip;
-			}
-			set
-			{
-				if ((this._zip != value))
-				{
-					this.OnzipChanging(value);
-					this.SendPropertyChanging();
-					this._zip = value;
-					this.SendPropertyChanged("zip");
-					this.OnzipChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="job_location_job_post", Storage="_job_posts", ThisKey="id", OtherKey="job_location_id")]
-		public EntitySet<job_post> job_posts
-		{
-			get
-			{
-				return this._job_posts;
-			}
-			set
-			{
-				this._job_posts.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_job_posts(job_post entity)
-		{
-			this.SendPropertyChanging();
-			entity.job_location = this;
-		}
-		
-		private void detach_job_posts(job_post entity)
-		{
-			this.SendPropertyChanging();
-			entity.job_location = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.job_post")]
-	public partial class job_post : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private int _posted_by_id;
-		
-		private int _job_type_id;
-		
-		private int _company_id;
-		
-		private System.DateTime _created_date;
-		
-		private string _job_description;
-		
-		private int _job_location_id;
-		
-		private char _is_active;
-		
-		private EntitySet<job_post_skill_set> _job_post_skill_sets;
-		
-		private EntitySet<job_post_activity> _job_post_activities;
-		
-		private EntityRef<job_location> _job_location;
-		
-		private EntityRef<job_type> _job_type;
+		private EntitySet<seeker_skill> _seeker_skills;
 		
 		private EntityRef<user_account> _user_account;
 		
-		private EntityRef<company> _company;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void Onposted_by_idChanging(int value);
-    partial void Onposted_by_idChanged();
-    partial void Onjob_type_idChanging(int value);
-    partial void Onjob_type_idChanged();
-    partial void Oncompany_idChanging(int value);
-    partial void Oncompany_idChanged();
-    partial void Oncreated_dateChanging(System.DateTime value);
-    partial void Oncreated_dateChanged();
-    partial void Onjob_descriptionChanging(string value);
-    partial void Onjob_descriptionChanged();
-    partial void Onjob_location_idChanging(int value);
-    partial void Onjob_location_idChanged();
-    partial void Onis_activeChanging(char value);
-    partial void Onis_activeChanged();
+    partial void Onuser_account_idChanging(int value);
+    partial void Onuser_account_idChanged();
+    partial void Onfirst_nameChanging(string value);
+    partial void Onfirst_nameChanged();
+    partial void Onlast_nameChanging(string value);
+    partial void Onlast_nameChanged();
+    partial void OngenderChanging(string value);
+    partial void OngenderChanged();
+    partial void Ondate_of_birthChanging(System.DateTime value);
+    partial void Ondate_of_birthChanged();
     #endregion
 		
-		public job_post()
+		public seeker_profile()
 		{
-			this._job_post_skill_sets = new EntitySet<job_post_skill_set>(new Action<job_post_skill_set>(this.attach_job_post_skill_sets), new Action<job_post_skill_set>(this.detach_job_post_skill_sets));
-			this._job_post_activities = new EntitySet<job_post_activity>(new Action<job_post_activity>(this.attach_job_post_activities), new Action<job_post_activity>(this.detach_job_post_activities));
-			this._job_location = default(EntityRef<job_location>);
-			this._job_type = default(EntityRef<job_type>);
+			this._seeker_education = default(EntityRef<seeker_education>);
+			this._seeker_experience = default(EntityRef<seeker_experience>);
+			this._seeker_file = default(EntityRef<seeker_file>);
+			this._seeker_skills = new EntitySet<seeker_skill>(new Action<seeker_skill>(this.attach_seeker_skills), new Action<seeker_skill>(this.detach_seeker_skills));
 			this._user_account = default(EntityRef<user_account>);
-			this._company = default(EntityRef<company>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_account_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int user_account_id
 		{
 			get
 			{
-				return this._id;
+				return this._user_account_id;
 			}
 			set
 			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_posted_by_id", DbType="Int NOT NULL")]
-		public int posted_by_id
-		{
-			get
-			{
-				return this._posted_by_id;
-			}
-			set
-			{
-				if ((this._posted_by_id != value))
+				if ((this._user_account_id != value))
 				{
 					if (this._user_account.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.Onposted_by_idChanging(value);
+					this.Onuser_account_idChanging(value);
 					this.SendPropertyChanging();
-					this._posted_by_id = value;
-					this.SendPropertyChanged("posted_by_id");
-					this.Onposted_by_idChanged();
+					this._user_account_id = value;
+					this.SendPropertyChanged("user_account_id");
+					this.Onuser_account_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_job_type_id", DbType="Int NOT NULL")]
-		public int job_type_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_first_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string first_name
 		{
 			get
 			{
-				return this._job_type_id;
+				return this._first_name;
 			}
 			set
 			{
-				if ((this._job_type_id != value))
+				if ((this._first_name != value))
 				{
-					if (this._job_type.HasLoadedOrAssignedValue)
+					this.Onfirst_nameChanging(value);
+					this.SendPropertyChanging();
+					this._first_name = value;
+					this.SendPropertyChanged("first_name");
+					this.Onfirst_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_last_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string last_name
+		{
+			get
+			{
+				return this._last_name;
+			}
+			set
+			{
+				if ((this._last_name != value))
+				{
+					this.Onlast_nameChanging(value);
+					this.SendPropertyChanging();
+					this._last_name = value;
+					this.SendPropertyChanged("last_name");
+					this.Onlast_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string gender
+		{
+			get
+			{
+				return this._gender;
+			}
+			set
+			{
+				if ((this._gender != value))
+				{
+					this.OngenderChanging(value);
+					this.SendPropertyChanging();
+					this._gender = value;
+					this.SendPropertyChanged("gender");
+					this.OngenderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date_of_birth", DbType="Date NOT NULL")]
+		public System.DateTime date_of_birth
+		{
+			get
+			{
+				return this._date_of_birth;
+			}
+			set
+			{
+				if ((this._date_of_birth != value))
+				{
+					this.Ondate_of_birthChanging(value);
+					this.SendPropertyChanging();
+					this._date_of_birth = value;
+					this.SendPropertyChanged("date_of_birth");
+					this.Ondate_of_birthChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="seeker_profile_seeker_education", Storage="_seeker_education", ThisKey="user_account_id", OtherKey="user_account_id", IsUnique=true, IsForeignKey=false)]
+		public seeker_education seeker_education
+		{
+			get
+			{
+				return this._seeker_education.Entity;
+			}
+			set
+			{
+				seeker_education previousValue = this._seeker_education.Entity;
+				if (((previousValue != value) 
+							|| (this._seeker_education.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._seeker_education.Entity = null;
+						previousValue.seeker_profile = null;
+					}
+					this._seeker_education.Entity = value;
+					if ((value != null))
+					{
+						value.seeker_profile = this;
+					}
+					this.SendPropertyChanged("seeker_education");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="seeker_profile_seeker_experience", Storage="_seeker_experience", ThisKey="user_account_id", OtherKey="user_account_id", IsUnique=true, IsForeignKey=false)]
+		public seeker_experience seeker_experience
+		{
+			get
+			{
+				return this._seeker_experience.Entity;
+			}
+			set
+			{
+				seeker_experience previousValue = this._seeker_experience.Entity;
+				if (((previousValue != value) 
+							|| (this._seeker_experience.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._seeker_experience.Entity = null;
+						previousValue.seeker_profile = null;
+					}
+					this._seeker_experience.Entity = value;
+					if ((value != null))
+					{
+						value.seeker_profile = this;
+					}
+					this.SendPropertyChanged("seeker_experience");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="seeker_profile_seeker_file", Storage="_seeker_file", ThisKey="user_account_id", OtherKey="user_account_id", IsUnique=true, IsForeignKey=false)]
+		public seeker_file seeker_file
+		{
+			get
+			{
+				return this._seeker_file.Entity;
+			}
+			set
+			{
+				seeker_file previousValue = this._seeker_file.Entity;
+				if (((previousValue != value) 
+							|| (this._seeker_file.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._seeker_file.Entity = null;
+						previousValue.seeker_profile = null;
+					}
+					this._seeker_file.Entity = value;
+					if ((value != null))
+					{
+						value.seeker_profile = this;
+					}
+					this.SendPropertyChanged("seeker_file");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="seeker_profile_seeker_skill", Storage="_seeker_skills", ThisKey="user_account_id", OtherKey="user_account_id")]
+		public EntitySet<seeker_skill> seeker_skills
+		{
+			get
+			{
+				return this._seeker_skills;
+			}
+			set
+			{
+				this._seeker_skills.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_account_seeker_profile", Storage="_user_account", ThisKey="user_account_id", OtherKey="id", IsForeignKey=true)]
+		public user_account user_account
+		{
+			get
+			{
+				return this._user_account.Entity;
+			}
+			set
+			{
+				user_account previousValue = this._user_account.Entity;
+				if (((previousValue != value) 
+							|| (this._user_account.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._user_account.Entity = null;
+						previousValue.seeker_profile = null;
+					}
+					this._user_account.Entity = value;
+					if ((value != null))
+					{
+						value.seeker_profile = this;
+						this._user_account_id = value.id;
+					}
+					else
+					{
+						this._user_account_id = default(int);
+					}
+					this.SendPropertyChanged("user_account");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_seeker_skills(seeker_skill entity)
+		{
+			this.SendPropertyChanging();
+			entity.seeker_profile = this;
+		}
+		
+		private void detach_seeker_skills(seeker_skill entity)
+		{
+			this.SendPropertyChanging();
+			entity.seeker_profile = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.seeker_skill")]
+	public partial class seeker_skill : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _user_account_id;
+		
+		private int _skill_set_id;
+		
+		private int _skill_level;
+		
+		private EntityRef<seeker_profile> _seeker_profile;
+		
+		private EntityRef<skill_set> _skill_set;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onuser_account_idChanging(int value);
+    partial void Onuser_account_idChanged();
+    partial void Onskill_set_idChanging(int value);
+    partial void Onskill_set_idChanged();
+    partial void Onskill_levelChanging(int value);
+    partial void Onskill_levelChanged();
+    #endregion
+		
+		public seeker_skill()
+		{
+			this._seeker_profile = default(EntityRef<seeker_profile>);
+			this._skill_set = default(EntityRef<skill_set>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_account_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int user_account_id
+		{
+			get
+			{
+				return this._user_account_id;
+			}
+			set
+			{
+				if ((this._user_account_id != value))
+				{
+					if (this._seeker_profile.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.Onjob_type_idChanging(value);
+					this.Onuser_account_idChanging(value);
 					this.SendPropertyChanging();
-					this._job_type_id = value;
-					this.SendPropertyChanged("job_type_id");
-					this.Onjob_type_idChanged();
+					this._user_account_id = value;
+					this.SendPropertyChanged("user_account_id");
+					this.Onuser_account_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_company_id", DbType="Int NOT NULL")]
-		public int company_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_set_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int skill_set_id
 		{
 			get
 			{
-				return this._company_id;
+				return this._skill_set_id;
 			}
 			set
 			{
-				if ((this._company_id != value))
+				if ((this._skill_set_id != value))
 				{
-					if (this._company.HasLoadedOrAssignedValue)
+					if (this._skill_set.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.Oncompany_idChanging(value);
+					this.Onskill_set_idChanging(value);
 					this.SendPropertyChanging();
-					this._company_id = value;
-					this.SendPropertyChanged("company_id");
-					this.Oncompany_idChanged();
+					this._skill_set_id = value;
+					this.SendPropertyChanged("skill_set_id");
+					this.Onskill_set_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_date", DbType="Date NOT NULL")]
-		public System.DateTime created_date
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_level", DbType="Int NOT NULL")]
+		public int skill_level
 		{
 			get
 			{
-				return this._created_date;
+				return this._skill_level;
 			}
 			set
 			{
-				if ((this._created_date != value))
+				if ((this._skill_level != value))
 				{
-					this.Oncreated_dateChanging(value);
+					this.Onskill_levelChanging(value);
 					this.SendPropertyChanging();
-					this._created_date = value;
-					this.SendPropertyChanged("created_date");
-					this.Oncreated_dateChanged();
+					this._skill_level = value;
+					this.SendPropertyChanged("skill_level");
+					this.Onskill_levelChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_job_description", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string job_description
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="seeker_profile_seeker_skill", Storage="_seeker_profile", ThisKey="user_account_id", OtherKey="user_account_id", IsForeignKey=true)]
+		public seeker_profile seeker_profile
 		{
 			get
 			{
-				return this._job_description;
+				return this._seeker_profile.Entity;
 			}
 			set
 			{
-				if ((this._job_description != value))
+				seeker_profile previousValue = this._seeker_profile.Entity;
+				if (((previousValue != value) 
+							|| (this._seeker_profile.HasLoadedOrAssignedValue == false)))
 				{
-					this.Onjob_descriptionChanging(value);
 					this.SendPropertyChanging();
-					this._job_description = value;
-					this.SendPropertyChanged("job_description");
-					this.Onjob_descriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_job_location_id", DbType="Int NOT NULL")]
-		public int job_location_id
-		{
-			get
-			{
-				return this._job_location_id;
-			}
-			set
-			{
-				if ((this._job_location_id != value))
-				{
-					if (this._job_location.HasLoadedOrAssignedValue)
+					if ((previousValue != null))
 					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+						this._seeker_profile.Entity = null;
+						previousValue.seeker_skills.Remove(this);
 					}
-					this.Onjob_location_idChanging(value);
-					this.SendPropertyChanging();
-					this._job_location_id = value;
-					this.SendPropertyChanged("job_location_id");
-					this.Onjob_location_idChanged();
+					this._seeker_profile.Entity = value;
+					if ((value != null))
+					{
+						value.seeker_skills.Add(this);
+						this._user_account_id = value.user_account_id;
+					}
+					else
+					{
+						this._user_account_id = default(int);
+					}
+					this.SendPropertyChanged("seeker_profile");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_active", DbType="Char(1) NOT NULL")]
-		public char is_active
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="skill_set_seeker_skill", Storage="_skill_set", ThisKey="skill_set_id", OtherKey="id", IsForeignKey=true)]
+		public skill_set skill_set
 		{
 			get
 			{
-				return this._is_active;
+				return this._skill_set.Entity;
 			}
 			set
 			{
-				if ((this._is_active != value))
+				skill_set previousValue = this._skill_set.Entity;
+				if (((previousValue != value) 
+							|| (this._skill_set.HasLoadedOrAssignedValue == false)))
 				{
-					this.Onis_activeChanging(value);
 					this.SendPropertyChanging();
-					this._is_active = value;
-					this.SendPropertyChanged("is_active");
-					this.Onis_activeChanged();
+					if ((previousValue != null))
+					{
+						this._skill_set.Entity = null;
+						previousValue.seeker_skills.Remove(this);
+					}
+					this._skill_set.Entity = value;
+					if ((value != null))
+					{
+						value.seeker_skills.Add(this);
+						this._skill_set_id = value.id;
+					}
+					else
+					{
+						this._skill_set_id = default(int);
+					}
+					this.SendPropertyChanged("skill_set");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="job_post_job_post_skill_set", Storage="_job_post_skill_sets", ThisKey="id", OtherKey="job_post_id")]
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.skill_set")]
+	public partial class skill_set : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _skill_name;
+		
+		private EntitySet<job_post_skill_set> _job_post_skill_sets;
+		
+		private EntitySet<seeker_skill> _seeker_skills;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onskill_nameChanging(string value);
+    partial void Onskill_nameChanged();
+    #endregion
+		
+		public skill_set()
+		{
+			this._job_post_skill_sets = new EntitySet<job_post_skill_set>(new Action<job_post_skill_set>(this.attach_job_post_skill_sets), new Action<job_post_skill_set>(this.detach_job_post_skill_sets));
+			this._seeker_skills = new EntitySet<seeker_skill>(new Action<seeker_skill>(this.attach_seeker_skills), new Action<seeker_skill>(this.detach_seeker_skills));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string skill_name
+		{
+			get
+			{
+				return this._skill_name;
+			}
+			set
+			{
+				if ((this._skill_name != value))
+				{
+					this.Onskill_nameChanging(value);
+					this.SendPropertyChanging();
+					this._skill_name = value;
+					this.SendPropertyChanged("skill_name");
+					this.Onskill_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="skill_set_job_post_skill_set", Storage="_job_post_skill_sets", ThisKey="id", OtherKey="skill_set_id")]
 		public EntitySet<job_post_skill_set> job_post_skill_sets
 		{
 			get
@@ -3065,152 +3468,16 @@ namespace JobPortal.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="job_post_job_post_activity", Storage="_job_post_activities", ThisKey="id", OtherKey="job_post_id")]
-		public EntitySet<job_post_activity> job_post_activities
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="skill_set_seeker_skill", Storage="_seeker_skills", ThisKey="id", OtherKey="skill_set_id")]
+		public EntitySet<seeker_skill> seeker_skills
 		{
 			get
 			{
-				return this._job_post_activities;
+				return this._seeker_skills;
 			}
 			set
 			{
-				this._job_post_activities.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="job_location_job_post", Storage="_job_location", ThisKey="job_location_id", OtherKey="id", IsForeignKey=true)]
-		public job_location job_location
-		{
-			get
-			{
-				return this._job_location.Entity;
-			}
-			set
-			{
-				job_location previousValue = this._job_location.Entity;
-				if (((previousValue != value) 
-							|| (this._job_location.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._job_location.Entity = null;
-						previousValue.job_posts.Remove(this);
-					}
-					this._job_location.Entity = value;
-					if ((value != null))
-					{
-						value.job_posts.Add(this);
-						this._job_location_id = value.id;
-					}
-					else
-					{
-						this._job_location_id = default(int);
-					}
-					this.SendPropertyChanged("job_location");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="job_type_job_post", Storage="_job_type", ThisKey="job_type_id", OtherKey="id", IsForeignKey=true)]
-		public job_type job_type
-		{
-			get
-			{
-				return this._job_type.Entity;
-			}
-			set
-			{
-				job_type previousValue = this._job_type.Entity;
-				if (((previousValue != value) 
-							|| (this._job_type.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._job_type.Entity = null;
-						previousValue.job_posts.Remove(this);
-					}
-					this._job_type.Entity = value;
-					if ((value != null))
-					{
-						value.job_posts.Add(this);
-						this._job_type_id = value.id;
-					}
-					else
-					{
-						this._job_type_id = default(int);
-					}
-					this.SendPropertyChanged("job_type");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_account_job_post", Storage="_user_account", ThisKey="posted_by_id", OtherKey="id", IsForeignKey=true)]
-		public user_account user_account
-		{
-			get
-			{
-				return this._user_account.Entity;
-			}
-			set
-			{
-				user_account previousValue = this._user_account.Entity;
-				if (((previousValue != value) 
-							|| (this._user_account.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._user_account.Entity = null;
-						previousValue.job_posts.Remove(this);
-					}
-					this._user_account.Entity = value;
-					if ((value != null))
-					{
-						value.job_posts.Add(this);
-						this._posted_by_id = value.id;
-					}
-					else
-					{
-						this._posted_by_id = default(int);
-					}
-					this.SendPropertyChanged("user_account");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="company_job_post", Storage="_company", ThisKey="company_id", OtherKey="id", IsForeignKey=true)]
-		public company company
-		{
-			get
-			{
-				return this._company.Entity;
-			}
-			set
-			{
-				company previousValue = this._company.Entity;
-				if (((previousValue != value) 
-							|| (this._company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._company.Entity = null;
-						previousValue.job_posts.Remove(this);
-					}
-					this._company.Entity = value;
-					if ((value != null))
-					{
-						value.job_posts.Add(this);
-						this._company_id = value.id;
-					}
-					else
-					{
-						this._company_id = default(int);
-					}
-					this.SendPropertyChanged("company");
-				}
+				this._seeker_skills.Assign(value);
 			}
 		}
 		
@@ -3237,202 +3504,51 @@ namespace JobPortal.Models
 		private void attach_job_post_skill_sets(job_post_skill_set entity)
 		{
 			this.SendPropertyChanging();
-			entity.job_post = this;
+			entity.skill_set = this;
 		}
 		
 		private void detach_job_post_skill_sets(job_post_skill_set entity)
 		{
 			this.SendPropertyChanging();
-			entity.job_post = null;
+			entity.skill_set = null;
 		}
 		
-		private void attach_job_post_activities(job_post_activity entity)
+		private void attach_seeker_skills(seeker_skill entity)
 		{
 			this.SendPropertyChanging();
-			entity.job_post = this;
+			entity.skill_set = this;
 		}
 		
-		private void detach_job_post_activities(job_post_activity entity)
+		private void detach_seeker_skills(seeker_skill entity)
 		{
 			this.SendPropertyChanging();
-			entity.job_post = null;
+			entity.skill_set = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.company_image")]
-	public partial class company_image : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.user_account")]
+	public partial class user_account : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _id;
 		
-		private int _company_id;
+		private string _email_id;
 		
-		private string _company_image1;
+		private string _password;
 		
-		private EntityRef<company> _company;
+		private string _phone_number;
 		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void Oncompany_idChanging(int value);
-    partial void Oncompany_idChanged();
-    partial void Oncompany_image1Changing(string value);
-    partial void Oncompany_image1Changed();
-    #endregion
-		
-		public company_image()
-		{
-			this._company = default(EntityRef<company>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_company_id", DbType="Int NOT NULL")]
-		public int company_id
-		{
-			get
-			{
-				return this._company_id;
-			}
-			set
-			{
-				if ((this._company_id != value))
-				{
-					if (this._company.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Oncompany_idChanging(value);
-					this.SendPropertyChanging();
-					this._company_id = value;
-					this.SendPropertyChanged("company_id");
-					this.Oncompany_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="company_image", Storage="_company_image1", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string company_image1
-		{
-			get
-			{
-				return this._company_image1;
-			}
-			set
-			{
-				if ((this._company_image1 != value))
-				{
-					this.Oncompany_image1Changing(value);
-					this.SendPropertyChanging();
-					this._company_image1 = value;
-					this.SendPropertyChanged("company_image1");
-					this.Oncompany_image1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="company_company_image", Storage="_company", ThisKey="company_id", OtherKey="id", IsForeignKey=true)]
-		public company company
-		{
-			get
-			{
-				return this._company.Entity;
-			}
-			set
-			{
-				company previousValue = this._company.Entity;
-				if (((previousValue != value) 
-							|| (this._company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._company.Entity = null;
-						previousValue.company_images.Remove(this);
-					}
-					this._company.Entity = value;
-					if ((value != null))
-					{
-						value.company_images.Add(this);
-						this._company_id = value.id;
-					}
-					else
-					{
-						this._company_id = default(int);
-					}
-					this.SendPropertyChanged("company");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.company")]
-	public partial class company : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _company_name;
-		
-		private string _profile_description;
-		
-		private int _business_stream_id;
-		
-		private System.DateTime _establishment_date;
-		
-		private string _company_website_url;
+		private string _user_type;
 		
 		private EntitySet<job_post> _job_posts;
 		
-		private EntitySet<company_image> _company_images;
+		private EntitySet<job_post_activity> _job_post_activities;
 		
-		private EntityRef<business_stream> _business_stream;
+		private EntityRef<seeker_log> _seeker_log;
+		
+		private EntityRef<seeker_profile> _seeker_profile;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3440,23 +3556,22 @@ namespace JobPortal.Models
     partial void OnCreated();
     partial void OnidChanging(int value);
     partial void OnidChanged();
-    partial void Oncompany_nameChanging(string value);
-    partial void Oncompany_nameChanged();
-    partial void Onprofile_descriptionChanging(string value);
-    partial void Onprofile_descriptionChanged();
-    partial void Onbusiness_stream_idChanging(int value);
-    partial void Onbusiness_stream_idChanged();
-    partial void Onestablishment_dateChanging(System.DateTime value);
-    partial void Onestablishment_dateChanged();
-    partial void Oncompany_website_urlChanging(string value);
-    partial void Oncompany_website_urlChanged();
+    partial void Onemail_idChanging(string value);
+    partial void Onemail_idChanged();
+    partial void OnpasswordChanging(string value);
+    partial void OnpasswordChanged();
+    partial void Onphone_numberChanging(string value);
+    partial void Onphone_numberChanged();
+    partial void Onuser_typeChanging(string value);
+    partial void Onuser_typeChanged();
     #endregion
 		
-		public company()
+		public user_account()
 		{
 			this._job_posts = new EntitySet<job_post>(new Action<job_post>(this.attach_job_posts), new Action<job_post>(this.detach_job_posts));
-			this._company_images = new EntitySet<company_image>(new Action<company_image>(this.attach_company_images), new Action<company_image>(this.detach_company_images));
-			this._business_stream = default(EntityRef<business_stream>);
+			this._job_post_activities = new EntitySet<job_post_activity>(new Action<job_post_activity>(this.attach_job_post_activities), new Action<job_post_activity>(this.detach_job_post_activities));
+			this._seeker_log = default(EntityRef<seeker_log>);
+			this._seeker_profile = default(EntityRef<seeker_profile>);
 			OnCreated();
 		}
 		
@@ -3480,111 +3595,87 @@ namespace JobPortal.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_company_name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string company_name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email_id", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		public string email_id
 		{
 			get
 			{
-				return this._company_name;
+				return this._email_id;
 			}
 			set
 			{
-				if ((this._company_name != value))
+				if ((this._email_id != value))
 				{
-					this.Oncompany_nameChanging(value);
+					this.Onemail_idChanging(value);
 					this.SendPropertyChanging();
-					this._company_name = value;
-					this.SendPropertyChanged("company_name");
-					this.Oncompany_nameChanged();
+					this._email_id = value;
+					this.SendPropertyChanged("email_id");
+					this.Onemail_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_profile_description", DbType="VarChar(1000) NOT NULL", CanBeNull=false)]
-		public string profile_description
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string password
 		{
 			get
 			{
-				return this._profile_description;
+				return this._password;
 			}
 			set
 			{
-				if ((this._profile_description != value))
+				if ((this._password != value))
 				{
-					this.Onprofile_descriptionChanging(value);
+					this.OnpasswordChanging(value);
 					this.SendPropertyChanging();
-					this._profile_description = value;
-					this.SendPropertyChanged("profile_description");
-					this.Onprofile_descriptionChanged();
+					this._password = value;
+					this.SendPropertyChanged("password");
+					this.OnpasswordChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_business_stream_id", DbType="Int NOT NULL")]
-		public int business_stream_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone_number", DbType="NVarChar(15)")]
+		public string phone_number
 		{
 			get
 			{
-				return this._business_stream_id;
+				return this._phone_number;
 			}
 			set
 			{
-				if ((this._business_stream_id != value))
+				if ((this._phone_number != value))
 				{
-					if (this._business_stream.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onbusiness_stream_idChanging(value);
+					this.Onphone_numberChanging(value);
 					this.SendPropertyChanging();
-					this._business_stream_id = value;
-					this.SendPropertyChanged("business_stream_id");
-					this.Onbusiness_stream_idChanged();
+					this._phone_number = value;
+					this.SendPropertyChanged("phone_number");
+					this.Onphone_numberChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_establishment_date", DbType="Date NOT NULL")]
-		public System.DateTime establishment_date
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_type", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string user_type
 		{
 			get
 			{
-				return this._establishment_date;
+				return this._user_type;
 			}
 			set
 			{
-				if ((this._establishment_date != value))
+				if ((this._user_type != value))
 				{
-					this.Onestablishment_dateChanging(value);
+					this.Onuser_typeChanging(value);
 					this.SendPropertyChanging();
-					this._establishment_date = value;
-					this.SendPropertyChanged("establishment_date");
-					this.Onestablishment_dateChanged();
+					this._user_type = value;
+					this.SendPropertyChanged("user_type");
+					this.Onuser_typeChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_company_website_url", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string company_website_url
-		{
-			get
-			{
-				return this._company_website_url;
-			}
-			set
-			{
-				if ((this._company_website_url != value))
-				{
-					this.Oncompany_website_urlChanging(value);
-					this.SendPropertyChanging();
-					this._company_website_url = value;
-					this.SendPropertyChanged("company_website_url");
-					this.Oncompany_website_urlChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="company_job_post", Storage="_job_posts", ThisKey="id", OtherKey="company_id")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_account_job_post", Storage="_job_posts", ThisKey="id", OtherKey="posted_by_id")]
 		public EntitySet<job_post> job_posts
 		{
 			get
@@ -3597,49 +3688,73 @@ namespace JobPortal.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="company_company_image", Storage="_company_images", ThisKey="id", OtherKey="company_id")]
-		public EntitySet<company_image> company_images
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_account_job_post_activity", Storage="_job_post_activities", ThisKey="id", OtherKey="user_account_id")]
+		public EntitySet<job_post_activity> job_post_activities
 		{
 			get
 			{
-				return this._company_images;
+				return this._job_post_activities;
 			}
 			set
 			{
-				this._company_images.Assign(value);
+				this._job_post_activities.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="business_stream_company", Storage="_business_stream", ThisKey="business_stream_id", OtherKey="id", IsForeignKey=true)]
-		public business_stream business_stream
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_account_seeker_log", Storage="_seeker_log", ThisKey="id", OtherKey="user_account_id", IsUnique=true, IsForeignKey=false)]
+		public seeker_log seeker_log
 		{
 			get
 			{
-				return this._business_stream.Entity;
+				return this._seeker_log.Entity;
 			}
 			set
 			{
-				business_stream previousValue = this._business_stream.Entity;
+				seeker_log previousValue = this._seeker_log.Entity;
 				if (((previousValue != value) 
-							|| (this._business_stream.HasLoadedOrAssignedValue == false)))
+							|| (this._seeker_log.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._business_stream.Entity = null;
-						previousValue.companies.Remove(this);
+						this._seeker_log.Entity = null;
+						previousValue.user_account = null;
 					}
-					this._business_stream.Entity = value;
+					this._seeker_log.Entity = value;
 					if ((value != null))
 					{
-						value.companies.Add(this);
-						this._business_stream_id = value.id;
+						value.user_account = this;
 					}
-					else
+					this.SendPropertyChanged("seeker_log");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_account_seeker_profile", Storage="_seeker_profile", ThisKey="id", OtherKey="user_account_id", IsUnique=true, IsForeignKey=false)]
+		public seeker_profile seeker_profile
+		{
+			get
+			{
+				return this._seeker_profile.Entity;
+			}
+			set
+			{
+				seeker_profile previousValue = this._seeker_profile.Entity;
+				if (((previousValue != value) 
+							|| (this._seeker_profile.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
 					{
-						this._business_stream_id = default(int);
+						this._seeker_profile.Entity = null;
+						previousValue.user_account = null;
 					}
-					this.SendPropertyChanged("business_stream");
+					this._seeker_profile.Entity = value;
+					if ((value != null))
+					{
+						value.user_account = this;
+					}
+					this.SendPropertyChanged("seeker_profile");
 				}
 			}
 		}
@@ -3667,333 +3782,49 @@ namespace JobPortal.Models
 		private void attach_job_posts(job_post entity)
 		{
 			this.SendPropertyChanging();
-			entity.company = this;
+			entity.user_account = this;
 		}
 		
 		private void detach_job_posts(job_post entity)
 		{
 			this.SendPropertyChanging();
-			entity.company = null;
+			entity.user_account = null;
 		}
 		
-		private void attach_company_images(company_image entity)
+		private void attach_job_post_activities(job_post_activity entity)
 		{
 			this.SendPropertyChanging();
-			entity.company = this;
+			entity.user_account = this;
 		}
 		
-		private void detach_company_images(company_image entity)
+		private void detach_job_post_activities(job_post_activity entity)
 		{
 			this.SendPropertyChanging();
-			entity.company = null;
+			entity.user_account = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.business_stream")]
-	public partial class business_stream : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class add_seeker_skillResult
 	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		private System.Nullable<int> _Column1;
 		
-		private int _id;
-		
-		private string _business_stream_name;
-		
-		private EntitySet<company> _companies;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void Onbusiness_stream_nameChanging(string value);
-    partial void Onbusiness_stream_nameChanged();
-    #endregion
-		
-		public business_stream()
+		public add_seeker_skillResult()
 		{
-			this._companies = new EntitySet<company>(new Action<company>(this.attach_companies), new Action<company>(this.detach_companies));
-			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="Int")]
+		public System.Nullable<int> Column1
 		{
 			get
 			{
-				return this._id;
+				return this._Column1;
 			}
 			set
 			{
-				if ((this._id != value))
+				if ((this._Column1 != value))
 				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_business_stream_name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string business_stream_name
-		{
-			get
-			{
-				return this._business_stream_name;
-			}
-			set
-			{
-				if ((this._business_stream_name != value))
-				{
-					this.Onbusiness_stream_nameChanging(value);
-					this.SendPropertyChanging();
-					this._business_stream_name = value;
-					this.SendPropertyChanged("business_stream_name");
-					this.Onbusiness_stream_nameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="business_stream_company", Storage="_companies", ThisKey="id", OtherKey="business_stream_id")]
-		public EntitySet<company> companies
-		{
-			get
-			{
-				return this._companies;
-			}
-			set
-			{
-				this._companies.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_companies(company entity)
-		{
-			this.SendPropertyChanging();
-			entity.business_stream = this;
-		}
-		
-		private void detach_companies(company entity)
-		{
-			this.SendPropertyChanging();
-			entity.business_stream = null;
-		}
-	}
-	
-	public partial class search_for_jobsResult
-	{
-		
-		private string _job_description;
-		
-		private string _company_name;
-		
-		private string _city;
-		
-		private string _state;
-		
-		private int _skill_level;
-		
-		private string _skill_name;
-		
-		private string _job_type;
-		
-		private int _id;
-		
-		public search_for_jobsResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_job_description", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string job_description
-		{
-			get
-			{
-				return this._job_description;
-			}
-			set
-			{
-				if ((this._job_description != value))
-				{
-					this._job_description = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_company_name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string company_name
-		{
-			get
-			{
-				return this._company_name;
-			}
-			set
-			{
-				if ((this._company_name != value))
-				{
-					this._company_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_city", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string city
-		{
-			get
-			{
-				return this._city;
-			}
-			set
-			{
-				if ((this._city != value))
-				{
-					this._city = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string state
-		{
-			get
-			{
-				return this._state;
-			}
-			set
-			{
-				if ((this._state != value))
-				{
-					this._state = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_level", DbType="Int NOT NULL")]
-		public int skill_level
-		{
-			get
-			{
-				return this._skill_level;
-			}
-			set
-			{
-				if ((this._skill_level != value))
-				{
-					this._skill_level = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string skill_name
-		{
-			get
-			{
-				return this._skill_name;
-			}
-			set
-			{
-				if ((this._skill_name != value))
-				{
-					this._skill_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_job_type", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string job_type
-		{
-			get
-			{
-				return this._job_type;
-			}
-			set
-			{
-				if ((this._job_type != value))
-				{
-					this._job_type = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL")]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this._id = value;
-				}
-			}
-		}
-	}
-	
-	public partial class get_seeker_skillsResult
-	{
-		
-		private string _skill_name;
-		
-		private int _skill_level;
-		
-		public get_seeker_skillsResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string skill_name
-		{
-			get
-			{
-				return this._skill_name;
-			}
-			set
-			{
-				if ((this._skill_name != value))
-				{
-					this._skill_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_level", DbType="Int NOT NULL")]
-		public int skill_level
-		{
-			get
-			{
-				return this._skill_level;
-			}
-			set
-			{
-				if ((this._skill_level != value))
-				{
-					this._skill_level = value;
+					this._Column1 = value;
 				}
 			}
 		}
@@ -4169,27 +4000,197 @@ namespace JobPortal.Models
 		}
 	}
 	
-	public partial class add_seeker_skillResult
+	public partial class get_seeker_skillsResult
 	{
 		
-		private System.Nullable<int> _Column1;
+		private string _skill_name;
 		
-		public add_seeker_skillResult()
+		private int _skill_level;
+		
+		public get_seeker_skillsResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="Int")]
-		public System.Nullable<int> Column1
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string skill_name
 		{
 			get
 			{
-				return this._Column1;
+				return this._skill_name;
 			}
 			set
 			{
-				if ((this._Column1 != value))
+				if ((this._skill_name != value))
 				{
-					this._Column1 = value;
+					this._skill_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_level", DbType="Int NOT NULL")]
+		public int skill_level
+		{
+			get
+			{
+				return this._skill_level;
+			}
+			set
+			{
+				if ((this._skill_level != value))
+				{
+					this._skill_level = value;
+				}
+			}
+		}
+	}
+	
+	public partial class search_for_jobsResult
+	{
+		
+		private string _job_description;
+		
+		private string _company_name;
+		
+		private string _city;
+		
+		private string _state;
+		
+		private int _skill_level;
+		
+		private string _skill_name;
+		
+		private string _job_type;
+		
+		private int _id;
+		
+		public search_for_jobsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_job_description", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string job_description
+		{
+			get
+			{
+				return this._job_description;
+			}
+			set
+			{
+				if ((this._job_description != value))
+				{
+					this._job_description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_company_name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string company_name
+		{
+			get
+			{
+				return this._company_name;
+			}
+			set
+			{
+				if ((this._company_name != value))
+				{
+					this._company_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_city", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string city
+		{
+			get
+			{
+				return this._city;
+			}
+			set
+			{
+				if ((this._city != value))
+				{
+					this._city = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string state
+		{
+			get
+			{
+				return this._state;
+			}
+			set
+			{
+				if ((this._state != value))
+				{
+					this._state = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_level", DbType="Int NOT NULL")]
+		public int skill_level
+		{
+			get
+			{
+				return this._skill_level;
+			}
+			set
+			{
+				if ((this._skill_level != value))
+				{
+					this._skill_level = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string skill_name
+		{
+			get
+			{
+				return this._skill_name;
+			}
+			set
+			{
+				if ((this._skill_name != value))
+				{
+					this._skill_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_job_type", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string job_type
+		{
+			get
+			{
+				return this._job_type;
+			}
+			set
+			{
+				if ((this._job_type != value))
+				{
+					this._job_type = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL")]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this._id = value;
 				}
 			}
 		}

@@ -124,6 +124,7 @@ namespace JobPortal.Controllers
                 //jobPost.posted_by_id = jobpostobj.posted_by_id;
                 jobPost.posted_by_id = (int)Session["UserId"];
                 jobPost.job_type_id = jobpostobj.job_type_id;
+                jobPost.job = jobpostobj.job;
                 jobPost.company_id = jobpostobj.company_id;
                 jobPost.created_date = jobpostobj.created_date;
                 jobPost.job_description = jobpostobj.job_description;
@@ -196,15 +197,22 @@ namespace JobPortal.Controllers
 
         public ActionResult LocationModel(LocationModel locationobj)
         {
-            var joblocation = new job_location();
-            joblocation.street_address = locationobj.street_address;
-            joblocation.city = locationobj.city;
-            joblocation.state = locationobj.state;
-            joblocation.country = locationobj.country;
-            joblocation.zip = locationobj.zip;
-            _context.job_locations.InsertOnSubmit(joblocation);
-            _context.SubmitChanges();
-            return RedirectToAction("CompanyModel", "Employer");
+            if (ModelState.IsValid)
+            {
+                var joblocation = new job_location();
+                joblocation.street_address = locationobj.street_address;
+                joblocation.city = locationobj.city;
+                joblocation.state = locationobj.state;
+                joblocation.country = locationobj.country;
+                joblocation.zip = locationobj.zip;
+                _context.job_locations.InsertOnSubmit(joblocation);
+                _context.SubmitChanges();
+                return RedirectToAction("CompanyModel", "Employer");
+            }
+            else
+            {
+                return View();
+            }
 
 
         }

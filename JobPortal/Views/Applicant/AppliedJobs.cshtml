@@ -35,15 +35,30 @@
     @*<h3>Applied Jobs</h3>*@
     @if (Model.Count() > 0)
     {
-    <div class="col-md-7 mt-4">
-        <div class="card">
-            <div class="card-header pb-0 px-3">
-                <h6 class="mb-0">JOBS</h6>
-            </div>
-            <div class="card-body pt-4 p-3">
-                <ul class="list-group">
-                    @foreach (var item in Model)
-                    {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="col-md-7 mt-4">
+            <div class="card">
+                <div class="card-header pb-0 px-3">
+                    <h6 class="mb-0">JOBS</h6>
+                </div>
+                <div class="card-body pt-4 p-3">
+                    <ul class="list-group">
+                        @foreach (var item in Model)
+                        {
 
                         <li class="list-inline mx-auto justify-content-center
 ">
@@ -57,8 +72,17 @@
                                 <span class="mb-2 text-xs">@Html.DisplayNameFor(model => model.job_type): <span class="text-dark font-weight-bold ms-sm-2">@Html.DisplayFor(model => item.job_type)</span></span>
                                 <span class="mb-2 text-xs">@Html.DisplayNameFor(model => model.apply_date): <span class="text-dark font-weight-bold ms-sm-2">@Html.DisplayFor(model => item.apply_date)</span></span>
                             </div>
+
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                                delete
+                            </button>
+
+
+
+
+
                             <div class="ms-auto text-end">
-                                @*<a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">delete</i> @Html.ActionLink("Delete", "Delete", new { })</a>*@
+                                <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">delete</i> @Html.ActionLink("Delete", "Delete", new { })</a>
 
                                 @using (Html.BeginForm("DeleteAppliedJob", "Applicant", FormMethod.Post))
                                 {
@@ -67,15 +91,19 @@
                                 }
                             </div>
                         </li>
-                    }
-                </ul>
+                        }
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
     }
     else
     {
-    <div><h4>No Jobs found</h4></div>}
+        <div><h4>No Applied Jobs found</h4></div>
+        <div>
+            @Html.ActionLink("Apply for Jobs here", "index", "Applicant", null, new { @class = "custom-link-color" })
+        </div>
+    }
 
 </center>
 <hr>
@@ -86,7 +114,3 @@
 <script src="~/Admin Template/assets/js/plugins/perfect-scrollbar.min.js"></script>
 <script src="~/Admin Template/assets/js/plugins/smooth-scrollbar.min.js"></script>
 <script src="~/Admin Template/assets/js/plugins/chartjs.min.js"></script>
-
-
-
-

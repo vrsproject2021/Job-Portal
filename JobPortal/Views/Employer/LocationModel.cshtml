@@ -1,6 +1,7 @@
 ﻿@model JobPortal.Models.LocationModel
 @{
     ViewBag.Title = "LocationModel";
+    Layout = "~/Views/Shared/_EmployerLayout.cshtml";
 }
 
 <center>
@@ -10,18 +11,19 @@
         @using (Html.BeginForm("LocationModel", "Employer", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
+        }
 
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
+    <!--<div class="form-group">-->
         @*@Html.Label("Country: ")*@
-        @Html.LabelFor(model => model.street_address, htmlAttributes: new { @class = "control-label" })
+        <!--@Html.LabelFor(model => model.street_address, htmlAttributes: new { @class = "control-label" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.street_address, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.street_address, "", new { @class = "text-danger" })
         </div>
-    </div>
+    </div>-->
 
 
         @*<div class="form-group">*@
@@ -34,10 +36,11 @@
         </div>*@
         @*</div>*@
         @*</div>*@
+        <div>
         <div class="form-group">
             <div class="row">
-                @*<label class="control-label col-md-4">Country:</label>*@
-                <div class="col-md-8">
+                <label class="control-label col-md-4">Country:</label>
+                <div class="col-md-6">
 
                     @Html.DropDownListFor(model => model.country, new List<SelectListItem>
                     {
@@ -49,19 +52,7 @@
                     new SelectListItem() {Text = "France", Value="France"},
                     }, new { @class = "form-control" })
 
-        <div class="col-md-5">
-            @Html.DropDownListFor(model => model.city, new List<SelectListItem>
-            {
-            new SelectListItem() {Text = "selec", Value="Alappuzha"},
-            new SelectListItem() {Text = "Alappuzha", Value="Alappuzha"},
-            new SelectListItem() {Text = "Idukki", Value="Idukki"},
-            new SelectListItem() {Text = "Kochi", Value="Kochi"},
-            new SelectListItem() {Text = "Trivandram", Value="Trivandram"},
-            new SelectListItem() {Text = "kottayam", Value="kottayam"},
-            }, new { @class = "form-control" })
-
-
-                    @Html.ValidationMessageFor(model => model.country, "", new { @class = "text-danger" })
+        
                 </div>
             </div>
         </div>
@@ -72,7 +63,7 @@
 
         <div class="form-group">
             <div class="row">
-                @*<label class="control-label col-md-4">State:</label>*@
+                <label class="control-label col-md-4">State:</label>
                 <div class="col-md-6">
                     @Html.DropDownListFor(model => model.state, new List<SelectListItem>
                     {
@@ -111,10 +102,10 @@
         </div>*@
         <div class="form-group">
             <div class="row">
-                @*<label class="control-label col-md-4">City:</label>*@
+                <label class="control-label col-md-4">City:</label>
 
 
-                <div class="col-md-5">
+                <div class="col-md-6">
                     @Html.DropDownListFor(model => model.city, new List<SelectListItem>
                     {
                     new SelectListItem() {Text = "Select City", Value="Select City"},
@@ -152,7 +143,7 @@
             <input type="submit" value="Add" class="btn btn-default" />
         </div>
     </div>
-        }
+        
 
         <div>
             @Html.ActionLink("Back to LocationModel", "LocationModel")
