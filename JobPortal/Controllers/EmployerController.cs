@@ -114,6 +114,23 @@ namespace JobPortal.Controllers
         {
             if (Session["UserId"] != null)
             {
+                var skills = _context.skill_sets.ToList();
+
+
+
+                List<SelectListItem> skillItem = new List<SelectListItem>();
+
+
+
+                foreach (var item in skills)
+                {
+                    skillItem.Add(new SelectListItem() { Text = item.skill_name, Value = item.id.ToString() });
+                }
+
+
+
+                ViewBag.skills = skillItem;
+
                 var jobtypes = _context.job_types.ToList();
 
                 List<SelectListItem> ObjItem = new List<SelectListItem>();
@@ -160,8 +177,10 @@ namespace JobPortal.Controllers
         {
             jobpostobj.created_date = DateTime.Now;
             jobpostobj.is_active = true;
+            var userid = (int)Session["UserId"];
             if (ModelState.IsValid)
             {
+
                 var jobPost = new job_post();
                 //jobPost.posted_by_id = jobpostobj.posted_by_id;
                 jobPost.posted_by_id = (int)Session["UserId"];
@@ -176,7 +195,9 @@ namespace JobPortal.Controllers
                 jobPost.min_salary = jobpostobj.min_salary;
                 jobPost.max_salary = jobpostobj.max_salary;
                 jobPost.is_active = jobpostobj.is_active;
-                _context.job_posts.InsertOnSubmit(jobPost);
+                //_context.job_posts.InsertOnSubmit(jobPost);
+                _context.add_job_post(userid, jobpostobj.job_type_id, jobpostobj.company_id, jobpostobj.created_date, jobpostobj.end_date, jobpostobj.job_description,
+                jobpostobj.job_location_id, jobpostobj.is_active, jobpostobj.min_salary, jobpostobj.max_salary, jobpostobj.skill_id, 0);
                 _context.SubmitChanges();
                 return RedirectToAction("LocationModel", "Employer");
 

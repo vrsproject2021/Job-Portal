@@ -21,9 +21,12 @@ namespace JobPortal.Models
         [Required(ErrorMessage = "Enter Your Job type")]
         [Display(Name = "Jobtype")]
 
-        public string Job { get; set; }
+        
         public int job_type_id { get; set; }
 
+        [Required(ErrorMessage = "Enter Your skill")]
+        [Display(Name = "Skill")]
+        public int skill_id { get; set; }
         //public string Job { get; set; }
 
         [Required(ErrorMessage = "Enter Your Company")]
@@ -47,8 +50,7 @@ namespace JobPortal.Models
         [MinLength(1)]
         [MaxLength(500, ErrorMessage = "Exceeds character limits")]
         public string job_description { get; set; }
-        [MinLength(1)]
-        [MaxLength(500,ErrorMessage ="Exceeds character limits")]
+        
         [Required(ErrorMessage = "Enter Your Job location id")]
         [Display(Name = "Joblocation")]
         public int job_location_id { get; set; }

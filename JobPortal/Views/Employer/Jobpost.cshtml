@@ -90,18 +90,16 @@
 
 
                             <div class="col-md-7">
-                                @Html.DropDownListFor(model => model.Job, new List<SelectListItem>
-                                {
-                                new SelectListItem() {Text = "Select Job ", Value="Select Job Type"},
-                                new SelectListItem() {Text = "flutter", Value="1"},
-                                new SelectListItem() {Text = "python developer", Value="2"},
-                                new SelectListItem() {Text = "dot net", Value="3"},
-                                new SelectListItem() {Text = "data engineer", Value="4"},
-                                }, new { @class = "form-control" })
+                                @Html.DropDownListFor(model => model.skill_id,
+                                 @ViewBag.skills as List<SelectListItem>)
 
 
 
-                                @Html.ValidationMessageFor(model => model.Job, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.skill_id, "", new { @class = "text-danger" })
+
+
+
+                               
                             </div>
                         </div>
 
