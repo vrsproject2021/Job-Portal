@@ -43,6 +43,9 @@ namespace JobPortal.Models
 
         [Required(ErrorMessage = "Enter Your Job description")]
         [Display(Name = "Job Description")]
+
+        [MinLength(1)]
+        [MaxLength(500, ErrorMessage = "Exceeds character limits")]
         public string job_description { get; set; }
         [MinLength(1)]
         [MaxLength(500,ErrorMessage ="Exceeds character limits")]

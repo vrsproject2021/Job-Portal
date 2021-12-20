@@ -27,7 +27,7 @@
                 <img src="~/Index Template/assets/img/hero/h1_hero.jpg" />*@
         <div class="container">
             <center>
-                <div class="col-xl-8">
+                <div class="col-xl-8 search" >
                     <!-- form -->
                     @using (Html.BeginForm("Index", "Applicant", FormMethod.Post, new { @class = "search-box" }))
                     {
@@ -44,9 +44,9 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="search-form">
+                        
                             <input type="submit" value="Find job" class="btn " />
-                        </div>
+                        
                     }
                 </div>
             </center>

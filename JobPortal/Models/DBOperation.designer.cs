@@ -272,6 +272,13 @@ namespace JobPortal.Models
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), skill_searched, location_searched);
 			return ((ISingleResult<search_for_jobsResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.add_job_post")]
+		public int add_job_post([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> posted_by_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> job_type_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> company_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> created_date, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> end_date, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] string job_description, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> job_loaction_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> is_active, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> min_salary, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> max_salary, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> skill_set_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> skill_level)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), posted_by_id, job_type_id, company_id, created_date, end_date, job_description, job_loaction_id, is_active, min_salary, max_salary, skill_set_id, skill_level);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.business_stream")]
