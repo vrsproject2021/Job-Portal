@@ -10,7 +10,7 @@ namespace JobPortal.Models
     {
         internal string company_name;
         internal string job;
-        internal object job;
+        //internal object job;
 
         public int id { get; set; }
 
@@ -24,7 +24,7 @@ namespace JobPortal.Models
         public string Job { get; set; }
         public int job_type_id { get; set; }
 
-        public string Job { get; set; }
+        //public string Job { get; set; }
 
         [Required(ErrorMessage = "Enter Your Company")]
         [Display(Name = "Company")]
@@ -44,7 +44,8 @@ namespace JobPortal.Models
         [Required(ErrorMessage = "Enter Your Job description")]
         [Display(Name = "Job Description")]
         public string job_description { get; set; }
-
+        [MinLength(1)]
+        [MaxLength(500,ErrorMessage ="Exceeds character limits")]
         [Required(ErrorMessage = "Enter Your Job location id")]
         [Display(Name = "Joblocation")]
         public int job_location_id { get; set; }
@@ -54,11 +55,6 @@ namespace JobPortal.Models
         
         [Display(Name = "Maximum Salary")]
         public int max_salary { get; set; }
-
-
-public Boolean is_active { get; set; }
-
-
 
         [Display(Name = "Is active")]
         public Boolean is_active { get; set; }

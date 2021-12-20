@@ -29,32 +29,34 @@ namespace JobPortal.Controllers
         {
             return View();
         }
-        //public string encrypt(string clearText)
-        //{
-        //    string EncryptionKey = "MAKV2SPBNI99212";
-        //    byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
-        //    using (Aes encryptor = Aes.Create())
-        //    {
-        //        Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
-        //        encryptor.Key = pdb.GetBytes(32);
-        //        encryptor.IV = pdb.GetBytes(16);
-        //        using (MemoryStream ms = new MemoryStream())
-        //        {
-        //            using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
-        //            {
-        //                cs.Write(clearBytes, 0, clearBytes.Length);
-        //                cs.Close();
-        //            }
-        //            clearText = Convert.ToBase64String(ms.ToArray());
-        //        }
-        //    }
-        //    return clearText;
-        //}
+        public string encrypt(string clearText)
+        {
+            string EncryptionKey = "MAKV2SPBNI99212";
+            byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
+                    }
+                    clearText = Convert.ToBase64String(ms.ToArray());
+                }
+            }
+            return clearText;
+        }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(string email_id, string password)
         {
-            //password = encrypt(password);
+            password = encrypt(password);
             if (ModelState.IsValid)
             {
                 var loginDetails = _context.user_accounts.Where(u => u.email_id == email_id && u.password == password && u.user_type == "jobprovider").FirstOrDefault();
@@ -132,6 +134,16 @@ namespace JobPortal.Controllers
                     Objcompany.Add(new SelectListItem() { Text = item.company_name, Value = item.id.ToString() });
                 }
                 ViewBag.company = Objcompany;
+                int userid = (int)Session["UserId"];
+                var locationname = _context.job_locations.Where(c=>c.user_account_id==userid).ToList();
+
+                List<SelectListItem> Objlocation = new List<SelectListItem>();
+
+                foreach (var item in locationname)
+                {
+                    Objlocation.Add(new SelectListItem() { Text = item.city, Value = item.id.ToString() });
+                }
+                ViewBag.location = Objlocation;
                 return View();
             }
             else
@@ -155,7 +167,7 @@ namespace JobPortal.Controllers
                 jobPost.posted_by_id = (int)Session["UserId"];
                 jobPost.job_type_id = jobpostobj.job_type_id;
                 //jobPost.job = jobpostobj.job;
-                jobPost.job = jobpostobj.job;
+                //jobPost.job = jobpostobj.job;
                 jobPost.company_id = jobpostobj.company_id;
                 jobPost.created_date = jobpostobj.created_date;
                 jobPost.end_date = jobpostobj.end_date;
@@ -242,6 +254,7 @@ namespace JobPortal.Controllers
             joblocation.state = locationobj.state;
             joblocation.country = locationobj.country;
             joblocation.zip = locationobj.zip;
+            joblocation.user_account_id = (int)Session["UserId"];
             _context.job_locations.InsertOnSubmit(joblocation);
             _context.SubmitChanges();
             return RedirectToAction("CompanyModel", "Employer");
