@@ -19,24 +19,15 @@ namespace JobPortal.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-
-
             ViewBag.TotalUsers = _context.user_accounts.Count();
-
-
             return View();
-
         }
-
 
         public ActionResult Users()
         {
             var userdetails = from x in _context.user_accounts select x ;
             return View(userdetails);
-
         }
-
-
 
         // GET: Admin/Details/5
         public ActionResult Details(int id)
@@ -46,38 +37,12 @@ namespace JobPortal.Controllers
         }
 
 
-
-
         public ActionResult alluserDetails(int id)
         {
-            var getalluserdetails = _context.seeker_profiles.Single(x => x.user_account_id == id);
+            var getalluserdetails = _context.seeker_profiles.SingleOrDefault(x => x.user_account_id == id);
             return View(getalluserdetails);
         }
 
-
-        // GET: Admin/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        //// POST: Admin/Create
-        //[HttpPost]
-        //public ActionResult Create(user_account collection)
-        //{
-        //    try
-        //    {
-        //        // TODO: Add insert logic here
-        //        dc.user_accounts.InsertOnSubmit(collection);
-        //        dc.SubmitChanges();
-        //        return RedirectToAction("Index");
-
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
 
         // GET: Admin/Edit/5
         public ActionResult Edit(int id)
@@ -123,113 +88,54 @@ namespace JobPortal.Controllers
             try
             {
                 // TODO: Add delete logic here
-                var userdel = _context.user_accounts.Single(x => x.id == id);
-                var edudel = _context.seeker_profiles.Single(x => x.user_account_id == id);
-
-                _context.user_accounts.DeleteOnSubmit(userdel);
-                _context.seeker_profiles.DeleteOnSubmit(edudel);
-                _context.SubmitChanges();
+                var expdel = _context.seeker_experiences.Single(x => x.user_account_id == id);
+            var edudel = _context.seeker_educations.Single(x => x.user_account_id == id);
+            var profdel = _context.seeker_profiles.Single(x => x.user_account_id == id);
+            var userdel = _context.user_accounts.Single(x => x.id == id);       
+                
+            _context.seeker_experiences.DeleteOnSubmit(expdel);
+            _context.seeker_educations.DeleteOnSubmit(edudel);
+            _context.seeker_profiles.DeleteOnSubmit(profdel);
+            _context.user_accounts.DeleteOnSubmit(userdel);
+                
+                 _context.SubmitChanges();
                 return RedirectToAction("Index");
             }
             catch
             {
                 return View();
             }
-         }
-
+        }
 
 
         public ActionResult Candidatetable()
         {
             var candidatetable = from x in _context.seeker_profiles select x;
-            return View(candidatetable);
-
-            
+            return View(candidatetable);            
         }
 
 
         public ActionResult CandidateDetails(int id)
         {
-
             var getcandidatedetails = _context.seeker_educations.Single(x => x.user_account_id== id);
             return View(getcandidatedetails);
-
-
         }
 
 
         public ActionResult ExperienceDetails(int id)
         {
-
             var getexperiencedetails = _context.seeker_experiences.Single(x => x.user_account_id == id);
             return View(getexperiencedetails);
-
-
         }
-
-
-        //public ActionResult EducationDelete(int id)
-        //{
-
-        //    var getuserdetails = _context.seeker_profiles.Single(x => x.user_account_id == id);
-        //    return View(getuserdetails);
-        //}
-
-
-        //// POST: Admin/Delete/5
-        //[HttpPost]
-        //public ActionResult EducationDelete(int id, user_account collection)
-        //{
-        //    try
-        //    {
-        //        // TODO: Add delete logic here
-        //        var edudel = _context.seeker_profiles.Single(x => x.user_account_id == id);
-        //        _context.seeker_profiles.DeleteOnSubmit(edudel);
-        //        _context.SubmitChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-
-
-
-
-
 
 
 
         public ActionResult Company()
         {
             var companydetails = from x in _context.companies select x;
-            return View(companydetails);
-
-
-            //var results = from c in _context.companies
-            //              join cn in _context.business_streams on c.business_stream_id equals cn.id
-            //              orderby cn.id
-
-            //              //where (c.id== cn.id) && (c. == cn.) && (c.establishment_date == companies.) && (company.SectorID == sect.ID)
-            //              select new { CompanyName = c.company_name, ProfileDescription = c.profile_description, EstablishmentDate = c.establishment_date, CompanyWebsite = c.company_website_url, BusinessType = cn.business_stream_name };
-
-
-            //return View(results);
-
-
-
-
-
-
-            //join ct in _context.Cities on c.equals ct.ID
-            //         join sect in _context.Sectors on c.SectorID equals sect.ID
-
-
+            return View(companydetails);         
 
         }
-
 
 
         public ActionResult CompanyDetails(int id)
@@ -237,7 +143,6 @@ namespace JobPortal.Controllers
             var getcompanydetails = _context.companies.Single(x => x.id == id);
             return View(getcompanydetails);
         }
-
 
 
     }

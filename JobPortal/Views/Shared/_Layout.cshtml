@@ -42,11 +42,7 @@
         }
 
         .main_index {
-            /* The image used */
-            /*background-image: url("~/Admin Template/assets/img/office-dark.jpg");*/
-            /*background-image: url('../../Admin Template/assets/img/office-dark.jpg');*/
-            /*background-image: url('../../Index Template/assets/img/hero/h1_hero.jpg');*/
-           /* background-image: url('../../Index Template/assets/img/elements/g8.jpg');*/
+            
             background-image: url('../../Index Template/assets/img/blog/home-blog2.jpg');
             /* Half height */
             height: 50%;
@@ -56,44 +52,13 @@
             background-size: cover;
         }
 
-       /* .search {
-            width: 195px;
-            border: 10px solid #ccc;
-            -ms-box-sizing: content-box;
-            -moz-box-sizing: content-box;
-            box-sizing: content-box;
-            -webkit-box-sizing: content-box;
-        }
-*/
-
     </style>
 
 
 
 </head>
 <body>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
-                </div>
-            </div>
-        </div>*@
-
-
-
+    
     <!---<div class="container body-content">--->
     <!-- Preloader Start -->
     <div id="preloader-active">
@@ -126,7 +91,7 @@
                                     <nav class="d-none d-lg-block">
                                         <ul id="navigation">
                                             <li><a href="index.html">@Html.ActionLink("Home", "index", "Applicant")</a></li>
-                                            <li><a href="job_listing.html">@Html.ActionLink("Find a Jobs", "FindJobs", "Applicant") </a></li>
+                                            @*<li><a href="job_listing.html">@Html.ActionLink("Find a Jobs", "FindJobs", "Applicant") </a></li>*@
                                             <li><a href="about.html">@Html.ActionLink("About", "About", "Home")</a></li>
                                             <li>
                                                 <a href="#">Login</a>
@@ -144,7 +109,7 @@
                                 <!-- Header-btn -->
                                 <div class="header-btn d-none f-right d-lg-block">
 
-                                    <button class="btn head-btn1">@Html.ActionLink("Register", "Register", "Applicant")</button>
+                                    <button class="btn head-btn1">@Html.ActionLink("Admin Pannel", "Index", "Admin")</button>
                                     
                                 </div>
                             </div>

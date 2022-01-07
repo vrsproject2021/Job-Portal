@@ -199,7 +199,7 @@ namespace JobPortal.Controllers
                 _context.add_job_post(userid, jobpostobj.job_type_id, jobpostobj.company_id, jobpostobj.created_date, jobpostobj.end_date, jobpostobj.job_description,
                 jobpostobj.job_location_id, jobpostobj.is_active, jobpostobj.min_salary, jobpostobj.max_salary, jobpostobj.skill_id, 0);
                 _context.SubmitChanges();
-                return RedirectToAction("LocationModel", "Employer");
+                return RedirectToAction("Index", "Employer");
 
             }
 

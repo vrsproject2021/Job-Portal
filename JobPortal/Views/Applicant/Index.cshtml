@@ -27,26 +27,20 @@
                 <img src="~/Index Template/assets/img/hero/h1_hero.jpg" />*@
         <div class="container">
             <center>
-                <div class="col-xl-8 search" >
+                <div class="col-xl-8 search">
                     <!-- form -->
                     @using (Html.BeginForm("Index", "Applicant", FormMethod.Post, new { @class = "search-box" }))
                     {
-                        <div class="input-form">
-                            <input type="text" id="skill" name="skill" placeholder="Job Tittle or keyword">
-                        </div>
-                        <div class="select-form">
-                            <div class="select-itms">
-                                <select name="location" id="location">
-                                    <option value="Cochin">Cochin</option>
-                                    <option value="Trivandrum">Trivandrum</option>
-                                    <option value="Banglore">Banglore</option>
-                                    <option value="Hyderabad">Hyderabad</option>
-                                </select>
+                        <div class="row">
+                            <div class="input-form">
+                                <input type="text" id="skill" name="skill" placeholder="Job Tittle or keyword">
                             </div>
+                            <div class="input-form">
+                                <input type="text" id="location" name="location" placeholder="Location">
+                            </div>
+
                         </div>
-                        
-                            <input type="submit" value="Find job" class="btn " />
-                        
+                        <input type="submit" value="Find job" class="btn " />
                     }
                 </div>
             </center>
@@ -59,8 +53,6 @@
                             <ul class="list-group">
                                 @foreach (var item in Model)
                                 {
-
-
 
                                     <div class="single-job-items mb-30">
                                         <div class="job-items">
@@ -91,36 +83,7 @@
                                             }
                                         </div>
                                     </div>
-                                    <hr />
-                                    
-
-
-
-
-
-
-
-
-
-                                    @*<li class="list-inline mx-auto justify-content-center">
-                <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">@Html.DisplayNameFor(model => model.job_description): <span class="text-dark font-weight-bold ms-sm-2"> @Html.DisplayFor(model => item.job_description)</span></span>
-                    <span class="mb-2 text-xs">@Html.DisplayNameFor(model => model.company_name): <span class="text-dark font-weight-bold ms-sm-2">@Html.DisplayFor(model => item.company_name)</span></span>
-                    <span class="mb-2 text-xs">@Html.DisplayNameFor(model => model.city): <span class="text-dark font-weight-bold ms-sm-2">@Html.DisplayFor(model => item.city)</span></span>
-                    <span class="mb-2 text-xs">@Html.DisplayNameFor(model => model.state): <span class="text-dark font-weight-bold ms-sm-2"> @Html.DisplayFor(model => item.state)</span></span>
-                    <span class="mb-2 text-xs">@Html.DisplayNameFor(model => model.skill_level): <span class="text-dark font-weight-bold ms-sm-2">@Html.DisplayFor(model => item.skill_level)</span></span>
-                    <span class="mb-2 text-xs">@Html.DisplayNameFor(model => model.skill_name): <span class="text-dark font-weight-bold ms-sm-2">@Html.DisplayFor(model => item.skill_name)</span></span>
-                    <span class="mb-2 text-xs">@Html.DisplayNameFor(model => model.job_type): <span class="text-dark font-weight-bold ms-sm-2">@Html.DisplayFor(model => item.job_type)</span></span>
-                </div>
-                <div class="ms-auto text-end">
-
-                    @using (Html.BeginForm("ApplyForJob", "Applicant", FormMethod.Post))
-                    {
-                        <input type="hidden" id="jobId" name="jobId" value="@item.job_post_id" />
-                        <input type="submit" value="Apply" class="btn" />
-                    }
-                </div>
-            </li>*@
+                                    <hr />                                
                                 }
                             </ul>
                         </div>
@@ -139,29 +102,10 @@
                     </div>
                 </div>
             }
-
-
-
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+           
         </div>
         </div>
     </div>
-
 </div>         
             
         

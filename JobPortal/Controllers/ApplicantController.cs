@@ -61,9 +61,13 @@ namespace JobPortal.Controllers
 
                 
                 var loginDetails = _context.user_accounts.Where(u => u.email_id == email_id ).FirstOrDefault();
+                Boolean passwordIsCorrect=false;
+                if (loginDetails != null)
+                {
 
-                var passwordIsCorrect = Crypto.VerifyHashedPassword(loginDetails.password, password);
-
+                     passwordIsCorrect = Crypto.VerifyHashedPassword(loginDetails.password, password);
+                }
+                
                 if (loginDetails != null && passwordIsCorrect == true)
                 {
                     Session["User"] = loginDetails.email_id;
@@ -537,7 +541,7 @@ namespace JobPortal.Controllers
 
             {
                 var jobactivity = _context.job_post_activities.Where(u => u.user_account_id == (int)Session["UserId"] && u.job_post_id == int.Parse(jobId)).FirstOrDefault();
-                _context.job_post_activities.DeleteOnSubmit(jobactivity);
+                jobactivity.is_deleted = true;
                 _context.SubmitChanges();
 
                 return RedirectToAction("AppliedJobs", "Applicant");
@@ -643,6 +647,7 @@ namespace JobPortal.Controllers
                 appliedjob.user_account_id = (int)Session["UserId"];
                 appliedjob.job_post_id = int.Parse(jobId);
                 appliedjob.apply_date = DateTime.Now;
+                appliedjob.is_deleted = false;
                 _context.job_post_activities.InsertOnSubmit(appliedjob);
                 try
                 {
