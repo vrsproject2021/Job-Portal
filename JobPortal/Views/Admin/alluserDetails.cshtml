@@ -22,9 +22,19 @@
                             <span class="text-xs">Date Of Birth: <span class="text-dark ms-sm-2 font-weight-bold">@Html.DisplayFor(model => model.date_of_birth)</span></span>
                         </div>
                         <div class="ms-auto text-end">
-                            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="material-icons  text-sm me-2">details</i>@Html.ActionLink("Details", "CandidateDetails", new { id = Model.user_account_id })</a>
+                            @{
+                                try
+                                {
+                                    <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="material-icons  text-sm me-2">details</i>@Html.ActionLink("Details", "CandidateDetails", new { id = Model.user_account_id })</a>
+
+                                }
+                                catch
+                                {
+                                    <td>No details found</td>
+                                }
+                            }
                         </div>
-                    </li>
+                        </li>
                 </ul>
 
                 @Html.ActionLink("Back to List", "Users")

@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Security.Cryptography;
+using System.Text;
+using System.IO;
 
 namespace JobPortal.Controllers
 {
@@ -23,6 +26,31 @@ namespace JobPortal.Controllers
             return View();
         }
 
+
+        public string encrypt(string clearText)
+        {
+            string EncryptionKey = "MAKV2SPBNI99212";
+            byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
+                    }
+                    clearText = Convert.ToBase64String(ms.ToArray());
+                }
+            }
+            return clearText;
+        }
+
+
+
         public ActionResult Users()
         {
             var userdetails = from x in _context.user_accounts select x ;
@@ -32,15 +60,31 @@ namespace JobPortal.Controllers
         // GET: Admin/Details/5
         public ActionResult Details(int id)
         {
-            var getuserdetails = _context.user_accounts.Single(x => x.id == id);
-            return View(getuserdetails);
+            try
+            {
+                var getuserdetails = _context.user_accounts.Single(x => x.id == id);
+                return View(getuserdetails);
+            }
+         
+            catch
+            {
+                return View();
+            }
         }
 
 
         public ActionResult alluserDetails(int id)
         {
-            var getalluserdetails = _context.seeker_profiles.SingleOrDefault(x => x.user_account_id == id);
-            return View(getalluserdetails);
+            try
+            {
+                var getalluserdetails = _context.seeker_profiles.SingleOrDefault(x => x.user_account_id == id);
+                return View(getalluserdetails);
+            }
+            catch
+            {
+                return View();
+            }
+            
         }
 
 
@@ -143,6 +187,83 @@ namespace JobPortal.Controllers
             var getcompanydetails = _context.companies.Single(x => x.id == id);
             return View(getcompanydetails);
         }
+
+
+
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string email_id, string password)
+        {
+            password = encrypt(password);
+            if (ModelState.IsValid)
+            {
+                var loginDetails = _context.user_accounts.Where(u => u.email_id == email_id && u.password == password && u.user_type == "Admin").FirstOrDefault();
+                if (loginDetails != null)
+                {
+                    Session["User"] = loginDetails.email_id;
+                    Session["UserId"] = loginDetails.id;
+
+                    return RedirectToAction("Index", "Admin");
+                }
+                else
+                {
+                    ViewBag.Error = "Incorrect password or email address";
+                    return View();
+                }
+
+            }
+            else
+            {
+                return View();
+            }
+
+        }
+
+
+
+
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Register(UserModel newuserobj)
+        {
+            ModelState.Remove("ConfirmPassword");
+            if (ModelState.IsValid)
+            {
+                var password = encrypt(newuserobj.password);
+                var newUser = new user_account();
+                newUser.email_id = newuserobj.email_id;
+                newUser.password = password;
+                newUser.phone_number = newuserobj.phone_number;
+                newUser.user_type = "Admin";
+                _context.user_accounts.InsertOnSubmit(newUser);
+                _context.SubmitChanges();
+                TempData["Message"] = "Successfully Registered";
+                return RedirectToAction("Login", "Admin");
+
+            }
+
+            return View();
+        }
+
+        public ActionResult LOGOUT()
+        {
+            Session.Abandon();
+            return RedirectToAction("Login", "Admin");
+            
+        }
+
 
 
     }

@@ -58,8 +58,20 @@
                                         <td class="align-middle">
 
                                             <button class="btn-primary">@Html.ActionLink("Edit", "Edit", new { id = item.id })</button> |
-                                            <button class="btn-success">@Html.ActionLink("Details", "alluserDetails", new { id = item.id })</button> |                                          
-                                            <button class="btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.id })</button>
+                                            @{
+                                                try
+                                                {
+                                                    <button class="btn-success">@Html.ActionLink("Details", "alluserDetails", new { id = item.id })</button>
+
+
+
+                                                }
+                                                catch
+                                                {
+                                                    < td > No details </ td >
+                                                }
+                                             }|
+                                        <button class="btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.id })</button>
 
                                         </td>
                                     </tr>
