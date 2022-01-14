@@ -82,6 +82,7 @@ namespace JobPortal.Controllers
             }
             catch
             {
+                ViewBag.userDetails = "none";
                 return View();
             }
             

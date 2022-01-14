@@ -15,13 +15,7 @@
 
     <link href="~/Index Template/Doc/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Index Template/Doc/css/main.css" rel="stylesheet" />
-
-    @*<link href="~/Index Template/Doc/css/normalize.min.css" rel="stylesheet" />
-        <link href="~/Index Template/assets/css/animate.min.css" rel="stylesheet" />*@
-    <link href="~/Index Template/assets/css/bootstrap.min.css" rel="stylesheet" />
-    @*<link href="~/Index Template/assets/css/flaticon.css" rel="stylesheet" />
-        <link href="~/Index Template/assets/css/fontawesome-all.min.css" rel="stylesheet" />
-        <link href="~/Index Template/assets/css/magnific-popup.css" rel="stylesheet" />*@
+    <link href="~/Index Template/assets/css/bootstrap.min.css" rel="stylesheet" />  
 
     <link href="~/Index Template/assets/css/nice-select.css" rel="stylesheet" />
     <link href="~/index template/assets/css/owl.carousel.min.css" rel="stylesheet" />
@@ -31,10 +25,7 @@
     <link href="~/Index Template/assets/css/slicknav.css" rel="stylesheet" />
     <link href="~/Index Template/assets/css/style.css" rel="stylesheet" />
     <link href="~/Index Template/assets/css/themify-icons.css" rel="stylesheet" />
-
-
     <script src="~/Index Template/assets/js/wow.min.js"></script>
-
 
     <style>
         body, html {
@@ -53,8 +44,6 @@
         }
 
     </style>
-
-
 
 </head>
 <body>
@@ -98,6 +87,7 @@
                                                 <ul class="submenu">
                                                     <li><a href="blog.html">@Html.ActionLink("Applicant", "Login", "Applicant")</a></li>
                                                     <li><a href="single-blog.html">@Html.ActionLink("Employer", "Login", "Employer")</a></li>
+                                                    <li><a href="single-blog.html">@Html.ActionLink("Admin", "Login", "Admin")</a></li>
                                                     @*<li><a href="elements.html">Elements</a></li>
                                                     <li><a href="job_details.html">job Details</a></li>*@
                                                 </ul>
@@ -107,11 +97,11 @@
                                     </nav>
                                 </div>
                                 <!-- Header-btn -->
-                                <div class="header-btn d-none f-right d-lg-block">
+                                @*<div class="header-btn d-none f-right d-lg-block">
 
                                     <button class="btn head-btn1">@Html.ActionLink("Admin Pannel", "Login", "Admin")</button>
                                     
-                                </div>
+                                </div>*@
                             </div>
                         </div>
                         <!-- Mobile Menu -->
